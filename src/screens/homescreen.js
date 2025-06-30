@@ -10,15 +10,3 @@ export default function HomeScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fefefe',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: '600',
-  },
-});
