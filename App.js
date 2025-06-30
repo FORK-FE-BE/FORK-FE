@@ -1,7 +1,7 @@
 import { View } from 'react-native';
 import { useFonts } from 'expo-font';
-import HomeScreen from './src/screens/homescreen/HomeScreen';
-
+import HomeScreen from './src/screens/homescreen';
+import RestaurantDetail from './src/screens/restaurantdetail';
 export default function App() {
   const [fontsLoaded] = useFonts({
     'Paperlogy-Thin': require('./src/assets/fonts/Paperlogy-1Thin.ttf'),
@@ -22,7 +22,7 @@ export default function App() {
   //본인 화면 보고 싶다면 <HomeScreen/> 이 부분을 본인이 개발하고 있는 화면 파일로 변경
   return (
     <View style={{ flex: 1 }}>
-      <HomeScreen /> 
+      <RestaurantDetail /> 
     </View>
   );
 }
