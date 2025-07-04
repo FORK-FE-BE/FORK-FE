@@ -1,6 +1,15 @@
-import { View } from 'react-native';
+import 'react-native-gesture-handler'; // 반드시 최상단!
+import React from 'react';
 import { useFonts } from 'expo-font';
-import HomeScreen from './src/screens/homescreen/HomeScreen';
+import { SafeAreaView } from 'react-native-safe-area-context';
+// import OrderDetailScreen from './src/screens/orderdetailscreen/OrderDetailScreen';
+// import { NavigationContainer } from '@react-navigation/native';
+
+// import HomeScreen from './src/screens/homescreen/HomeScreen';
+// import CategoryScreen from './src/screens/categoryscreen/CategoryScreen';
+import ChatBotScreen from './src/screens/chatbotscreen/ChatBotScreen';
+// import OrderListScreen from './src/screens/orderlistscreen/OrderListScreen';
+// import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -15,14 +24,16 @@ export default function App() {
     'Paperlogy-Black': require('./src/assets/fonts/Paperlogy-9Black.ttf'),
   });
 
+  // const Stack = createNativeStackNavigator();
+
   if (!fontsLoaded) {
     return null; // 폰트가 로딩되지 않으면 아무것도 표시되지 않음
   }
 
   //본인 화면 보고 싶다면 <HomeScreen/> 이 부분을 본인이 개발하고 있는 화면 파일로 변경
   return (
-    <View style={{ flex: 1 }}>
-      <HomeScreen /> 
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <ChatBotScreen />
+    </SafeAreaView>
   );
 }
