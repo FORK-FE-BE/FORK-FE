@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, Image, ScrollView, StyleSheet, Button } from 'react-native';
+import { useFonts } from 'expo-font';
 
-// 로컬 슬라이드 이미지 배열 (이미지 경로가 맞는지 확인하세요)
+// 로컬 슬라이드 이미지 배열
 const slides = [
   { id: 1, uri: require('../assets/image1.jpg') },
   { id: 2, uri: require('../assets/image2.jpg') },
@@ -12,83 +13,107 @@ const slides = [
 
 // 메뉴 항목 배열
 const menuItems = [
-  {
-    id: 1,
-    title: '평양냉면',
-    description: '평양에서 직접 만든 냉면. 더운 계절에 어울리는 메뉴입니다.',
-    price: 10000,
-    image: require('../assets/image1.jpg'),
-  },
-  {
-    id: 2,
-    title: '평양비빔냉면',
-    description: '평양에서 직접 만든 비빔냉면. 매콤하고 시원한 맛.',
-    price: 11000,
-    image: require('../assets/image2.jpg'),
-  },
-  {
-    id: 3,
-    title: '세트메뉴',
-    description: '평양냉면 + 평양비빔냉면 + 콜라 1.25L',
-    price: 32400,
-    image: require('../assets/image3.jpg'),
-  },
-  {
-    id: 4,
-    title: '평양냉면 + 돈까스',
-    description: '평양냉면과 돈까스를 한 번에 즐길 수 있는 메뉴.',
-    price: 12500,
-    image: require('../assets/image4.jpg'),
-  },
-  {
-    id: 5,
-    title: '콜라 1.25L',
-    description: '시원한 콜라 1.25L',
-    price: 3000,
-    image: require('../assets/image5.jpg'),
-  },
+  { id: 1, title: '평양냉면', description: '평양에서 직접 만든 냉면. 더운 계절에 어울리는 메뉴입니다.', price: 10000, image: require('../assets/image1.jpg') },
+  { id: 2, title: '평양비빔냉면', description: '평양에서 직접 만든 비빔냉면. 매콤하고 시원한 맛.', price: 11000, image: require('../assets/image2.jpg') },
+  { id: 3, title: '세트메뉴', description: '평양냉면 + 평양비빔냉면 + 콜라 1.25L', price: 32400, image: require('../assets/image3.jpg') },
+  { id: 4, title: '평양냉면 + 돈까스', description: '평양냉면과 돈까스를 한 번에 즐길 수 있는 메뉴.', price: 12500, image: require('../assets/image4.jpg') },
+  { id: 5, title: '콜라 1.25L', description: '시원한 콜라 1.25L', price: 3000, image: require('../assets/image5.jpg') },
 ];
 
 export default function RestaurantDetail() {
+  // 폰트 로드
+  const [fontsLoaded] = useFonts({
+    'Paperlogy-Thin': require('../assets/fonts/Paperlogy-1Thin.ttf'),
+    'Paperlogy-ExtraLight': require('../assets/fonts/Paperlogy-2ExtraLight.ttf'),
+    'Paperlogy-Light': require('../assets/fonts/Paperlogy-3Light.ttf'),
+    'Paperlogy-Regular': require('../assets/fonts/Paperlogy-4Regular.ttf'),
+    'Paperlogy-Medium': require('../assets/fonts/Paperlogy-5Medium.ttf'),
+    'Paperlogy-SemiBold': require('../assets/fonts/Paperlogy-6SemiBold.ttf'),
+    'Paperlogy-Bold': require('../assets/fonts/Paperlogy-7Bold.ttf'),
+    'Paperlogy-ExtraBold': require('../assets/fonts/Paperlogy-8ExtraBold.ttf'),
+    'Paperlogy-Black': require('../assets/fonts/Paperlogy-9Black.ttf'),
+  });
+  
+
+  if (!fontsLoaded) {
+    return <Text>폰트를 로드하는 중...</Text>;
+  }
+
   return (
     <ScrollView style={styles.container}>
       {/* 상단 슬라이드 이미지 */}
       <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.slider}>
-        {slides.map(slide => (
+        {slides.map((slide, index) => (
           <Image key={slide.id} source={slide.uri} style={styles.slideImage} />
         ))}
       </ScrollView>
 
       {/* 음식 정보 */}
       <View style={styles.foodInfo}>
-        <Text style={styles.restaurantName}>맛있는 냉면집</Text>
+        <Text style={[styles.restaurantName, { fontFamily: 'Paperlogy-Medium' }]}>맛있는 냉면집</Text>
         <View style={styles.rating}>
           <Text style={styles.ratingText}>⭐ 4.79(2931)</Text>
         </View>
-        <Text style={styles.description}>“시간을 살고, 정성을 식혔다. 팔당냉면.”</Text>
+        <Text style={[styles.description, { fontFamily: 'Paperlogy-Regular' }]}>“시간을 삶고, 정성을 식혔다. 팔당냉면.”</Text>
 
         {/* 배달 정보 */}
         <View style={styles.deliveryInfo}>
-          <Text style={styles.deliveryInfoTitle}>배달 정보</Text>
-          <Text>최소 주문 20,000원</Text>
-          <Text>조리 시간 7-25분</Text>
-          <Text>위치 평양시 수성구 121길 18</Text>
-          <Text>결제 방법 바로 결제</Text>
-        </View>
+        <Text style={[styles.deliveryInfoTitle, { fontFamily: 'Paperlogy-Medium' }]}>배달 정보</Text>
+        <View style={styles.divider} />
+  <View style={styles.deliveryRow}>
+    <Text style={styles.deliveryLabel}>최소 주문</Text>
+    <Text style={styles.deliveryValue}>20,000원</Text>
+  </View>
+
+  <View style={styles.deliveryRow}>
+    <Text style={styles.deliveryLabel}>조리 시간</Text>
+    <Text style={styles.deliveryValue}>7-25분</Text>
+  </View>
+
+  <View style={styles.deliveryRow}>
+    <Text style={styles.deliveryLabel}>위치</Text>
+    <Text style={styles.deliveryValue}>평양시 수성구 121길 18</Text>
+  </View>
+
+  <View style={styles.deliveryRow}>
+    <Text style={styles.deliveryLabel}>결제 방법</Text>
+    <Text style={styles.deliveryValue}>바로 결제</Text>
+  </View>
+</View>
+
 
         {/* AR 리뷰 포인트 */}
-        <Text style={styles.arReview}>AR 리뷰 작성 시 최대 5,000 포인트 적립</Text>
+ {/* AR 리뷰 포인트 */}
+<View style={styles.arReviewBox}>
+  <View style={styles.arReviewTextWrapper}>
+    <Text style={styles.arReviewText}>
+      AR 리뷰 작성시 최대 <Text style={styles.arReviewPoint}>5,000</Text> 포인트 적립
+    </Text>
+  </View>
+  <View style={styles.solidDivider} />
+  <View style={styles.arReviewIcon}>
+    <Image
+      source={require('../assets/download.png')}
+      style={styles.arReviewIconImage}
+      resizeMode="contain"
+    />
+  </View>
+</View>
+
+
       </View>
+      <View style={styles.menuSection} />
 
       {/* 음식 메뉴 리스트 */}
       <View style={styles.menuList}>
-        {menuItems.map(item => (
+        {menuItems.map((item) => (
           <View key={item.id} style={styles.menuItem}>
             <Image source={item.image} style={styles.menuImage} />
             <View style={styles.menuText}>
-              <Text style={styles.menuTitle}>{item.title}</Text>
-              <Text style={styles.menuDescription}>{item.description}</Text>
+              <Text style={[styles.menuTitle, { fontFamily: 'Paperlogy-Regular' }]}>{item.title}</Text>
               <Text style={styles.menuPrice}>{item.price.toLocaleString()}원</Text>
+              <Text style={[styles.menuDescription, { fontFamily: 'Paperlogy-Regular' }]}>{item.description}</Text>
+
             </View>
           </View>
         ))}
@@ -105,7 +130,7 @@ export default function RestaurantDetail() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#fff',
   },
   slider: {
     width: '100%',
@@ -114,7 +139,6 @@ const styles = StyleSheet.create({
   slideImage: {
     width: 393,
     height: 241,
-    marginRight: 10,
     borderRadius: 10,
   },
   foodInfo: {
@@ -131,7 +155,7 @@ const styles = StyleSheet.create({
   },
   ratingText: {
     fontSize: 14,
-    color: '#ffb400',
+    color: '#000',
   },
   description: {
     fontSize: 16,
@@ -139,26 +163,122 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   deliveryInfoTitle: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'regular',
     color: '#333',
     marginBottom: 12,
     textAlign: 'center',
+    paddingTop:10,
   },
   deliveryInfo: {
     width: 333,
     height: 157,
     marginVertical: 28,
-    padding: 10,
     backgroundColor: '#fff',
+    borderColor: '#ddd',
+    borderWidth:1,
     borderRadius: 8,
     marginBottom: 20,
+    
   },
+  divider: {
+    height: 1,
+    width:333,
+    backgroundColor: '#e0e0e0',
+    marginBottom:13,
+  },
+  menuSection: {
+    height: 10,
+    width:393,
+    backgroundColor: '#EFEFEF',
+    marginBottom:13,
+  },
+  
+  deliveryRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 10,
+    
+  },
+  deliveryLabel: {
+    fontFamily: 'Paperlogy-Regular',
+    fontSize: 14,
+    color: '#333',
+    width: 90, // 고정 너비 (간격 조절용)
+    marginStart:23,
+  },
+  deliveryValue: {
+    fontFamily: 'Paperlogy-Regular',
+    fontSize: 14,
+    color: '#333',
+    marginLeft: 25, // 원하는 간격
+  },
+  
   arReview: {
     fontSize: 16,
     color: '#333',
     marginVertical: 10,
   },
+  arReviewBox: {
+    width:333,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#EDF4FF',
+    borderRadius: 20,
+    borderWidth: 1.5,
+    borderColor: '#59F',
+    marginVertical: 20,
+  },
+  
+  arReviewTextWrapper: {
+    flex: 1,
+    paddingVertical: 20,
+    paddingHorizontal: 20,
+  },
+  
+  arReviewText: {
+    fontFamily: 'Paperlogy-Regular',
+    fontSize: 16,
+    color: '#000',
+  },
+  solidDivider: {
+    width: 1,
+    height: 50,
+    backgroundColor: '#ccc',  // 실선 색상
+  },
+  
+  
+  arReviewPoint: {
+    fontFamily: 'Paperlogy-Bold',
+    fontSize: 16,
+    color: '#007BFF',
+
+  },
+  arReviewDivider: {
+    height: '60%', // 점선 높이
+    borderRightWidth: 1,
+    borderColor: '#ccc',
+    borderStyle: 'dashed',
+    marginHorizontal: 10,
+  },
+  
+  
+  
+  arReviewIcon: {
+    padding: 12,
+    borderTopRightRadius: 20,
+    borderBottomRightRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    
+  },
+  
+  arReviewIconImage: {
+    width: 28,
+    height: 28,
+  },
+  
   menuList: {
     marginBottom: 20,
   },
