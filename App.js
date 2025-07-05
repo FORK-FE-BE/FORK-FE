@@ -1,6 +1,18 @@
 import { View } from 'react-native';
 import { useFonts } from 'expo-font';
-import HomeScreen from './src/screens/homescreen/HomeScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+//import HomeScreen from './src/screens/homescreen/HomeScreen';
+import MyForkScreen from './src/screens/MyForkScreen';
+import CouponScreen from './src/screens/CouponScreen';
+import EditProfileScreen from './src/screens/EditProfileScreen';
+import AddressManageScreen from './src/screens/AddressManageScreen';
+import ForkPointScreen from './src/screens/ForkPointScreen';
+import ReceivedGiftsScreen from './src/screens/ReceivedGiftsScreen';
+import MyARReviewScreen from './src/screens/MyARReviewScreen';
+import KbotSettingsScreen from './src/screens/KbotSettingsScreen';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -21,8 +33,17 @@ export default function App() {
 
   //본인 화면 보고 싶다면 <HomeScreen/> 이 부분을 본인이 개발하고 있는 화면 파일로 변경
   return (
-    <View style={{ flex: 1 }}>
-      <HomeScreen /> 
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="MyFork">
+        <Stack.Screen name="MyFork" component={MyForkScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Coupon" component={CouponScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="AddressManage" component={AddressManageScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="ForkPoint" component={ForkPointScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="ReceivedGifts" component={ReceivedGiftsScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="MyARReview" component={MyARReviewScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="KbotSettings" component={KbotSettingsScreen} options={{ headerShown: false }} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
