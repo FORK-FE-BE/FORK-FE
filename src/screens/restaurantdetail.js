@@ -18,7 +18,7 @@ const menuItems = [
   { id: 3, title: '세트메뉴', description: '평양냉면 + 평양비빔냉면 + 콜라 1.25L', price: 32400, image: require('../assets/image3.jpg') },
   { id: 4, title: '평양냉면 + 돈까스', description: '평양냉면과 돈까스를 한 번에 즐길 수 있는 메뉴.', price: 12500, image: require('../assets/image4.jpg') },
   { id: 5, title: '콜라 1.25L', description: '시원한 콜라 1.25L', price: 3000, image: require('../assets/image5.jpg') },
-];
+];   
 
 export default function RestaurantDetail() {
   // 폰트 로드
