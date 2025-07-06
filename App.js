@@ -1,4 +1,5 @@
-import { View } from 'react-native';
+import 'react-native-gesture-handler'; // 반드시 최상단!
+import React from 'react';
 import { useFonts } from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -14,6 +15,17 @@ import KbotSettingsScreen from './src/screens/KbotSettingsScreen';
 
 const Stack = createNativeStackNavigator();
 
+import { SafeAreaView } from 'react-native-safe-area-context';
+// import OrderDetailScreen from './src/screens/orderdetailscreen/OrderDetailScreen';
+// import { NavigationContainer } from '@react-navigation/native';
+
+// import HomeScreen from './src/screens/homescreen/HomeScreen';
+// import CategoryScreen from './src/screens/categoryscreen/CategoryScreen';
+import ChatBotScreen from './src/screens/chatbotscreen/ChatBotScreen';
+// import OrderListScreen from './src/screens/orderlistscreen/OrderListScreen';
+// import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+
 export default function App() {
   const [fontsLoaded] = useFonts({
     'Paperlogy-Thin': require('./src/assets/fonts/Paperlogy-1Thin.ttf'),
@@ -26,6 +38,8 @@ export default function App() {
     'Paperlogy-ExtraBold': require('./src/assets/fonts/Paperlogy-8ExtraBold.ttf'),
     'Paperlogy-Black': require('./src/assets/fonts/Paperlogy-9Black.ttf'),
   });
+
+  // const Stack = createNativeStackNavigator();
 
   if (!fontsLoaded) {
     return null; // 폰트가 로딩되지 않으면 아무것도 표시되지 않음
