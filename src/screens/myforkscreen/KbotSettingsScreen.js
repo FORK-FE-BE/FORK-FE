@@ -68,7 +68,7 @@ export default function KbotSettingsScreen() {
         <View style={styles.header}>
           <TouchableOpacity onPress={() => navigation.goBack()}>
             <Image
-              source={require('../assets/images/arrow_back.png')}
+              source={require('../../assets/images/arrow_back.png')}
               style={styles.arrow_back}
             />
           </TouchableOpacity>
@@ -79,7 +79,7 @@ export default function KbotSettingsScreen() {
         {/* 안내 말풍선 */}
         <View style={{ flexDirection: 'row', alignItems: 'flex-start', marginBottom: 30 }}>
           <Image
-            source={require('../assets/images/Kbot.png')}
+            source={require('../../assets/images/Kbot.png')}
             style={styles.kBot}
           />
           <View style={styles.bubble}>

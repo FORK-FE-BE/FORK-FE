@@ -4,16 +4,14 @@ import { useFonts } from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 //import HomeScreen from './src/screens/homescreen/HomeScreen';
-import MyForkScreen from './src/screens/MyForkScreen';
-import CouponScreen from './src/screens/CouponScreen';
-import EditProfileScreen from './src/screens/EditProfileScreen';
-import AddressManageScreen from './src/screens/AddressManageScreen';
-import ForkPointScreen from './src/screens/ForkPointScreen';
-import ReceivedGiftsScreen from './src/screens/ReceivedGiftsScreen';
-import MyARReviewScreen from './src/screens/MyARReviewScreen';
-import KbotSettingsScreen from './src/screens/KbotSettingsScreen';
-
-const Stack = createNativeStackNavigator();
+import MyForkScreen from './src/screens/myforkscreen/MyForkScreen';
+import CouponScreen from './src/screens/myforkscreen/CouponScreen';
+import EditProfileScreen from './src/screens/myforkscreen/EditProfileScreen';
+import AddressManageScreen from './src/screens/myforkscreen/AddressManageScreen';
+import ForkPointScreen from './src/screens/myforkscreen/ForkPointScreen';
+import ReceivedGiftsScreen from './src/screens/myforkscreen/ReceivedGiftsScreen';
+import MyARReviewScreen from './src/screens/myforkscreen/MyARReviewScreen';
+import KbotSettingsScreen from './src/screens/myforkscreen/KbotSettingsScreen';
 
 import { SafeAreaView } from 'react-native-safe-area-context';
 // import OrderDetailScreen from './src/screens/orderdetailscreen/OrderDetailScreen';
@@ -25,6 +23,7 @@ import ChatBotScreen from './src/screens/chatbotscreen/ChatBotScreen';
 // import OrderListScreen from './src/screens/orderlistscreen/OrderListScreen';
 // import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [fontsLoaded] = useFonts({

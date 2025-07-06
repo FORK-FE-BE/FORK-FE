@@ -12,7 +12,7 @@ export default function MyForkScreen() {
       <View style={styles.profileRow}>
         {/* 프로필 이미지 */}
         <Image
-          source={require('../assets/images/defaultProfile.png')}
+          source={require('../../assets/images/defaultProfile.png')}
           style={styles.profileImage}
         />
 
@@ -24,7 +24,7 @@ export default function MyForkScreen() {
             <View style={styles.nicknameRow}>
               <Text style={styles.nickname}>명상하는포크</Text>
               <Image
-                source={require('../assets/images/chevron_right.png')}
+                source={require('../../assets/images/chevron_right.png')}
                 style={styles.chevronIconRight}
               />
             </View>
@@ -36,7 +36,7 @@ export default function MyForkScreen() {
           >
             <View style={styles.locationRow}>
               <Image
-                source={require('../assets/images/location.png')}
+                source={require('../../assets/images/location.png')}
                 style={styles.locationIcon}
               />
               <Text style={styles.addressText}>주소관리</Text>
@@ -101,7 +101,7 @@ export default function MyForkScreen() {
           </View>
           <View>
             <Image
-              source={require('../assets/images/Kbot.png')}
+              source={require('../../assets/images/Kbot.png')}
               style={styles.kBot}
             />
           </View>

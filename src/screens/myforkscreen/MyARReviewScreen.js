@@ -63,7 +63,7 @@ export default function MyARReviewScreen() {
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
-            source={require('../assets/images/arrow_back.png')}
+            source={require('../../assets/images/arrow_back.png')}
             style={styles.arrow_back}
           />
         </TouchableOpacity>
@@ -84,7 +84,7 @@ export default function MyARReviewScreen() {
               <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <Text style={styles.store}>{item.store}</Text>
                 <Image
-                  source={require('../assets/images/chevron_right.png')}
+                  source={require('../../assets/images/chevron_right.png')}
                   style={styles.chevron}
                 />
               </View>

@@ -50,7 +50,7 @@ export default function EditProfileScreen() {
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
-            source={require('../assets/images/arrow_back.png')}
+            source={require('../../assets/images/arrow_back.png')}
             style={styles.arrow_back}
           />
         </TouchableOpacity>
@@ -67,13 +67,13 @@ export default function EditProfileScreen() {
             source={
               profileImage
                 ? { uri: profileImage }
-                : require('../assets/images/defaultProfile.png')
+                : require('../../assets/images/defaultProfile.png')
             }
             style={styles.profileImage}
           />
           <View style={styles.plusIcon}>
             <Image
-              source={require('../assets/images/plusIcon.png')}
+              source={require('../../assets/images/plusIcon.png')}
               style={styles.plusIconImage}
             />
           </View>

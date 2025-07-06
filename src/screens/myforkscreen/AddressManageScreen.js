@@ -40,7 +40,7 @@ export default function AddressManageScreen() {
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
-            source={require('../assets/images/arrow_back.png')}
+            source={require('../../assets/images/arrow_back.png')}
             style={styles.arrow_back}
           />
         </TouchableOpacity>
@@ -60,8 +60,8 @@ export default function AddressManageScreen() {
               <Image
                 source={
                   index === 0
-                    ? require('../assets/images/Mappin_selected.png')
-                    : require('../assets/images/Mappin.png')
+                    ? require('../../assets/images/Mappin_selected.png')
+                    : require('../../assets/images/Mappin.png')
                 }
                 style={styles.locationIcon}
               />

@@ -45,7 +45,7 @@ export default function ForkPointScreen() {
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
-            source={require('../assets/images/arrow_back.png')}
+            source={require('../../assets/images/arrow_back.png')}
             style={styles.arrow_back}
           />
         </TouchableOpacity>
@@ -74,12 +74,12 @@ export default function ForkPointScreen() {
       <View style={styles.filterRightRow}>
         <TouchableOpacity onPress={() => setTypeModalVisible(true)} style={styles.filterBtn}>
           <Text style={styles.filterText}>{selectedType}</Text>
-          <Image source={require('../assets/images/chevron_down.png')} style={styles.filterIcon} />
+          <Image source={require('../../assets/images/chevron_down.png')} style={styles.filterIcon} />
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => setPeriodModalVisible(true)} style={styles.filterBtn}>
           <Text style={styles.filterText}>{selectedPeriod}</Text>
-          <Image source={require('../assets/images/chevron_down.png')} style={styles.filterIcon} />
+          <Image source={require('../../assets/images/chevron_down.png')} style={styles.filterIcon} />
         </TouchableOpacity>
       </View>
 
