@@ -7,9 +7,9 @@ export default function HeaderBar() {
     const navigation = useNavigation();
     return (
         <View style={styles.header}>
-            <TouchableOpacity style={styles.backButton} onPress={()=> navigation.goBack()}>
+            {/* <TouchableOpacity style={styles.backButton} onPress={()=> navigation.goBack()}>
                 <ArrowBack width={24} height={24} />
-            </TouchableOpacity>
+            </TouchableOpacity> */}
             <Text style={styles.title}>주문내역</Text>
         </View>
     );
