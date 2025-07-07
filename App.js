@@ -16,7 +16,7 @@ import HomeScreen from './src/screens/homescreen/HomeScreen';
 import ChatBotScreen from './src/screens/chatbotscreen/ChatBotScreen';
 import CategoryScreen from './src/screens/categoryscreen/CategoryScreen';
 import OrderListScreen from './src/screens/orderlistscreen/OrderListScreen';
-
+import OrderDetailScreen from './src/screens/orderdetailscreen/OrderDetailScreen';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 
 const Stack = createNativeStackNavigator();
@@ -47,6 +47,7 @@ export default function App() {
             <Stack.Screen name="KbotScreen" component={ChatBotScreen} options={{ headerShown: false }} />
             <Stack.Screen name="Category" component={CategoryScreen} options={{ headerShown: false }} />
             <Stack.Screen name="OrderList" component={OrderListScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="OrderDetail" component={OrderDetailScreen} options={{ headerShown: false }} />
             <Stack.Screen name="MyFork" component={MyForkScreen} options={{ headerShown: false }} />
             <Stack.Screen name="Coupon" component={CouponScreen} options={{ headerShown: false }} />
             <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{ headerShown: false }} />

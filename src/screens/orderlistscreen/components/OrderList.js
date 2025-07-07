@@ -3,15 +3,17 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import Line from '../../utils/Line';
 import Rectangle from '../../../assets/icons/Rectangle.png';
+import { useNavigation } from '@react-navigation/native';
 
 export default function OrderList({ orders = [] }) {
+    const navigation = useNavigation();
     return (
         <View style={styles.listContainer}>
             {orders.map((item, index) => (
                 <View key={index} style={styles.card}>
                     <View style={styles.headerRow}>
                         <Text style={styles.date}>{item.date}</Text>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => navigation.navigate('OrderDetail')}>
                             <Text style={styles.detailBtn}>주문상세</Text>
                         </TouchableOpacity>
                     </View>

@@ -1,11 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import ArrowBack from '../../../assets/icons/arrow_back.svg';
+import { useNavigation } from '@react-navigation/native';
 
 export default function HeaderBar() {
+    const navigation = useNavigation();
     return (
         <View style={styles.header}>
-            <TouchableOpacity style={styles.backButton}>
+            <TouchableOpacity style={styles.backButton} onPress={()=> navigation.goBack()}>
                 <ArrowBack width={24} height={24} />
             </TouchableOpacity>
             <Text style={styles.title}>주문내역</Text>
