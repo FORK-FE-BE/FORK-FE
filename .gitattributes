@@ -1,2 +1,6 @@
 # 자동 줄바꿈 처리 (OS별 차이 해결)
 * text=auto
+# 루트에 .gitattributes 파일 생성
+*.js text eol=lf
+*.json text eol=lf
+*.ts text eol=lf
