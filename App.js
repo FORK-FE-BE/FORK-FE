@@ -2,7 +2,6 @@ import 'react-native-gesture-handler'; // 반드시 최상단!
 import React from 'react';
 import { useFonts } from 'expo-font';
 //import HomeScreen from './src/screens/homescreen';
-import RestaurantDetail from './src/screens/restaurantdetail';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
