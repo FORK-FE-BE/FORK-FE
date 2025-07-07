@@ -19,6 +19,8 @@ import ChatBotScreen from './src/screens/chatbotscreen/ChatBotScreen';
 import CategoryScreen from './src/screens/categoryscreen/CategoryScreen';
 import OrderListScreen from './src/screens/orderlistscreen/OrderListScreen';
 import OrderDetailScreen from './src/screens/orderdetailscreen/OrderDetailScreen';
+import RestaurantDetail from './src/screens/restaurantdetail/RestaurantDetail';
+import CartScreen from './src/screens/cartscreen/CartScreen';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 
 const Stack = createNativeStackNavigator();
@@ -44,7 +46,7 @@ export default function App() {
       <SafeAreaView style={{ flex: 1 }}>
 
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="Home">
+          <Stack.Navigator initialRouteName="CartScreen">
             <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
             <Stack.Screen name="KbotScreen" component={ChatBotScreen} options={{ headerShown: false }} />
             <Stack.Screen name="Category" component={CategoryScreen} options={{ headerShown: false }} />
@@ -58,6 +60,10 @@ export default function App() {
             <Stack.Screen name="ReceivedGifts" component={ReceivedGiftsScreen} options={{ headerShown: false }} />
             <Stack.Screen name="MyARReview" component={MyARReviewScreen} options={{ headerShown: false }} />
             <Stack.Screen name="KbotSettings" component={KbotSettingsScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="RestaurantDetail" component={RestaurantDetail} options={{ headerShown: false }} />
+            <Stack.Screen name="CartScreen" component={CartScreen} options={{ headerShown: false }} />
+
+
           </Stack.Navigator>
         </NavigationContainer>
       </SafeAreaView>
