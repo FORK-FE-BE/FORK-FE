@@ -1,129 +1,169 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import { useNavigation , useRoute} from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import BottomNavigationBar from '../utils/BottomNavigationBar';
+
 export default function MyForkScreen() {
   const navigation = useNavigation();
   const route = useRoute();
+  
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>마이포크</Text>
-
-      <View style={styles.profileRow}>
-        {/* 프로필 이미지 */}
-        <Image
-          source={require('../../assets/images/defaultProfile.png')}
-          style={styles.profileImage}
-        />
-
-        <View style={styles.profileTextBox}>
-          {/* 닉네임 + > */}
-          <TouchableOpacity
-            onPress={() => navigation.navigate('EditProfile')}
-          >
-            <View style={styles.nicknameRow}>
-              <Text style={styles.nickname}>명상하는포크</Text>
-              <Image
-                source={require('../../assets/images/chevron_right.png')}
-                style={styles.chevronIconRight}
-              />
-            </View>
-          </TouchableOpacity>
-
-          {/* 위치 아이콘 + 주소관리 */}
-          <TouchableOpacity
-            onPress={() => navigation.navigate('AddressManage')}
-          >
-            <View style={styles.locationRow}>
-              <Image
-                source={require('../../assets/images/location.png')}
-                style={styles.locationIcon}
-              />
-              <Text style={styles.addressText}>주소관리</Text>
-            </View>
-          </TouchableOpacity>
+    <View style={styles.rootContainer}>
+      <View style={styles.container}>
+        {/* Header */}
+        <View style={styles.header}>
+          <View style={styles.headerSide} />
+          <Text style={styles.title}>마이포크</Text>
+          {/* 오른쪽 빈 공간 확보용 */}
+          <View style={styles.headerSide} />
         </View>
-      </View>
 
-      <View style={styles.summaryBox}>
-        {/* 쿠폰함 */}
-        <TouchableOpacity
-          onPress={() => navigation.navigate('Coupon')}
-          style={styles.summaryItem}
-        >
-          <View style={styles.grayCircle} />
-          <Text style={styles.summaryValue}>10장</Text>
-          <Text style={styles.summaryLabel}>쿠폰함</Text>
-        </TouchableOpacity>
+        <View style={styles.profileRow}>
+          {/* 프로필 이미지 */}
+          <Image
+            source={require('../../assets/images/defaultProfile.png')}
+            style={styles.profileImage}
+          />
 
-        <View style={styles.divider} />
+          <View style={styles.profileTextBox}>
+            {/* 닉네임 + > */}
+            <TouchableOpacity
+              onPress={() => navigation.navigate('EditProfile')}
+            >
+              <View style={styles.nicknameRow}>
+                <Text style={styles.nickname}>명상하는포크</Text>
+                <Image
+                  source={require('../../assets/images/chevron_right.png')}
+                  style={styles.chevronIconRight}
+                />
+              </View>
+            </TouchableOpacity>
 
-        {/* 포인트 */}
-        <TouchableOpacity
-          onPress={() => navigation.navigate('ForkPoint')}
-          style={styles.summaryItem}
-        >
-          <View style={styles.grayCircle} />
-          <Text style={styles.summaryValue}>1,000원</Text>
-          <Text style={styles.summaryLabel}>포크포인트</Text>
-        </TouchableOpacity>
-
-        <View style={styles.divider} />
-
-        {/* 받은 선물 */}
-        <TouchableOpacity
-          onPress={() => navigation.navigate('ReceivedGifts')}
-          style={styles.summaryItem}
-        >
-          <View style={styles.grayCircle} />
-          <Text style={styles.summaryValue}>0원</Text>
-          <Text style={styles.summaryLabel}>받은 선물</Text>
-        </TouchableOpacity>
-      </View>
-
-      <TouchableOpacity
-        onPress={() => navigation.navigate('MyARReview')}
-        style={styles.manageBox}
-      >
-        <Text style={styles.title2}>나의 AR 리뷰 관리</Text>
-        <Text style={styles.title3}>내가 직접 작성한 AR 리뷰를 관리할 수 있어요</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        onPress={() => navigation.navigate('KbotSettings')}
-      >
-        <View style={styles.manageBoxRow}>
-          <View>
-            <Text style={styles.title2}>나의 크봇 설정</Text>
-            <Text style={[styles.title3, { marginTop: 4 }]}>
-              나만의 크봇을 설정하고{'\n'}취향의 음식을 등록해보세요
-            </Text>
-          </View>
-          <View>
-            <Image
-              source={require('../../assets/images/Kbot.png')}
-              style={styles.kBot}
-            />
+            {/* 위치 아이콘 + 주소관리 */}
+            <TouchableOpacity
+              onPress={() => navigation.navigate('AddressManage')}
+            >
+              <View style={styles.locationRow}>
+                <Image
+                  source={require('../../assets/images/location.png')}
+                  style={styles.locationIcon}
+                />
+                <Text style={styles.addressText}>주소관리</Text>
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
-      </TouchableOpacity>
+
+        <View style={styles.summaryBox}>
+          {/* 쿠폰함 */}
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Coupon')}
+            style={styles.summaryItem}
+          >
+            <View style={styles.grayCircle} />
+            <Text style={styles.summaryValue}>10장</Text>
+            <Text style={styles.summaryLabel}>쿠폰함</Text>
+          </TouchableOpacity>
+
+          <View style={styles.divider} />
+
+          {/* 포인트 */}
+          <TouchableOpacity
+            onPress={() => navigation.navigate('ForkPoint')}
+            style={styles.summaryItem}
+          >
+            <View style={styles.grayCircle} />
+            <Text style={styles.summaryValue}>1,000원</Text>
+            <Text style={styles.summaryLabel}>포크포인트</Text>
+          </TouchableOpacity>
+
+          <View style={styles.divider} />
+
+          {/* 받은 선물 */}
+          <TouchableOpacity
+            onPress={() => navigation.navigate('ReceivedGifts')}
+            style={styles.summaryItem}
+          >
+            <View style={styles.grayCircle} />
+            <Text style={styles.summaryValue}>0원</Text>
+            <Text style={styles.summaryLabel}>받은 선물</Text>
+          </TouchableOpacity>
+        </View>
+
+        <TouchableOpacity
+          onPress={() => navigation.navigate('MyARReview')}
+          style={styles.manageBox}
+        >
+          <Text style={styles.title2}>나의 AR 리뷰 관리</Text>
+          <Text style={styles.title3}>내가 직접 작성한 AR 리뷰를 관리할 수 있어요</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => navigation.navigate('KbotSettings')}
+        >
+          <View style={styles.manageBoxRow}>
+            <View>
+              <Text style={styles.title2}>나의 크봇 설정</Text>
+              <Text style={[styles.title3, { marginTop: 4 }]}>
+                나만의 크봇을 설정하고{'\n'}취향의 음식을 등록해보세요
+              </Text>
+            </View>
+            <View>
+              <Image
+                source={require('../../assets/images/Kbot.png')}
+                style={styles.kBot}
+              />
+            </View>
+          </View>
+        </TouchableOpacity>
+      </View>
+
+      <BottomNavigationBar
+        activeTab={route.name.toLowerCase()} // 현재 화면 이름과 일치 여부 체크
+        onTabPress={(tabKey) => {
+          if (tabKey !== route.name.toLowerCase()) {
+            navigation.navigate(
+              tabKey === 'home' ? 'Home' :
+                tabKey === 'cart' ? 'Cart' :
+                  tabKey === 'bot' ? 'KbotScreen' :
+                    tabKey === 'order' ? 'OrderList' :
+                      tabKey === 'my' ? 'MyFork' :
+                        'Home'
+            );
+          }
+        }}
+      />
 
       <View style={styles.se}>
 
       </View>
 
     </View>
-  
+
 
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    paddingVertical: 40,
-    paddingHorizontal: 40,
+  rootContainer: {
     backgroundColor: '#fff',
     flex: 1,
+  },
+  container: {
+    paddingVertical: 40,
+    paddingHorizontal: 30,
+    backgroundColor: '#fff',
+    flex: 1,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 0,
+  },
+  headerSide: {
+    width: 30, // 왼쪽 아이콘과 동일한 너비
+    alignItems: 'center',
   },
   title: {
     fontSize: 20,

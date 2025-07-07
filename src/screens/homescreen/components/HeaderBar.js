@@ -3,7 +3,7 @@ import { Text, StyleSheet, View, TouchableOpacity } from "react-native";
 import Polygon from '../../../assets/icons/Polygon 2.svg';
 import Bell from '../../../assets/icons/Bell.svg';
 
-const Component = () => {
+export default function HeaderBar(){
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.addressContainer}>
@@ -50,4 +50,3 @@ const styles = StyleSheet.create({
 
 });
 
-export default Component;

@@ -1,12 +1,17 @@
 // src/components/MiddleSection.js
+import { useNavigation, useRoute } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 
 const CategoryItem = ({ label, icon }) => {
+  const navigation = useNavigation();
   const isComponent = typeof icon === 'function'; // 대문자 Icon 컴포넌트
   return (
-    <TouchableOpacity style={styles.categoryItem} activeOpacity={0.7}>
+    <TouchableOpacity style={styles.categoryItem} activeOpacity={0.7} onPress={()=>{
+      console.log('카테고리 선택: ', label);
+      navigation.navigate("Category", {category: label});
+    }}>
       {isComponent ? (
         React.createElement(icon)
       ) : (
