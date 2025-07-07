@@ -5,7 +5,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import MyForkScreen from './src/screens/myforkscreen/MyForkScreen';
-import CouponScreen from './src/screens/myforkscreen/CouponScreen';
 import EditProfileScreen from './src/screens/myforkscreen/EditProfileScreen';
 import AddressManageScreen from './src/screens/myforkscreen/AddressManageScreen';
 import ForkPointScreen from './src/screens/myforkscreen/ForkPointScreen';
