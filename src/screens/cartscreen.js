@@ -1,148 +1,145 @@
-// CartScreen.js
-import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  StyleSheet,
-  ScrollView,
-} from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { useFonts } from 'expo-font';
 
 export default function CartScreen() {
-  const [extraCheese, setExtraCheese] = useState(false);
-  const [extraEgg, setExtraEgg] = useState(false);
-  const [quantity, setQuantity] = useState(1);
+  const [fontsLoaded] = useFonts({
+    'Paperlogy-Regular': require('../assets/fonts/Paperlogy-4Regular.ttf'),
+    'Paperlogy-Medium': require('../assets/fonts/Paperlogy-5Medium.ttf'),
+    'Paperlogy-Bold': require('../assets/fonts/Paperlogy-7Bold.ttf'),
+  });
 
-  const basePrice = 11000;
-  const extraCheesePrice = 1000;
-  const extraEggPrice = 500;
-
-  const totalPrice = basePrice + (extraCheese ? extraCheesePrice : 0) + (extraEgg ? extraEggPrice : 0);
+  if (!fontsLoaded) return <Text>폰트 로딩 중...</Text>;
 
   return (
-    <ScrollView style={styles.container}>
-      {/* 이미지 영역 */}
-      {/* <Image source={require('../assets/image1.jpg')} style={styles.image} /> */}
-      <View style={styles.placeholderImage} />
-      <Text style={styles.overlay}>더욱 자세한 정보를 원한다면, AR로 보기를 눌러보세요</Text>
+    <View style={styles.container}>
+      {/* 헤더 */}
+      <View style={styles.header}>
+        {/* 뒤로가기 없애 */}
+        {/* <Image source={require('../assets/icons/arrow_back.svg')} style={styles.backArrowImage} /> */}
+        <Text style={styles.headerTitle}>장바구니</Text>
+      </View>
 
-      <View style={styles.infoContainer}>
-        <Text style={styles.label}>인기 1위   사장님 추천</Text>
-        <Text style={styles.title}>평양 라멘</Text>
-        <Text style={styles.subtitle}>평양 현지맛 그대로 깊고 얼싸한 스프</Text>
-        <Text style={styles.price}>가격   {basePrice.toLocaleString()}원</Text>
+      {/* 매장명 */}
+      <View style={styles.storeBox}>
+        <Text style={styles.storeName}>마라탕후루 본점</Text>
+        <Image source={require('../assets/image 59.png')} style={styles.RightArrowImage} />
 
-        <TouchableOpacity style={styles.arButton}>
-          <Text style={styles.arText}>AR로 보기</Text>
-        </TouchableOpacity>
+      </View>
 
-        <View style={styles.optionContainer}>
-          <Text style={styles.optionTitle}>추가선택</Text>
+      {/* 상품 카드 */}
+      <View style={styles.card}>
+        <Text style={styles.menuTitle}>[세트 메뉴]{'\n'}마라탕 + 탕후루 + 짬뽕국물 1.25L</Text>
+        <Text style={styles.price}>가격 : 30,000원</Text>
+        <Text style={styles.topping}>토핑 : 없음</Text>
 
-          <TouchableOpacity
-            onPress={() => setExtraCheese(!extraCheese)}
-            style={styles.checkboxRow}
-          >
-            <View style={[styles.checkboxBox, extraCheese && styles.checkboxChecked]} />
-            <Text style={styles.optionLabel}>차슈 추가   + 1,000원</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={() => setExtraEgg(!extraEgg)}
-            style={styles.checkboxRow}
-          >
-            <View style={[styles.checkboxBox, extraEgg && styles.checkboxChecked]} />
-            <Text style={styles.optionLabel}>계란추가   + 500원</Text>
-          </TouchableOpacity>
+        {/* 수량 및 버튼 */}
+        <View style={styles.quantityBox}>
+          <TouchableOpacity style={styles.quantityBtn}><Text style={styles.icon}>🗑</Text></TouchableOpacity>
+          <Text style={styles.count}>1</Text>
+          <TouchableOpacity style={styles.quantityBtn}><Text style={styles.icon}>＋</Text></TouchableOpacity>
         </View>
 
-        <View style={styles.quantityContainer}>
-          <Text style={styles.optionTitle}>수량</Text>
-          <View style={styles.quantityControl}>
-            <TouchableOpacity onPress={() => setQuantity(Math.max(1, quantity - 1))}>
-              <Text style={styles.quantityBtn}>-</Text>
-            </TouchableOpacity>
-            <Text style={styles.quantityText}>{quantity}</Text>
-            <TouchableOpacity onPress={() => setQuantity(quantity + 1)}>
-              <Text style={styles.quantityBtn}>+</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-
-        <TouchableOpacity style={styles.addButton}>
-          <Text style={styles.addButtonText}>{(totalPrice * quantity).toLocaleString()} 원 담기</Text>
+        <TouchableOpacity style={styles.addMenuButton}>
+          <Text style={styles.addMenuText}>메뉴 추가하러 가기</Text>
         </TouchableOpacity>
       </View>
-    </ScrollView>
+
+      {/* 결제 박스 */}
+      <View style={styles.paymentBox}>
+        <Text style={styles.paymentTitle}>결제금액 확인을 확인해주세요</Text>
+
+        <View style={styles.amountBox}>
+          <View style={styles.rowBetween}>
+            <Text style={styles.totalLabel}>총 금액</Text>
+            <Text style={styles.totalValue}>30,000원</Text>
+          </View>
+          <View style={styles.rowBetween}>
+            <Text style={styles.subLabel}>메뉴금액</Text>
+            <Text style={styles.subValue}>28,000원</Text>
+          </View>
+          <View style={styles.rowBetween}>
+            <Text style={styles.subLabel}>배달비</Text>
+            <Text style={styles.subValue}>1,000원</Text>
+          </View>
+
+          <View style={[styles.rowBetween, { marginTop: 10 }]}>
+            <Text style={styles.finalLabel}>결제금액</Text>
+            <Text style={styles.finalValue}>31,400원</Text>
+          </View>
+        </View>
+      </View>
+
+      {/* 하단 고정 버튼 */}
+      <View style={styles.bottomBar}>
+        <Text style={styles.bottomPrice}>총 결제금액{"\n"}31,400원</Text>
+        <TouchableOpacity style={styles.orderButton}>
+          <Text style={styles.orderButtonText}>주문하러 가기</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#fff' },
-  placeholderImage: {
-    width: '100%',
-    height: 250,
-    backgroundColor: '#ddd',
-  },
-  overlay: {
-    position: 'absolute',
-    top: 220,
-    alignSelf: 'center',
-    backgroundColor: 'rgba(0,0,0,0.6)',
-    color: '#fff',
-    padding: 5,
-    borderRadius: 5,
-  },
-  infoContainer: { padding: 20 },
-  label: { color: '#888', marginBottom: 5 },
-  title: { fontSize: 24, fontWeight: 'bold', marginBottom: 5 },
-  subtitle: { color: '#555', marginBottom: 10 },
-  price: { fontSize: 16, marginBottom: 20 },
-  arButton: {
-    borderWidth: 1,
-    borderColor: '#007bff',
-    borderRadius: 10,
-    paddingVertical: 10,
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  arText: { color: '#007bff', fontSize: 16 },
-  optionContainer: { marginBottom: 20 },
-  optionTitle: { fontWeight: 'bold', marginBottom: 10 },
-  checkboxRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 10 },
-  checkboxBox: {
-    width: 20,
-    height: 20,
-    borderRadius: 3,
-    borderWidth: 1,
-    borderColor: '#555',
-    marginRight: 10,
+  container: { flex: 1, backgroundColor: '#F2F6FF' },
+  header: { flexDirection: 'row', alignItems: 'center', paddingTop: 50, paddingHorizontal: 20, backgroundColor: '#fff' },
+  backArrowImage: { width: 24, height: 24 },
+  headerTitle: { flex: 1, textAlign: 'center', fontSize: 22, fontFamily: 'Paperlogy-Medium' ,marginTop:15,marginBottom:16},
+
+  storeBox: { flexDirection: 'row',    
+    alignItems: 'center',  justifyContent: 'space-between', padding: 20, backgroundColor: '#EDF4FF' },
+  storeName: { fontSize: 16, fontFamily: 'Paperlogy-Bold' },
+
+  card: {
     backgroundColor: '#fff',
+    margin: 20,
+    padding: 16,
+    borderRadius: 14,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 3,
   },
-  checkboxChecked: {
-    backgroundColor: '#007bff',
-  },
-  optionLabel: { fontSize: 16 },
-  quantityContainer: { marginBottom: 20 },
-  quantityControl: {
+  menuTitle: { fontSize: 16, fontFamily: 'Paperlogy-Bold', marginBottom: 10 },
+  price: { fontSize: 14, color: '#555', fontFamily: 'Paperlogy-Regular' },
+  topping: { fontSize: 14, color: '#555', fontFamily: 'Paperlogy-Regular', marginBottom: 10 },
+  quantityBox: { flexDirection: 'row', alignItems: 'center', marginBottom: 10 },
+  quantityBtn: { paddingHorizontal: 12, paddingVertical: 6, backgroundColor: '#eee', borderRadius: 6 },
+  icon: { fontSize: 16 },
+  count: { marginHorizontal: 10, fontSize: 16 },
+  addMenuButton: { borderTopWidth: 1, borderTopColor: '#ccc', paddingVertical: 12, marginTop: 10 },
+  addMenuText: { textAlign: 'center', color: '#007AFF', fontSize: 14 },
+
+  paymentBox: { backgroundColor: '#F2F6FF', padding: 20 },
+  paymentTitle: { fontFamily: 'Paperlogy-Bold', fontSize: 15, marginBottom: 10 },
+  amountBox: { backgroundColor: '#fff', borderRadius: 12, padding: 16 },
+  rowBetween: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 5 },
+  totalLabel: { fontSize: 15, fontFamily: 'Paperlogy-Bold' },
+  totalValue: { fontSize: 15, fontFamily: 'Paperlogy-Bold' },
+  subLabel: { fontSize: 13, color: '#999', fontFamily: 'Paperlogy-Regular' },
+  subValue: { fontSize: 13, color: '#999', fontFamily: 'Paperlogy-Regular' },
+  finalLabel: { fontSize: 16, fontFamily: 'Paperlogy-Medium' },
+  finalValue: { fontSize: 16, fontFamily: 'Paperlogy-Medium' },
+
+  bottomBar: {
+    position: 'absolute',
+    bottom: 0,
     flexDirection: 'row',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    width: 100,
     justifyContent: 'space-between',
-  },
-  quantityBtn: { fontSize: 20, fontWeight: 'bold' },
-  quantityText: { fontSize: 16 },
-  addButton: {
-    backgroundColor: '#007bff',
-    padding: 15,
-    borderRadius: 10,
     alignItems: 'center',
+    backgroundColor: '#fff',
+    paddingVertical: 14,
+    paddingHorizontal: 20,
+    width: '100%',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
+    elevation: 10,
   },
-  addButtonText: { color: '#fff', fontSize: 18, fontWeight: 'bold' },
+  bottomPrice: { fontSize: 14, fontFamily: 'Paperlogy-Regular', color: '#555' },
+  orderButton: { backgroundColor: '#268CFF', paddingVertical: 12, paddingHorizontal: 20, borderRadius: 20 },
+  orderButtonText: { color: '#fff', fontSize: 15, fontFamily: 'Paperlogy-Bold' },
 });
