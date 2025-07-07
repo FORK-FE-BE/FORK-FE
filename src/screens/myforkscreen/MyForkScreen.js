@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-
+import { useNavigation , useRoute} from '@react-navigation/native';
+import BottomNavigationBar from '../utils/BottomNavigationBar';
 export default function MyForkScreen() {
   const navigation = useNavigation();
-
+  const route = useRoute();
   return (
     <View style={styles.container}>
       <Text style={styles.title}>마이포크</Text>
@@ -113,13 +113,15 @@ export default function MyForkScreen() {
       </View>
 
     </View>
+  
+
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 40,
-    paddingHorizontal: 30,
+    paddingHorizontal: 40,
     backgroundColor: '#fff',
     flex: 1,
   },

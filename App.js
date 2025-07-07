@@ -12,11 +12,12 @@ import ForkPointScreen from './src/screens/myforkscreen/ForkPointScreen';
 import ReceivedGiftsScreen from './src/screens/myforkscreen/ReceivedGiftsScreen';
 import MyARReviewScreen from './src/screens/myforkscreen/MyARReviewScreen';
 import KbotSettingsScreen from './src/screens/myforkscreen/KbotSettingsScreen';
-
 import HomeScreen from './src/screens/homescreen/HomeScreen';
+import ChatBotScreen from './src/screens/chatbotscreen/ChatBotScreen';
+import CategoryScreen from './src/screens/categoryscreen/CategoryScreen';
+import OrderListScreen from './src/screens/orderlistscreen/OrderListScreen';
 
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
-import { StatusBar } from 'expo-status-bar';
 
 const Stack = createNativeStackNavigator();
 
@@ -43,6 +44,9 @@ export default function App() {
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Home">
             <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="KbotScreen" component={ChatBotScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="Category" component={CategoryScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="OrderList" component={OrderListScreen} options={{ headerShown: false }} />
             <Stack.Screen name="MyFork" component={MyForkScreen} options={{ headerShown: false }} />
             <Stack.Screen name="Coupon" component={CouponScreen} options={{ headerShown: false }} />
             <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{ headerShown: false }} />

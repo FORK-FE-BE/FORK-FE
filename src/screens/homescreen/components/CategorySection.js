@@ -1,6 +1,6 @@
 // src/components/MiddleSection.js
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 
 const CategoryItem = ({ label, icon }) => {
@@ -34,16 +34,11 @@ export default function CategorySection() {
 
   return (
     <View style={styles.container}>
-      {/* 카테고리 그리드 */}
-      <FlatList
-        data={categories}
-        numColumns={5} // 한 줄에 4개씩 표시
-        keyExtractor={item => item.key}
-        contentContainerStyle={styles.categoryList}
-        renderItem={({ item }) => (
-          <CategoryItem label={item.label} icon={item.icon} />
-        )}
-      />
+      <View style={styles.categoryList}>
+        {categories.map(item => (
+          <CategoryItem key={item.key} label={item.label} icon={item.icon} />
+        ))}
+      </View>
     </View>
   );
 }
@@ -56,6 +51,8 @@ const styles = StyleSheet.create({
   },
 
   categoryList: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',  // 줄바꿈 지원
     paddingHorizontal: 16,
     paddingBottom: 20,
     marginTop: 46,
@@ -63,7 +60,7 @@ const styles = StyleSheet.create({
   categoryItem: {
     alignItems: 'center',
     justifyContent: 'center',
-    flexBasis: '20%', // 5열
+    width: '20%',     // 5열 (100% / 5)
     marginBottom: 16,
   },
   categoryLabel: {

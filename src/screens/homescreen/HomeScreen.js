@@ -8,11 +8,11 @@ import MiddleSection from './components/MiddleSection';
 
 import Line from '../utils/Line';
 import BottomNavigationBar from '../utils/BottomNavigationBar';
-// import { useNavigation, useRoute } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 export default function HomeScreen() {
-  // const navigation = useNavigation();
-  // const route = useRoute();
+  const navigation = useNavigation();
+  const route = useRoute();
 
   return (
     <LinearGradient
@@ -25,23 +25,24 @@ export default function HomeScreen() {
         <SearchBar />
         <BannerSection />
         <CategorySection />
-        <Line /> {/*구분선*/}
+        <Line /> 
         <MiddleSection />
       </ScrollView>
 
       <BottomNavigationBar
-        // activeTab={route.name.toLowerCase()} // 현재 화면 이름과 일치 여부 체크
-        // onTabPress={(tabKey) => {
-        //   if (tabKey !== route.name.toLowerCase()) {
-        //     navigation.navigate(
-        //       tabKey === 'home' ? 'Home' :
-        //       tabKey === 'cart' ? 'Cart' :
-        //       tabKey === 'bot' ? 'Bot' :
-        //       tabKey === 'order' ? 'Order' :
-        //       tabKey === 'my' ? 'My' : 'Home'
-        //     );
-        //   }
-        // }}
+        activeTab={route.name.toLowerCase()} // 현재 화면 이름과 일치 여부 체크
+        onTabPress={(tabKey) => {
+          if (tabKey !== route.name.toLowerCase()) {
+            navigation.navigate(
+              tabKey === 'home' ? 'Home' :
+              tabKey === 'cart' ? 'Cart' :
+              tabKey === 'bot' ? 'KbotScreen' :
+              tabKey === 'order' ? 'OrderList' :
+              tabKey === 'my' ? 'MyFork' : 
+              'Home'
+            );
+          }
+        }}
       />
     </LinearGradient>
   );

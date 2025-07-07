@@ -3,7 +3,6 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 import FORKIcon from '../../../assets/icons/FORKIcon.svg';
 import Image1 from '../../../assets/icons/image1.png';
-import { RotateInDownLeft } from 'react-native-reanimated';
 
 export default function BannerSection() {
   return (
@@ -15,19 +14,14 @@ export default function BannerSection() {
         <TouchableOpacity style={styles.bannerButton}>
           <Text style={styles.bannerButtonText}>크봇 설정하러 가기</Text>
         </TouchableOpacity>
-
       </View>
-
       <View style={styles.imageContainer}>
         <Image source={Image1}
           style={[styles.Image1, { transform: [{ rotate: '30deg' }] }]}
           resizeMode="contain" // 이미지 비율 유지, 잘리지 않도록 설정
         />
         <FORKIcon style={styles.FORKIcon} />
-
       </View>
-
-
     </View>
   );
 }
@@ -67,7 +61,7 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     overflow: "hidden",
     width: '100%', // 아이콘 크기
-    height: '140%', // 아이콘 크기
+    height: '100%', // 아이콘 크기
   },
   FORKIcon: {
     width: '100%', // 아이콘 크기

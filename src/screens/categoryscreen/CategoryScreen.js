@@ -24,8 +24,6 @@ export default function CategoryScreen() {
                 <RestaurantList />
             </ScrollView>
         </View>
-
-
     );
 }
 

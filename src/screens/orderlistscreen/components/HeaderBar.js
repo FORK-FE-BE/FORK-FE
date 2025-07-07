@@ -15,7 +15,7 @@ export default function HeaderBar() {
 
 const styles = StyleSheet.create({
     header: {
-        height: 70,
+        height: 85,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#fff',

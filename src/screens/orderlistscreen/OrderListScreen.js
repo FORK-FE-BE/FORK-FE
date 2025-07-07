@@ -16,7 +16,6 @@ export default function OrderListScreen() {
         <View style={styles.container}>
             <ScrollView contentContainerStyle={styles.scrollContent}>
                 <HeaderBar />
-                <Line />
                 <SearchBar />
                 <FilterTabBar />
                 <OrderList orders={dummyOrders} />
@@ -29,9 +28,9 @@ export default function OrderListScreen() {
                         navigation.navigate(
                             tabKey === 'home' ? 'Home' :
                             tabKey === 'cart' ? 'Cart' :
-                            tabKey === 'bot' ? 'Bot' :
-                            tabKey === 'order' ? 'Order' :
-                            tabKey === 'my' ? 'My' : 'Home'
+                            tabKey === 'bot' ? 'KbotScreen' :
+                            tabKey === 'order' ? 'OrderList' :
+                            tabKey === 'my' ? 'MyFork' : 'Home'
                         );
                     }
                 }}
