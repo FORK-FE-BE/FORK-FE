@@ -3,7 +3,7 @@ import React from 'react';
 import { useFonts } from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-//import HomeScreen from './src/screens/homescreen/HomeScreen';
+
 import MyForkScreen from './src/screens/myforkscreen/MyForkScreen';
 import CouponScreen from './src/screens/myforkscreen/CouponScreen';
 import EditProfileScreen from './src/screens/myforkscreen/EditProfileScreen';
@@ -13,15 +13,10 @@ import ReceivedGiftsScreen from './src/screens/myforkscreen/ReceivedGiftsScreen'
 import MyARReviewScreen from './src/screens/myforkscreen/MyARReviewScreen';
 import KbotSettingsScreen from './src/screens/myforkscreen/KbotSettingsScreen';
 
-import { SafeAreaView } from 'react-native-safe-area-context';
-// import OrderDetailScreen from './src/screens/orderdetailscreen/OrderDetailScreen';
-// import { NavigationContainer } from '@react-navigation/native';
+import HomeScreen from './src/screens/homescreen/HomeScreen';
 
-// import HomeScreen from './src/screens/homescreen/HomeScreen';
-// import CategoryScreen from './src/screens/categoryscreen/CategoryScreen';
-import ChatBotScreen from './src/screens/chatbotscreen/ChatBotScreen';
-// import OrderListScreen from './src/screens/orderlistscreen/OrderListScreen';
-// import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
+import { StatusBar } from 'expo-status-bar';
 
 const Stack = createNativeStackNavigator();
 
@@ -38,25 +33,27 @@ export default function App() {
     'Paperlogy-Black': require('./src/assets/fonts/Paperlogy-9Black.ttf'),
   });
 
-  // const Stack = createNativeStackNavigator();
+  if (!fontsLoaded) return null;
 
-  if (!fontsLoaded) {
-    return null; // 폰트가 로딩되지 않으면 아무것도 표시되지 않음
-  }
-
-  //본인 화면 보고 싶다면 <HomeScreen/> 이 부분을 본인이 개발하고 있는 화면 파일로 변경
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="MyFork">
-        <Stack.Screen name="MyFork" component={MyForkScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Coupon" component={CouponScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="AddressManage" component={AddressManageScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="ForkPoint" component={ForkPointScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="ReceivedGifts" component={ReceivedGiftsScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="MyARReview" component={MyARReviewScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="KbotSettings" component={KbotSettingsScreen} options={{ headerShown: false }} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <SafeAreaProvider>
+
+      <SafeAreaView style={{ flex: 1 }}>
+
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="Home">
+            <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="MyFork" component={MyForkScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="Coupon" component={CouponScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="AddressManage" component={AddressManageScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="ForkPoint" component={ForkPointScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="ReceivedGifts" component={ReceivedGiftsScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="MyARReview" component={MyARReviewScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="KbotSettings" component={KbotSettingsScreen} options={{ headerShown: false }} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
