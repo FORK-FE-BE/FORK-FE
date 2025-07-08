@@ -4,11 +4,13 @@ import HeaderBar from './components/HeaderBar';
 import CategorySectionBar from './components/CategorySectionBar';
 import RecommendedSection from './components/RecommendedSection';
 import RestaurantList from './components/RestaurantList';
-import Line from '../utils/Line';
 import FilterTabBar from './components/FilterTabBar';
+import {useRoute} from "@react-navigation/native";
 
 
 export default function CategoryScreen() {
+    const route = useRoute();
+    const category = route.params?.category || '중식';
     return (
         <View style={styles.container}>
             <ScrollView showsVerticalScrollIndicator={false}>
@@ -21,7 +23,7 @@ export default function CategoryScreen() {
                 {/* <Line /> 섹션 구분선 */}
                 <FilterTabBar />
                 {/* 식당 리스트 섹션 */}
-                <RestaurantList />
+                <RestaurantList category={category}/>
             </ScrollView>
         </View>
     );

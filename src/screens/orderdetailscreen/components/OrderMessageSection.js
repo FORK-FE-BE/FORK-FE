@@ -17,7 +17,7 @@ export default function OrderMessageSection() {
                 <Line />
                 <View style={styles.row}>
                     <Image
-                        source={require('../../../assets/images/ramen.png')}
+                        source={require('../../../data/dummyImages/ramen.png')}
                         style={styles.thumbnail}
                     />
                     <TouchableOpacity style={styles.storeNameRow}>

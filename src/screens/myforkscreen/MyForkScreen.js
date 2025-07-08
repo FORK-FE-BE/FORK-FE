@@ -21,7 +21,7 @@ export default function MyForkScreen() {
         <View style={styles.profileRow}>
           {/* 프로필 이미지 */}
           <Image
-            source={require('../../assets/images/defaultProfile.png')}
+            source={require('../../data/dummyImages/defaultProfile.png')}
             style={styles.profileImage}
           />
 
@@ -124,7 +124,7 @@ export default function MyForkScreen() {
           if (tabKey !== route.name.toLowerCase()) {
             navigation.navigate(
               tabKey === 'home' ? 'Home' :
-                tabKey === 'cart' ? 'Cart' :
+                tabKey === 'cart' ? 'CartScreen' :
                   tabKey === 'bot' ? 'KbotScreen' :
                     tabKey === 'order' ? 'OrderList' :
                       tabKey === 'my' ? 'MyFork' :

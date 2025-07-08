@@ -67,7 +67,7 @@ export default function EditProfileScreen() {
             source={
               profileImage
                 ? { uri: profileImage }
-                : require('../../assets/images/defaultProfile.png')
+                : require('../../data/dummyImages/defaultProfile.png')
             }
             style={styles.profileImage}
           />

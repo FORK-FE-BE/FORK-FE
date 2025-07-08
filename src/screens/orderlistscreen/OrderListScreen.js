@@ -27,7 +27,7 @@ export default function OrderListScreen() {
                     if (tabKey !== route.name.toLowerCase()) {
                         navigation.navigate(
                             tabKey === 'home' ? 'Home' :
-                            tabKey === 'cart' ? 'Cart' :
+                            tabKey === 'cart' ? 'CartScreen' :
                             tabKey === 'bot' ? 'KbotScreen' :
                             tabKey === 'order' ? 'OrderList' :
                             tabKey === 'my' ? 'MyFork' : 'Home'
@@ -58,7 +58,7 @@ const dummyOrders = [
         menu: '돈코츠 라멘',
         count: 1,
         price: 19000,
-        image: require('../../assets/images/ramenThumbnail.png'),
+        image: require('../../data/dummyImages/ramenThumbnail.png'),
     },
     {
         date: '6월 22일 (일)',
@@ -66,7 +66,7 @@ const dummyOrders = [
         menu: '돈코츠 라멘',
         count: 1,
         price: 19000,
-        image: require('../../assets/images/ramenThumbnail.png'),
+        image: require('../../data/dummyImages/ramenThumbnail.png'),
     },
     {
         date: '6월 23일 (월)',
@@ -74,6 +74,6 @@ const dummyOrders = [
         menu: '돈코츠 라멘',
         count: 1,
         price: 19000,
-        image: require('../../assets/images/ramenThumbnail.png'),
+        image: require('../../data/dummyImages/ramenThumbnail.png'),
     },
 ];

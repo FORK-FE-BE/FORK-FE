@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Image } from 'react-native';
-
+import { useNavigation } from '@react-navigation/native';
 
 export default function CategorySectionBar() {
+    const [selectedCategory, setSelectedCategory] = useState('중식'); // 기본값
+    const navigation = useNavigation();
+
     const categories = [
         { key: '1', label: '중식', icon: require('../../../assets/icons/category1.png') },
         { key: '2', label: '디저트', icon: require('../../../assets/icons/category2.png') },
@@ -15,7 +18,12 @@ export default function CategorySectionBar() {
         { key: '9', label: '찌개', icon: require('../../../assets/icons/category9.png') },
         { key: '10', label: '1인분', icon: require('../../../assets/icons/category10.png') },
     ];
-    
+
+    const handleCategoryPress = (categoryLabel) => {
+        setSelectedCategory(categoryLabel);
+        navigation.navigate('Category', { category: categoryLabel });
+    };
+
     return (
         <ScrollView
             horizontal
@@ -23,14 +31,26 @@ export default function CategorySectionBar() {
             style={styles.categoryBar}
             contentContainerStyle={styles.scrollContent}
         >
-            {categories.map((category, index) => (
-                <TouchableOpacity key={index} style={styles.categoryItem}>
-                    <View style={styles.iconContainer}>
-                        <Image source={category.icon} style={styles.icon} />
-                    </View>
-                    <Text style={styles.categoryText}>{category.label}</Text>
-                </TouchableOpacity>
-            ))}
+            {categories.map((category) => {
+                const isSelected = selectedCategory === category.label;
+                return (
+                    <TouchableOpacity
+                        key={category.key}
+                        style={[
+                            styles.categoryItem,
+                            isSelected && styles.selectedItem
+                        ]}
+                        onPress={() => handleCategoryPress(category.label)}
+                    >
+                        <View style={[styles.iconContainer, isSelected && styles.selectedIconContainer]}>
+                            <Image source={category.icon} style={styles.icon} />
+                        </View>
+                        <Text style={[styles.categoryText, isSelected && styles.selectedText]}>
+                            {category.label}
+                        </Text>
+                    </TouchableOpacity>
+                );
+            })}
         </ScrollView>
     );
 }
@@ -48,10 +68,18 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginRight: 16,
     },
+    selectedItem: {
+        opacity: 1,
+    },
     iconContainer: {
         width: 54,
         height: 54,
         marginBottom: 4,
+        borderRadius: 27,
+        backgroundColor: '#eee',
+    },
+    selectedIconContainer: {
+        backgroundColor: '#D7E6FF',
     },
     icon: {
         borderRadius: 100,
@@ -60,6 +88,11 @@ const styles = StyleSheet.create({
     },
     categoryText: {
         fontSize: 13,
-        fontFamily: 'Paperlogy-Medium'
+        color: '#333',
+        fontFamily: 'Paperlogy-Medium',
+    },
+    selectedText: {
+        color: '#006DF0',
+        fontFamily: 'Paperlogy-Medium',
     },
 });

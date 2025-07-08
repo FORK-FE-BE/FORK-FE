@@ -5,7 +5,7 @@ export default function RestaurantCard({ name, rating, reviewCount, image }) {
     return (
         <View style={styles.card}>
             <Image
-                source={image || require('../../../../assets/images/ramen.png')}
+                source={image || require('../../../../data/dummyImages/ramen.png')}
                 style={styles.image}
             />
             <Text style={styles.name}>{name}</Text>
