@@ -44,14 +44,14 @@ export default function App() {
       <SafeAreaView style={{ flex: 1 }}>
 
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="CartScreen">
+          <Stack.Navigator initialRouteName="Home">
             <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
             <Stack.Screen name="KbotScreen" component={ChatBotScreen} options={{ headerShown: false }} />
             <Stack.Screen name="Category" component={CategoryScreen} options={{ headerShown: false }} />
             <Stack.Screen name="OrderList" component={OrderListScreen} options={{ headerShown: false }} />
             <Stack.Screen name="OrderDetail" component={OrderDetailScreen} options={{ headerShown: false }} />
             <Stack.Screen name="MyFork" component={MyForkScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="Coupon" component={CouponScreen} options={{ headerShown: false }} />
+            {/* <Stack.Screen name="Coupon" component={CouponScreen} options={{ headerShown: false }} /> */}
             <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{ headerShown: false }} />
             <Stack.Screen name="AddressManage" component={AddressManageScreen} options={{ headerShown: false }} />
             <Stack.Screen name="ForkPoint" component={ForkPointScreen} options={{ headerShown: false }} />
