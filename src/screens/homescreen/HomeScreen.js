@@ -35,7 +35,7 @@ export default function HomeScreen() {
           if (tabKey !== route.name.toLowerCase()) {
             navigation.navigate(
               tabKey === 'home' ? 'Home' :
-              tabKey === 'cart' ? 'Cart' :
+              tabKey === 'cart' ? 'CartScreen' :
               tabKey === 'bot' ? 'KbotScreen' :
               tabKey === 'order' ? 'OrderList' :
               tabKey === 'my' ? 'MyFork' : 

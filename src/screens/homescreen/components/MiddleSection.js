@@ -25,21 +25,21 @@ export default function MiddleSection() {
         {
             id: '1',
             title: '하나 라멘 동대문본점',
-            image: require('../../../assets/images/ramen.png'), // AR 카드에 사용할 이미지
+            image: require('../../../data/dummyImages/ramen.png'), // AR 카드에 사용할 이미지
             rating: 4.9,
             reviewCount: 777,
         },
         {
             id: '2',
             title: '하나 라멘 동대문본점',
-            image: require('../../../assets/images/ramen.png'), // AR 카드에 사용할 이미지
+            image: require('../../../data/dummyImages/ramen.png'), // AR 카드에 사용할 이미지
             rating: 4.9,
             reviewCount: 777,
         },
         {
             id: '3',
             title: '하나 라멘 동대문본점',
-            image: require('../../../assets/images/ramen.png'), // AR 카드에 사용할 이미지
+            image: require('../../../data/dummyImages/ramen.png'), // AR 카드에 사용할 이미지
             rating: 4.9,
             reviewCount: 777,
         },

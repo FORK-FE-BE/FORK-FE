@@ -1,26 +1,27 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 
 export default function RecommendedSection() {
     const restaurantList = [
         {
             id: '1',
             title: '맛있는 치킨 홍대점',
-            image: require('../../../assets/images/chicken.png'),
+            image: require('../../../data/dummyImages/chicken.png'),
             rating: 4.9,
             reviewCount: 777,
         },
         {
             id: '2',
             title: '하나 라멘 동대문본점',
-            image: require('../../../assets/images/egg.png'),
+            image: require('../../../data/dummyImages/egg.png'),
             rating: 4.7,
             reviewCount: 512,
         },
         {
             id: '3',
             title: '하나 라멘 동대문본점',
-            image: require('../../../assets/images/ramen.png'),
+            image: require('../../../data/dummyImages/ramen.png'),
             rating: 4.7,
             reviewCount: 512,
         },
@@ -28,7 +29,7 @@ export default function RecommendedSection() {
 
     // ✅ 카드 컴포넌트에 index와 isLast 추가 → 마지막 카드엔 marginRight 제거
     const RestaurantCard = ({ image, title, rating, reviewCount, index, isLast }) => (
-        <View
+        <TouchableOpacity
             style={[
                 styles.restaurantCard,
                 {
@@ -42,7 +43,7 @@ export default function RecommendedSection() {
                 <Text style={styles.restaurantRating}>★ {rating} ({reviewCount})</Text>
                 <Text style={styles.arcontent}>AR보유</Text>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 
     return (

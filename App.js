@@ -35,9 +35,7 @@ export default function App() {
     'Paperlogy-ExtraBold': require('./src/assets/fonts/Paperlogy-8ExtraBold.ttf'),
     'Paperlogy-Black': require('./src/assets/fonts/Paperlogy-9Black.ttf'),
   });
-
   if (!fontsLoaded) return null;
-
   return (
     <SafeAreaProvider>
 
