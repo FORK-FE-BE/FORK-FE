@@ -8,7 +8,7 @@ import {restaurantsByCategory} from "../../../data/restaurantsByCategory";
 export default function RestaurantList({category}) {
     const navigation = useNavigation();
     const restaurants = restaurantsByCategory[category];
-    const RestaurantCard = ({ name, banners, menus, rating, reviewCount, hasAR, isLast }) => {
+    const RestaurantCard = ({ name, menus, rating, reviewCount, isLast }) => {
         const photos = menus && menus.length ? menus : [null, null, null, null]; // 기본 4칸
         return (
             <View style={styles.restaurantItem} onTouchEnd={() => navigation.navigate('RestaurantDetail')}>
