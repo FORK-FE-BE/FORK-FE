@@ -6,6 +6,7 @@ export default function CategorySectionBar() {
     const [selectedCategory, setSelectedCategory] = useState('중식'); // 기본값
     const navigation = useNavigation();
 
+
     const categories = [
         { key: '1', label: '중식', icon: require('../../../assets/icons/category1.png') },
         { key: '2', label: '디저트', icon: require('../../../assets/icons/category2.png') },
@@ -20,6 +21,7 @@ export default function CategorySectionBar() {
     ];
 
     const handleCategoryPress = (categoryLabel) => {
+        console.log("카테고리클릭 ",categoryLabel)
         setSelectedCategory(categoryLabel);
         navigation.navigate('Category', { category: categoryLabel });
     };
