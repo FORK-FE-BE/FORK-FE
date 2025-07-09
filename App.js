@@ -49,7 +49,7 @@ export default function App() {
             <Stack.Screen name="OrderList" component={OrderListScreen} options={{ headerShown: false }} />
             <Stack.Screen name="OrderDetail" component={OrderDetailScreen} options={{ headerShown: false }} />
             <Stack.Screen name="MyFork" component={MyForkScreen} options={{ headerShown: false }} />
-            {/* <Stack.Screen name="Coupon" component={CouponScreen} options={{ headerShown: false }} /> */}
+             {/*<Stack.Screen name="Coupon" component={CouponScreen} options={{ headerShown: false }} /> */}
             <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{ headerShown: false }} />
             <Stack.Screen name="AddressManage" component={AddressManageScreen} options={{ headerShown: false }} />
             <Stack.Screen name="ForkPoint" component={ForkPointScreen} options={{ headerShown: false }} />

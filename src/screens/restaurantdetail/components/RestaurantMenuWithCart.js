@@ -60,160 +60,144 @@ const menuItems = [
     { id: 34, title: '아이스크림', description: '바닐라 아이스크림', price: 3000, image: require('../../../dummyData/dummyImages/image4.jpg'), category: '디저트' },
     { id: 35, title: '모나카', description: '아이스 모나카', price: 3500, image: require('../../../dummyData/dummyImages/image5.jpg'), category: '디저트' },
   ];
-  
+
 
 export default function RestaurantMenuWithCart({ scrollRef }) {
-    const categoryRefs = useRef({});
-  
+    const categoryPositions = useRef({});
+
     const scrollToCategory = (category) => {
-      const targetRef = categoryRefs.current[category];
-      if (scrollRef.current && targetRef?.measureLayout) {
-        targetRef.measureLayout(
-          scrollRef.current,
-          (x, y) => {
+        const y = categoryPositions.current[category];
+        if (scrollRef.current && y !== undefined) {
             scrollRef.current.scrollTo({ y, animated: true });
-          },
-          (error) => {
-            console.log('measureLayout error:', error);
-          }
-        );
-      }
+        }
     };
-  
+
     const categorizedMenus = menuItems.reduce((acc, item) => {
-      if (!acc[item.category]) acc[item.category] = [];
-      acc[item.category].push(item);
-      return acc;
+        if (!acc[item.category]) acc[item.category] = [];
+        acc[item.category].push(item);
+        return acc;
     }, {});
-  
+
     return (
-      <View style={{ flex: 1, backgroundColor: '#fff' }}>
-        {/* 카테고리 탭 (좌우 스크롤) */}
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          style={styles.tabRow}
-          contentContainerStyle={{ paddingHorizontal: 30 }}
-        >
-          {Object.keys(categorizedMenus).map((category) => (
-            <TouchableOpacity
-              key={category}
-              style={styles.tabButton}
-              onPress={() => scrollToCategory(category)}
+        <View style={{ flex: 1, backgroundColor: '#fff' }}>
+            {/* 카테고리 탭 */}
+            <ScrollView
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                style={styles.tabRow}
+                contentContainerStyle={{ paddingHorizontal: 30 }}
             >
-              <Text style={styles.tabButtonText}>{category}</Text>
-            </TouchableOpacity>
-          ))}
-        </ScrollView>
-  
-  
-        {/* 카테고리별 메뉴 렌더링 */}
-        {Object.entries(categorizedMenus).map(([category, items]) => (
-          <View
-            key={category}
-            ref={(ref) => {
-              if (ref) categoryRefs.current[category] = ref;
-            }}
-          >
+                {Object.keys(categorizedMenus).map((category) => (
+                    <TouchableOpacity
+                        key={category}
+                        style={styles.tabButton}
+                        onPress={() => scrollToCategory(category)}
+                    >
+                        <Text style={styles.tabButtonText}>{category}</Text>
+                    </TouchableOpacity>
+                ))}
+            </ScrollView>
 
-        <View style={styles.divider} /> {/* ✅ 첫 번째 카테고리 제외하고 divider 삽입 */}
+            {/* 카테고리별 메뉴 렌더링 */}
+            {Object.entries(categorizedMenus).map(([category, items]) => (
+                <View key={category}>
+                    <View
+                        onLayout={(e) => {
+                            categoryPositions.current[category] = e.nativeEvent.layout.y;
+                        }}
+                    >
+                        <View style={styles.divider} />
+                        <Text style={styles.categoryTitle}>{category}</Text>
+                    </View>
 
-            <Text style={styles.categoryTitle}>{category}</Text>
-  
-            
-
-            {items.map((item, index) => (
-  <View key={item.id}>
-    {index !== 0 && <View style={styles.smallDivider} />}
-    <View style={styles.menuItem}>
-      <View style={styles.menuText}>
-        <Text style={styles.menuTitle}>{item.title}</Text>
-        <Text style={styles.menuPrice}>{item.price.toLocaleString()}원</Text>
-        <Text style={styles.menuDescription}>{item.description}</Text>
-      </View>
-      <Image source={item.image} style={styles.menuImage} />
-    </View>
-  </View>
-))}
-
-          </View>
-        ))}
-      </View>
+                    {items.map((item, index) => (
+                        <View key={item.id}>
+                            {index !== 0 && <View style={styles.smallDivider} />}
+                            <View style={styles.menuItem}>
+                                <View style={styles.menuText}>
+                                    <Text style={styles.menuTitle}>{item.title}</Text>
+                                    <Text style={styles.menuPrice}>{item.price.toLocaleString()}원</Text>
+                                    <Text style={styles.menuDescription}>{item.description}</Text>
+                                </View>
+                                <Image source={item.image} style={styles.menuImage} />
+                            </View>
+                        </View>
+                    ))}
+                </View>
+            ))}
+        </View>
     );
-  }
-  
-  const styles = StyleSheet.create({
+}
+
+const styles = StyleSheet.create({
     tabRow: {
-      backgroundColor: '#fff',
-      paddingHorizontal: 16,
-      paddingVertical: 24,
-      flexDirection: 'row',
+        backgroundColor: '#fff',
+        paddingHorizontal: 16,
+        paddingVertical: 24,
+        flexDirection: 'row',
     },
     tabButton: {
-      backgroundColor: '#fff',
-      borderColor: '#222',
-      borderWidth: 1,
-      borderRadius: 20,
-      paddingVertical: 6,
-      paddingHorizontal: 14,
-      marginRight: 8,
+        backgroundColor: '#fff',
+        borderColor: '#222',
+        borderWidth: 1,
+        borderRadius: 20,
+        paddingVertical: 6,
+        paddingHorizontal: 14,
+        marginRight: 8,
     },
     tabButtonText: {
-      fontSize: 16,
-      fontFamily: 'Paperlogy-Medium',
+        fontSize: 16,
+        fontFamily: 'Paperlogy-Medium',
     },
     categoryTitle: {
-      fontSize: 24,
-      fontFamily: 'Paperlogy-SemiBold',
-      marginVertical: 14,
-      paddingHorizontal: 30,
+        fontSize: 24,
+        fontFamily: 'Paperlogy-SemiBold',
+        marginVertical: 14,
+        paddingHorizontal: 30,
     },
     menuItem: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      marginBottom: 34,
-      paddingHorizontal: 30,
-      alignItems: 'flex-start',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginBottom: 34,
+        paddingHorizontal: 30,
+        alignItems: 'flex-start',
     },
     menuImage: {
-      width: 100,
-      height: 100,
-      borderRadius: 10,
+        width: 100,
+        height: 100,
+        borderRadius: 10,
     },
     menuText: {
-      flex: 1,
-      gap: 5,
-      justifyContent: 'flex-start',
-      alignItems: 'flex-start',
+        flex: 1,
+        gap: 5,
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
     },
     menuTitle: {
-      fontSize: 20,
-      fontFamily: 'Paperlogy-SemiBold',
+        fontSize: 20,
+        fontFamily: 'Paperlogy-SemiBold',
     },
     menuDescription: {
-      fontSize: 15,
-      fontFamily: 'Paperlogy-Light',
-      color: '#969696',
+        fontSize: 15,
+        fontFamily: 'Paperlogy-Light',
+        color: '#969696',
     },
     menuPrice: {
-      fontSize: 18,
-      fontFamily: 'Paperlogy-Medium',
-      color: '#000',
+        fontSize: 18,
+        fontFamily: 'Paperlogy-Medium',
+        color: '#000',
     },
     divider: {
-      height: 14,
-      backgroundColor: '#EFEFEF',
-      width: '100%',
-      marginBottom:30,
+        height: 14,
+        backgroundColor: '#EFEFEF',
+        width: '100%',
+        marginBottom: 30,
     },
     smallDivider: {
-      height: 1,
-      backgroundColor: '#EFEFEF',
-      width: '100%',
-      marginBottom: 16,
-      marginTop:-16,
-      
-      
-
+        height: 1,
+        backgroundColor: '#EFEFEF',
+        width: '100%',
+        marginBottom: 16,
+        marginTop: -16,
     },
-  });
+});
