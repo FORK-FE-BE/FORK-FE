@@ -59,7 +59,7 @@ const dummyOrders = [
         menu: '돈코츠 라멘',
         count: 1,
         price: 19000,
-        image: require('../../data/dummyImages/ramenThumbnail.png'),
+        image: require('../../dummyData/dummyImages/ramenThumbnail.png'),
     },
     {
         date: '6월 22일 (일)',
@@ -67,7 +67,7 @@ const dummyOrders = [
         menu: '돈코츠 라멘',
         count: 1,
         price: 19000,
-        image: require('../../data/dummyImages/ramenThumbnail.png'),
+        image: require('../../dummyData/dummyImages/ramenThumbnail.png'),
     },
     {
         date: '6월 23일 (월)',
@@ -75,6 +75,6 @@ const dummyOrders = [
         menu: '돈코츠 라멘',
         count: 1,
         price: 19000,
-        image: require('../../data/dummyImages/ramenThumbnail.png'),
+        image: require('../../dummyData/dummyImages/ramenThumbnail.png'),
     },
 ];

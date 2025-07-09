@@ -21,7 +21,7 @@ export default function MyForkScreen() {
         <View style={styles.profileRow}>
           {/* 프로필 이미지 */}
           <Image
-            source={require('../../data/dummyImages/defaultProfile.png')}
+            source={require('../../dummyData/dummyImages/defaultProfile.png')}
             style={styles.profileImage}
           />
 

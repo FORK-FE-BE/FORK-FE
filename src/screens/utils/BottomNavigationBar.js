@@ -36,7 +36,7 @@ export default function BottomNavigationBar({ activeTab, onTabPress }) {
             <IconComponent
               width={28}
               height={28}
-              fill={focused ? '#5599FF' : '#bbb'} // 선택된 탭은 파란색, 아니면 회색
+              color={focused ? '#5599FF' : '#bbb'} // 선택된 탭은 파란색, 아니면 회색
             />
             <Text style={[styles.label, focused && styles.labelFocused]}>
               {tab.label}
