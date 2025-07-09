@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 import Line from '../../utils/Line';
 import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import {restaurantsByCategory} from "../../../data/restaurantsByCategory";
+import {restaurantsByCategory} from "../../../dummyData/restaurantsByCategory";
 
 export default function RestaurantList({category}) {
     const navigation = useNavigation();
