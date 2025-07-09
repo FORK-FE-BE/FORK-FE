@@ -200,22 +200,10 @@ export const restaurantsByCategory = {
             "id": "디5",
             "name": "초코몽 5호점",
             "banners": [
-                "require('../assets/images/디저트_banner1_4.jpg')",
-                "require('../assets/images/디저트_banner2_4.jpg')",
-                "require('../assets/images/디저트_banner3_4.jpg')",
-                "require('../assets/images/디저트_banner4_4.jpg')"
+
             ],
             "menus": [
-                "require('../assets/images/디저트_menu1_4.jpg')",
-                "require('../assets/images/디저트_menu2_4.jpg')",
-                "require('../assets/images/디저트_menu3_4.jpg')",
-                "require('../assets/images/디저트_menu4_4.jpg')",
-                "require('../assets/images/디저트_menu5_4.jpg')",
-                "require('../assets/images/디저트_menu6_4.jpg')",
-                "require('../assets/images/디저트_menu7_4.jpg')",
-                "require('../assets/images/디저트_menu8_4.jpg')",
-                "require('../assets/images/디저트_menu9_4.jpg')",
-                "require('../assets/images/디저트_menu10_4.jpg')"
+
             ],
             "rating": 4.9,
             "reviewCount": 119,
@@ -225,22 +213,10 @@ export const restaurantsByCategory = {
             "id": "디6",
             "name": "스위트홈 6호점",
             "banners": [
-                "require('../assets/images/디저트_banner1_5.jpg')",
-                "require('../assets/images/디저트_banner2_5.jpg')",
-                "require('../assets/images/디저트_banner3_5.jpg')",
-                "require('../assets/images/디저트_banner4_5.jpg')"
+
             ],
             "menus": [
-                "require('../assets/images/디저트_menu1_5.jpg')",
-                "require('../assets/images/디저트_menu2_5.jpg')",
-                "require('../assets/images/디저트_menu3_5.jpg')",
-                "require('../assets/images/디저트_menu4_5.jpg')",
-                "require('../assets/images/디저트_menu5_5.jpg')",
-                "require('../assets/images/디저트_menu6_5.jpg')",
-                "require('../assets/images/디저트_menu7_5.jpg')",
-                "require('../assets/images/디저트_menu8_5.jpg')",
-                "require('../assets/images/디저트_menu9_5.jpg')",
-                "require('../assets/images/디저트_menu10_5.jpg')"
+
             ],
             "rating": 4.9,
             "reviewCount": 401,
@@ -250,22 +226,10 @@ export const restaurantsByCategory = {
             "id": "디7",
             "name": "초코몽 7호점",
             "banners": [
-                "require('../assets/images/디저트_banner1_6.jpg')",
-                "require('../assets/images/디저트_banner2_6.jpg')",
-                "require('../assets/images/디저트_banner3_6.jpg')",
-                "require('../assets/images/디저트_banner4_6.jpg')"
+
             ],
             "menus": [
-                "require('../assets/images/디저트_menu1_6.jpg')",
-                "require('../assets/images/디저트_menu2_6.jpg')",
-                "require('../assets/images/디저트_menu3_6.jpg')",
-                "require('../assets/images/디저트_menu4_6.jpg')",
-                "require('../assets/images/디저트_menu5_6.jpg')",
-                "require('../assets/images/디저트_menu6_6.jpg')",
-                "require('../assets/images/디저트_menu7_6.jpg')",
-                "require('../assets/images/디저트_menu8_6.jpg')",
-                "require('../assets/images/디저트_menu9_6.jpg')",
-                "require('../assets/images/디저트_menu10_6.jpg')"
+
             ],
             "rating": 4.5,
             "reviewCount": 497,
@@ -275,22 +239,8 @@ export const restaurantsByCategory = {
             "id": "디8",
             "name": "베이커리99 8호점",
             "banners": [
-                "require('../assets/images/디저트_banner1_7.jpg')",
-                "require('../assets/images/디저트_banner2_7.jpg')",
-                "require('../assets/images/디저트_banner3_7.jpg')",
-                "require('../assets/images/디저트_banner4_7.jpg')"
             ],
             "menus": [
-                "require('../assets/images/디저트_menu1_7.jpg')",
-                "require('../assets/images/디저트_menu2_7.jpg')",
-                "require('../assets/images/디저트_menu3_7.jpg')",
-                "require('../assets/images/디저트_menu4_7.jpg')",
-                "require('../assets/images/디저트_menu5_7.jpg')",
-                "require('../assets/images/디저트_menu6_7.jpg')",
-                "require('../assets/images/디저트_menu7_7.jpg')",
-                "require('../assets/images/디저트_menu8_7.jpg')",
-                "require('../assets/images/디저트_menu9_7.jpg')",
-                "require('../assets/images/디저트_menu10_7.jpg')"
             ],
             "rating": 4.4,
             "reviewCount": 240,
@@ -300,22 +250,8 @@ export const restaurantsByCategory = {
             "id": "디9",
             "name": "베이커리99 9호점",
             "banners": [
-                "require('../assets/images/디저트_banner1_8.jpg')",
-                "require('../assets/images/디저트_banner2_8.jpg')",
-                "require('../assets/images/디저트_banner3_8.jpg')",
-                "require('../assets/images/디저트_banner4_8.jpg')"
             ],
             "menus": [
-                "require('../assets/images/디저트_menu1_8.jpg')",
-                "require('../assets/images/디저트_menu2_8.jpg')",
-                "require('../assets/images/디저트_menu3_8.jpg')",
-                "require('../assets/images/디저트_menu4_8.jpg')",
-                "require('../assets/images/디저트_menu5_8.jpg')",
-                "require('../assets/images/디저트_menu6_8.jpg')",
-                "require('../assets/images/디저트_menu7_8.jpg')",
-                "require('../assets/images/디저트_menu8_8.jpg')",
-                "require('../assets/images/디저트_menu9_8.jpg')",
-                "require('../assets/images/디저트_menu10_8.jpg')"
             ],
             "rating": 4.0,
             "reviewCount": 309,
@@ -325,22 +261,10 @@ export const restaurantsByCategory = {
             "id": "디10",
             "name": "달콤카페 10호점",
             "banners": [
-                "require('../assets/images/디저트_banner1_9.jpg')",
-                "require('../assets/images/디저트_banner2_9.jpg')",
-                "require('../assets/images/디저트_banner3_9.jpg')",
-                "require('../assets/images/디저트_banner4_9.jpg')"
+
             ],
             "menus": [
-                "require('../assets/images/디저트_menu1_9.jpg')",
-                "require('../assets/images/디저트_menu2_9.jpg')",
-                "require('../assets/images/디저트_menu3_9.jpg')",
-                "require('../assets/images/디저트_menu4_9.jpg')",
-                "require('../assets/images/디저트_menu5_9.jpg')",
-                "require('../assets/images/디저트_menu6_9.jpg')",
-                "require('../assets/images/디저트_menu7_9.jpg')",
-                "require('../assets/images/디저트_menu8_9.jpg')",
-                "require('../assets/images/디저트_menu9_9.jpg')",
-                "require('../assets/images/디저트_menu10_9.jpg')"
+
             ],
             "rating": 3.9,
             "reviewCount": 209,
@@ -561,22 +485,8 @@ export const restaurantsByCategory = {
             "id": "햄1",
             "name": "빠삐용버거 1호점",
             "banners": [
-                "require('../assets/images/햄버거_banner1_0.jpg')",
-                "require('../assets/images/햄버거_banner2_0.jpg')",
-                "require('../assets/images/햄버거_banner3_0.jpg')",
-                "require('../assets/images/햄버거_banner4_0.jpg')"
             ],
             "menus": [
-                "require('../assets/images/햄버거_menu1_0.jpg')",
-                "require('../assets/images/햄버거_menu2_0.jpg')",
-                "require('../assets/images/햄버거_menu3_0.jpg')",
-                "require('../assets/images/햄버거_menu4_0.jpg')",
-                "require('../assets/images/햄버거_menu5_0.jpg')",
-                "require('../assets/images/햄버거_menu6_0.jpg')",
-                "require('../assets/images/햄버거_menu7_0.jpg')",
-                "require('../assets/images/햄버거_menu8_0.jpg')",
-                "require('../assets/images/햄버거_menu9_0.jpg')",
-                "require('../assets/images/햄버거_menu10_0.jpg')"
             ],
             "rating": 4.8,
             "reviewCount": 164,
@@ -586,22 +496,9 @@ export const restaurantsByCategory = {
             "id": "햄2",
             "name": "그릴버거 2호점",
             "banners": [
-                "require('../assets/images/햄버거_banner1_1.jpg')",
-                "require('../assets/images/햄버거_banner2_1.jpg')",
-                "require('../assets/images/햄버거_banner3_1.jpg')",
-                "require('../assets/images/햄버거_banner4_1.jpg')"
             ],
             "menus": [
-                "require('../assets/images/햄버거_menu1_1.jpg')",
-                "require('../assets/images/햄버거_menu2_1.jpg')",
-                "require('../assets/images/햄버거_menu3_1.jpg')",
-                "require('../assets/images/햄버거_menu4_1.jpg')",
-                "require('../assets/images/햄버거_menu5_1.jpg')",
-                "require('../assets/images/햄버거_menu6_1.jpg')",
-                "require('../assets/images/햄버거_menu7_1.jpg')",
-                "require('../assets/images/햄버거_menu8_1.jpg')",
-                "require('../assets/images/햄버거_menu9_1.jpg')",
-                "require('../assets/images/햄버거_menu10_1.jpg')"
+
             ],
             "rating": 4.4,
             "reviewCount": 400,
@@ -611,22 +508,10 @@ export const restaurantsByCategory = {
             "id": "햄3",
             "name": "빠삐용버거 3호점",
             "banners": [
-                "require('../assets/images/햄버거_banner1_2.jpg')",
-                "require('../assets/images/햄버거_banner2_2.jpg')",
-                "require('../assets/images/햄버거_banner3_2.jpg')",
-                "require('../assets/images/햄버거_banner4_2.jpg')"
+
             ],
             "menus": [
-                "require('../assets/images/햄버거_menu1_2.jpg')",
-                "require('../assets/images/햄버거_menu2_2.jpg')",
-                "require('../assets/images/햄버거_menu3_2.jpg')",
-                "require('../assets/images/햄버거_menu4_2.jpg')",
-                "require('../assets/images/햄버거_menu5_2.jpg')",
-                "require('../assets/images/햄버거_menu6_2.jpg')",
-                "require('../assets/images/햄버거_menu7_2.jpg')",
-                "require('../assets/images/햄버거_menu8_2.jpg')",
-                "require('../assets/images/햄버거_menu9_2.jpg')",
-                "require('../assets/images/햄버거_menu10_2.jpg')"
+
             ],
             "rating": 3.8,
             "reviewCount": 117,
@@ -636,22 +521,10 @@ export const restaurantsByCategory = {
             "id": "햄4",
             "name": "수제버거집 4호점",
             "banners": [
-                "require('../assets/images/햄버거_banner1_3.jpg')",
-                "require('../assets/images/햄버거_banner2_3.jpg')",
-                "require('../assets/images/햄버거_banner3_3.jpg')",
-                "require('../assets/images/햄버거_banner4_3.jpg')"
+
             ],
             "menus": [
-                "require('../assets/images/햄버거_menu1_3.jpg')",
-                "require('../assets/images/햄버거_menu2_3.jpg')",
-                "require('../assets/images/햄버거_menu3_3.jpg')",
-                "require('../assets/images/햄버거_menu4_3.jpg')",
-                "require('../assets/images/햄버거_menu5_3.jpg')",
-                "require('../assets/images/햄버거_menu6_3.jpg')",
-                "require('../assets/images/햄버거_menu7_3.jpg')",
-                "require('../assets/images/햄버거_menu8_3.jpg')",
-                "require('../assets/images/햄버거_menu9_3.jpg')",
-                "require('../assets/images/햄버거_menu10_3.jpg')"
+
             ],
             "rating": 4.3,
             "reviewCount": 115,
@@ -661,22 +534,8 @@ export const restaurantsByCategory = {
             "id": "햄5",
             "name": "버거킹덤 5호점",
             "banners": [
-                "require('../assets/images/햄버거_banner1_4.jpg')",
-                "require('../assets/images/햄버거_banner2_4.jpg')",
-                "require('../assets/images/햄버거_banner3_4.jpg')",
-                "require('../assets/images/햄버거_banner4_4.jpg')"
             ],
             "menus": [
-                "require('../assets/images/햄버거_menu1_4.jpg')",
-                "require('../assets/images/햄버거_menu2_4.jpg')",
-                "require('../assets/images/햄버거_menu3_4.jpg')",
-                "require('../assets/images/햄버거_menu4_4.jpg')",
-                "require('../assets/images/햄버거_menu5_4.jpg')",
-                "require('../assets/images/햄버거_menu6_4.jpg')",
-                "require('../assets/images/햄버거_menu7_4.jpg')",
-                "require('../assets/images/햄버거_menu8_4.jpg')",
-                "require('../assets/images/햄버거_menu9_4.jpg')",
-                "require('../assets/images/햄버거_menu10_4.jpg')"
             ],
             "rating": 4.7,
             "reviewCount": 316,
@@ -686,22 +545,8 @@ export const restaurantsByCategory = {
             "id": "햄6",
             "name": "햄고리 6호점",
             "banners": [
-                "require('../assets/images/햄버거_banner1_5.jpg')",
-                "require('../assets/images/햄버거_banner2_5.jpg')",
-                "require('../assets/images/햄버거_banner3_5.jpg')",
-                "require('../assets/images/햄버거_banner4_5.jpg')"
             ],
             "menus": [
-                "require('../assets/images/햄버거_menu1_5.jpg')",
-                "require('../assets/images/햄버거_menu2_5.jpg')",
-                "require('../assets/images/햄버거_menu3_5.jpg')",
-                "require('../assets/images/햄버거_menu4_5.jpg')",
-                "require('../assets/images/햄버거_menu5_5.jpg')",
-                "require('../assets/images/햄버거_menu6_5.jpg')",
-                "require('../assets/images/햄버거_menu7_5.jpg')",
-                "require('../assets/images/햄버거_menu8_5.jpg')",
-                "require('../assets/images/햄버거_menu9_5.jpg')",
-                "require('../assets/images/햄버거_menu10_5.jpg')"
             ],
             "rating": 3.8,
             "reviewCount": 124,
@@ -711,22 +556,8 @@ export const restaurantsByCategory = {
             "id": "햄7",
             "name": "버거킹덤 7호점",
             "banners": [
-                "require('../assets/images/햄버거_banner1_6.jpg')",
-                "require('../assets/images/햄버거_banner2_6.jpg')",
-                "require('../assets/images/햄버거_banner3_6.jpg')",
-                "require('../assets/images/햄버거_banner4_6.jpg')"
             ],
             "menus": [
-                "require('../assets/images/햄버거_menu1_6.jpg')",
-                "require('../assets/images/햄버거_menu2_6.jpg')",
-                "require('../assets/images/햄버거_menu3_6.jpg')",
-                "require('../assets/images/햄버거_menu4_6.jpg')",
-                "require('../assets/images/햄버거_menu5_6.jpg')",
-                "require('../assets/images/햄버거_menu6_6.jpg')",
-                "require('../assets/images/햄버거_menu7_6.jpg')",
-                "require('../assets/images/햄버거_menu8_6.jpg')",
-                "require('../assets/images/햄버거_menu9_6.jpg')",
-                "require('../assets/images/햄버거_menu10_6.jpg')"
             ],
             "rating": 4.4,
             "reviewCount": 214,
@@ -736,22 +567,8 @@ export const restaurantsByCategory = {
             "id": "햄8",
             "name": "빠삐용버거 8호점",
             "banners": [
-                "require('../assets/images/햄버거_banner1_7.jpg')",
-                "require('../assets/images/햄버거_banner2_7.jpg')",
-                "require('../assets/images/햄버거_banner3_7.jpg')",
-                "require('../assets/images/햄버거_banner4_7.jpg')"
             ],
             "menus": [
-                "require('../assets/images/햄버거_menu1_7.jpg')",
-                "require('../assets/images/햄버거_menu2_7.jpg')",
-                "require('../assets/images/햄버거_menu3_7.jpg')",
-                "require('../assets/images/햄버거_menu4_7.jpg')",
-                "require('../assets/images/햄버거_menu5_7.jpg')",
-                "require('../assets/images/햄버거_menu6_7.jpg')",
-                "require('../assets/images/햄버거_menu7_7.jpg')",
-                "require('../assets/images/햄버거_menu8_7.jpg')",
-                "require('../assets/images/햄버거_menu9_7.jpg')",
-                "require('../assets/images/햄버거_menu10_7.jpg')"
             ],
             "rating": 4.4,
             "reviewCount": 106,
@@ -761,22 +578,9 @@ export const restaurantsByCategory = {
             "id": "햄9",
             "name": "버거킹덤 9호점",
             "banners": [
-                "require('../assets/images/햄버거_banner1_8.jpg')",
-                "require('../assets/images/햄버거_banner2_8.jpg')",
-                "require('../assets/images/햄버거_banner3_8.jpg')",
-                "require('../assets/images/햄버거_banner4_8.jpg')"
+
             ],
             "menus": [
-                "require('../assets/images/햄버거_menu1_8.jpg')",
-                "require('../assets/images/햄버거_menu2_8.jpg')",
-                "require('../assets/images/햄버거_menu3_8.jpg')",
-                "require('../assets/images/햄버거_menu4_8.jpg')",
-                "require('../assets/images/햄버거_menu5_8.jpg')",
-                "require('../assets/images/햄버거_menu6_8.jpg')",
-                "require('../assets/images/햄버거_menu7_8.jpg')",
-                "require('../assets/images/햄버거_menu8_8.jpg')",
-                "require('../assets/images/햄버거_menu9_8.jpg')",
-                "require('../assets/images/햄버거_menu10_8.jpg')"
             ],
             "rating": 3.6,
             "reviewCount": 243,
@@ -786,22 +590,8 @@ export const restaurantsByCategory = {
             "id": "햄10",
             "name": "빠삐용버거 10호점",
             "banners": [
-                "require('../assets/images/햄버거_banner1_9.jpg')",
-                "require('../assets/images/햄버거_banner2_9.jpg')",
-                "require('../assets/images/햄버거_banner3_9.jpg')",
-                "require('../assets/images/햄버거_banner4_9.jpg')"
             ],
             "menus": [
-                "require('../assets/images/햄버거_menu1_9.jpg')",
-                "require('../assets/images/햄버거_menu2_9.jpg')",
-                "require('../assets/images/햄버거_menu3_9.jpg')",
-                "require('../assets/images/햄버거_menu4_9.jpg')",
-                "require('../assets/images/햄버거_menu5_9.jpg')",
-                "require('../assets/images/햄버거_menu6_9.jpg')",
-                "require('../assets/images/햄버거_menu7_9.jpg')",
-                "require('../assets/images/햄버거_menu8_9.jpg')",
-                "require('../assets/images/햄버거_menu9_9.jpg')",
-                "require('../assets/images/햄버거_menu10_9.jpg')"
             ],
             "rating": 4.3,
             "reviewCount": 401,
@@ -813,22 +603,8 @@ export const restaurantsByCategory = {
             "id": "한1",
             "name": "순대국밥집 1호점",
             "banners": [
-                "require('../assets/images/한식_banner1_0.jpg')",
-                "require('../assets/images/한식_banner2_0.jpg')",
-                "require('../assets/images/한식_banner3_0.jpg')",
-                "require('../assets/images/한식_banner4_0.jpg')"
             ],
             "menus": [
-                "require('../assets/images/한식_menu1_0.jpg')",
-                "require('../assets/images/한식_menu2_0.jpg')",
-                "require('../assets/images/한식_menu3_0.jpg')",
-                "require('../assets/images/한식_menu4_0.jpg')",
-                "require('../assets/images/한식_menu5_0.jpg')",
-                "require('../assets/images/한식_menu6_0.jpg')",
-                "require('../assets/images/한식_menu7_0.jpg')",
-                "require('../assets/images/한식_menu8_0.jpg')",
-                "require('../assets/images/한식_menu9_0.jpg')",
-                "require('../assets/images/한식_menu10_0.jpg')"
             ],
             "rating": 3.6,
             "reviewCount": 65,
@@ -838,22 +614,8 @@ export const restaurantsByCategory = {
             "id": "한2",
             "name": "엄마의집밥 2호점",
             "banners": [
-                "require('../assets/images/한식_banner1_1.jpg')",
-                "require('../assets/images/한식_banner2_1.jpg')",
-                "require('../assets/images/한식_banner3_1.jpg')",
-                "require('../assets/images/한식_banner4_1.jpg')"
             ],
             "menus": [
-                "require('../assets/images/한식_menu1_1.jpg')",
-                "require('../assets/images/한식_menu2_1.jpg')",
-                "require('../assets/images/한식_menu3_1.jpg')",
-                "require('../assets/images/한식_menu4_1.jpg')",
-                "require('../assets/images/한식_menu5_1.jpg')",
-                "require('../assets/images/한식_menu6_1.jpg')",
-                "require('../assets/images/한식_menu7_1.jpg')",
-                "require('../assets/images/한식_menu8_1.jpg')",
-                "require('../assets/images/한식_menu9_1.jpg')",
-                "require('../assets/images/한식_menu10_1.jpg')"
             ],
             "rating": 3.5,
             "reviewCount": 275,
@@ -863,22 +625,8 @@ export const restaurantsByCategory = {
             "id": "한3",
             "name": "한상차림 3호점",
             "banners": [
-                "require('../assets/images/한식_banner1_2.jpg')",
-                "require('../assets/images/한식_banner2_2.jpg')",
-                "require('../assets/images/한식_banner3_2.jpg')",
-                "require('../assets/images/한식_banner4_2.jpg')"
             ],
             "menus": [
-                "require('../assets/images/한식_menu1_2.jpg')",
-                "require('../assets/images/한식_menu2_2.jpg')",
-                "require('../assets/images/한식_menu3_2.jpg')",
-                "require('../assets/images/한식_menu4_2.jpg')",
-                "require('../assets/images/한식_menu5_2.jpg')",
-                "require('../assets/images/한식_menu6_2.jpg')",
-                "require('../assets/images/한식_menu7_2.jpg')",
-                "require('../assets/images/한식_menu8_2.jpg')",
-                "require('../assets/images/한식_menu9_2.jpg')",
-                "require('../assets/images/한식_menu10_2.jpg')"
             ],
             "rating": 3.6,
             "reviewCount": 491,
@@ -888,22 +636,8 @@ export const restaurantsByCategory = {
             "id": "한4",
             "name": "된장명가 4호점",
             "banners": [
-                "require('../assets/images/한식_banner1_3.jpg')",
-                "require('../assets/images/한식_banner2_3.jpg')",
-                "require('../assets/images/한식_banner3_3.jpg')",
-                "require('../assets/images/한식_banner4_3.jpg')"
             ],
             "menus": [
-                "require('../assets/images/한식_menu1_3.jpg')",
-                "require('../assets/images/한식_menu2_3.jpg')",
-                "require('../assets/images/한식_menu3_3.jpg')",
-                "require('../assets/images/한식_menu4_3.jpg')",
-                "require('../assets/images/한식_menu5_3.jpg')",
-                "require('../assets/images/한식_menu6_3.jpg')",
-                "require('../assets/images/한식_menu7_3.jpg')",
-                "require('../assets/images/한식_menu8_3.jpg')",
-                "require('../assets/images/한식_menu9_3.jpg')",
-                "require('../assets/images/한식_menu10_3.jpg')"
             ],
             "rating": 3.6,
             "reviewCount": 319,
@@ -913,22 +647,8 @@ export const restaurantsByCategory = {
             "id": "한5",
             "name": "한식당 5호점",
             "banners": [
-                "require('../assets/images/한식_banner1_4.jpg')",
-                "require('../assets/images/한식_banner2_4.jpg')",
-                "require('../assets/images/한식_banner3_4.jpg')",
-                "require('../assets/images/한식_banner4_4.jpg')"
             ],
             "menus": [
-                "require('../assets/images/한식_menu1_4.jpg')",
-                "require('../assets/images/한식_menu2_4.jpg')",
-                "require('../assets/images/한식_menu3_4.jpg')",
-                "require('../assets/images/한식_menu4_4.jpg')",
-                "require('../assets/images/한식_menu5_4.jpg')",
-                "require('../assets/images/한식_menu6_4.jpg')",
-                "require('../assets/images/한식_menu7_4.jpg')",
-                "require('../assets/images/한식_menu8_4.jpg')",
-                "require('../assets/images/한식_menu9_4.jpg')",
-                "require('../assets/images/한식_menu10_4.jpg')"
             ],
             "rating": 3.6,
             "reviewCount": 279,
@@ -938,22 +658,8 @@ export const restaurantsByCategory = {
             "id": "한6",
             "name": "순대국밥집 6호점",
             "banners": [
-                "require('../assets/images/한식_banner1_5.jpg')",
-                "require('../assets/images/한식_banner2_5.jpg')",
-                "require('../assets/images/한식_banner3_5.jpg')",
-                "require('../assets/images/한식_banner4_5.jpg')"
             ],
             "menus": [
-                "require('../assets/images/한식_menu1_5.jpg')",
-                "require('../assets/images/한식_menu2_5.jpg')",
-                "require('../assets/images/한식_menu3_5.jpg')",
-                "require('../assets/images/한식_menu4_5.jpg')",
-                "require('../assets/images/한식_menu5_5.jpg')",
-                "require('../assets/images/한식_menu6_5.jpg')",
-                "require('../assets/images/한식_menu7_5.jpg')",
-                "require('../assets/images/한식_menu8_5.jpg')",
-                "require('../assets/images/한식_menu9_5.jpg')",
-                "require('../assets/images/한식_menu10_5.jpg')"
             ],
             "rating": 4.1,
             "reviewCount": 302,
@@ -963,22 +669,8 @@ export const restaurantsByCategory = {
             "id": "한7",
             "name": "한상차림 7호점",
             "banners": [
-                "require('../assets/images/한식_banner1_6.jpg')",
-                "require('../assets/images/한식_banner2_6.jpg')",
-                "require('../assets/images/한식_banner3_6.jpg')",
-                "require('../assets/images/한식_banner4_6.jpg')"
             ],
             "menus": [
-                "require('../assets/images/한식_menu1_6.jpg')",
-                "require('../assets/images/한식_menu2_6.jpg')",
-                "require('../assets/images/한식_menu3_6.jpg')",
-                "require('../assets/images/한식_menu4_6.jpg')",
-                "require('../assets/images/한식_menu5_6.jpg')",
-                "require('../assets/images/한식_menu6_6.jpg')",
-                "require('../assets/images/한식_menu7_6.jpg')",
-                "require('../assets/images/한식_menu8_6.jpg')",
-                "require('../assets/images/한식_menu9_6.jpg')",
-                "require('../assets/images/한식_menu10_6.jpg')"
             ],
             "rating": 4.5,
             "reviewCount": 435,
@@ -988,22 +680,8 @@ export const restaurantsByCategory = {
             "id": "한8",
             "name": "된장명가 8호점",
             "banners": [
-                "require('../assets/images/한식_banner1_7.jpg')",
-                "require('../assets/images/한식_banner2_7.jpg')",
-                "require('../assets/images/한식_banner3_7.jpg')",
-                "require('../assets/images/한식_banner4_7.jpg')"
             ],
             "menus": [
-                "require('../assets/images/한식_menu1_7.jpg')",
-                "require('../assets/images/한식_menu2_7.jpg')",
-                "require('../assets/images/한식_menu3_7.jpg')",
-                "require('../assets/images/한식_menu4_7.jpg')",
-                "require('../assets/images/한식_menu5_7.jpg')",
-                "require('../assets/images/한식_menu6_7.jpg')",
-                "require('../assets/images/한식_menu7_7.jpg')",
-                "require('../assets/images/한식_menu8_7.jpg')",
-                "require('../assets/images/한식_menu9_7.jpg')",
-                "require('../assets/images/한식_menu10_7.jpg')"
             ],
             "rating": 3.6,
             "reviewCount": 490,
@@ -1013,22 +691,8 @@ export const restaurantsByCategory = {
             "id": "한9",
             "name": "순대국밥집 9호점",
             "banners": [
-                "require('../assets/images/한식_banner1_8.jpg')",
-                "require('../assets/images/한식_banner2_8.jpg')",
-                "require('../assets/images/한식_banner3_8.jpg')",
-                "require('../assets/images/한식_banner4_8.jpg')"
             ],
             "menus": [
-                "require('../assets/images/한식_menu1_8.jpg')",
-                "require('../assets/images/한식_menu2_8.jpg')",
-                "require('../assets/images/한식_menu3_8.jpg')",
-                "require('../assets/images/한식_menu4_8.jpg')",
-                "require('../assets/images/한식_menu5_8.jpg')",
-                "require('../assets/images/한식_menu6_8.jpg')",
-                "require('../assets/images/한식_menu7_8.jpg')",
-                "require('../assets/images/한식_menu8_8.jpg')",
-                "require('../assets/images/한식_menu9_8.jpg')",
-                "require('../assets/images/한식_menu10_8.jpg')"
             ],
             "rating": 4.6,
             "reviewCount": 124,
@@ -1038,22 +702,8 @@ export const restaurantsByCategory = {
             "id": "한10",
             "name": "된장명가 10호점",
             "banners": [
-                "require('../assets/images/한식_banner1_9.jpg')",
-                "require('../assets/images/한식_banner2_9.jpg')",
-                "require('../assets/images/한식_banner3_9.jpg')",
-                "require('../assets/images/한식_banner4_9.jpg')"
             ],
             "menus": [
-                "require('../assets/images/한식_menu1_9.jpg')",
-                "require('../assets/images/한식_menu2_9.jpg')",
-                "require('../assets/images/한식_menu3_9.jpg')",
-                "require('../assets/images/한식_menu4_9.jpg')",
-                "require('../assets/images/한식_menu5_9.jpg')",
-                "require('../assets/images/한식_menu6_9.jpg')",
-                "require('../assets/images/한식_menu7_9.jpg')",
-                "require('../assets/images/한식_menu8_9.jpg')",
-                "require('../assets/images/한식_menu9_9.jpg')",
-                "require('../assets/images/한식_menu10_9.jpg')"
             ],
             "rating": 3.9,
             "reviewCount": 399,
@@ -1065,22 +715,8 @@ export const restaurantsByCategory = {
             "id": "분1",
             "name": "김밥나라 1호점",
             "banners": [
-                "require('../assets/images/분식_banner1_0.jpg')",
-                "require('../assets/images/분식_banner2_0.jpg')",
-                "require('../assets/images/분식_banner3_0.jpg')",
-                "require('../assets/images/분식_banner4_0.jpg')"
             ],
             "menus": [
-                "require('../assets/images/분식_menu1_0.jpg')",
-                "require('../assets/images/분식_menu2_0.jpg')",
-                "require('../assets/images/분식_menu3_0.jpg')",
-                "require('../assets/images/분식_menu4_0.jpg')",
-                "require('../assets/images/분식_menu5_0.jpg')",
-                "require('../assets/images/분식_menu6_0.jpg')",
-                "require('../assets/images/분식_menu7_0.jpg')",
-                "require('../assets/images/분식_menu8_0.jpg')",
-                "require('../assets/images/분식_menu9_0.jpg')",
-                "require('../assets/images/분식_menu10_0.jpg')"
             ],
             "rating": 4.3,
             "reviewCount": 53,
@@ -1165,22 +801,8 @@ export const restaurantsByCategory = {
             "id": "분5",
             "name": "분식이좋아 5호점",
             "banners": [
-                "require('../assets/images/분식_banner1_4.jpg')",
-                "require('../assets/images/분식_banner2_4.jpg')",
-                "require('../assets/images/분식_banner3_4.jpg')",
-                "require('../assets/images/분식_banner4_4.jpg')"
             ],
             "menus": [
-                "require('../assets/images/분식_menu1_4.jpg')",
-                "require('../assets/images/분식_menu2_4.jpg')",
-                "require('../assets/images/분식_menu3_4.jpg')",
-                "require('../assets/images/분식_menu4_4.jpg')",
-                "require('../assets/images/분식_menu5_4.jpg')",
-                "require('../assets/images/분식_menu6_4.jpg')",
-                "require('../assets/images/분식_menu7_4.jpg')",
-                "require('../assets/images/분식_menu8_4.jpg')",
-                "require('../assets/images/분식_menu9_4.jpg')",
-                "require('../assets/images/분식_menu10_4.jpg')"
             ],
             "rating": 4.7,
             "reviewCount": 152,
@@ -1190,22 +812,9 @@ export const restaurantsByCategory = {
             "id": "분6",
             "name": "분식이좋아 6호점",
             "banners": [
-                "require('../assets/images/분식_banner1_5.jpg')",
-                "require('../assets/images/분식_banner2_5.jpg')",
-                "require('../assets/images/분식_banner3_5.jpg')",
-                "require('../assets/images/분식_banner4_5.jpg')"
             ],
             "menus": [
-                "require('../assets/images/분식_menu1_5.jpg')",
-                "require('../assets/images/분식_menu2_5.jpg')",
-                "require('../assets/images/분식_menu3_5.jpg')",
-                "require('../assets/images/분식_menu4_5.jpg')",
-                "require('../assets/images/분식_menu5_5.jpg')",
-                "require('../assets/images/분식_menu6_5.jpg')",
-                "require('../assets/images/분식_menu7_5.jpg')",
-                "require('../assets/images/분식_menu8_5.jpg')",
-                "require('../assets/images/분식_menu9_5.jpg')",
-                "require('../assets/images/분식_menu10_5.jpg')"
+
             ],
             "rating": 4.2,
             "reviewCount": 110,
@@ -1215,22 +824,10 @@ export const restaurantsByCategory = {
             "id": "분7",
             "name": "분식왕 7호점",
             "banners": [
-                "require('../assets/images/분식_banner1_6.jpg')",
-                "require('../assets/images/분식_banner2_6.jpg')",
-                "require('../assets/images/분식_banner3_6.jpg')",
-                "require('../assets/images/분식_banner4_6.jpg')"
+
             ],
             "menus": [
-                "require('../assets/images/분식_menu1_6.jpg')",
-                "require('../assets/images/분식_menu2_6.jpg')",
-                "require('../assets/images/분식_menu3_6.jpg')",
-                "require('../assets/images/분식_menu4_6.jpg')",
-                "require('../assets/images/분식_menu5_6.jpg')",
-                "require('../assets/images/분식_menu6_6.jpg')",
-                "require('../assets/images/분식_menu7_6.jpg')",
-                "require('../assets/images/분식_menu8_6.jpg')",
-                "require('../assets/images/분식_menu9_6.jpg')",
-                "require('../assets/images/분식_menu10_6.jpg')"
+
             ],
             "rating": 4.1,
             "reviewCount": 238,
@@ -1240,22 +837,8 @@ export const restaurantsByCategory = {
             "id": "분8",
             "name": "떡볶이천국 8호점",
             "banners": [
-                "require('../assets/images/분식_banner1_7.jpg')",
-                "require('../assets/images/분식_banner2_7.jpg')",
-                "require('../assets/images/분식_banner3_7.jpg')",
-                "require('../assets/images/분식_banner4_7.jpg')"
             ],
             "menus": [
-                "require('../assets/images/분식_menu1_7.jpg')",
-                "require('../assets/images/분식_menu2_7.jpg')",
-                "require('../assets/images/분식_menu3_7.jpg')",
-                "require('../assets/images/분식_menu4_7.jpg')",
-                "require('../assets/images/분식_menu5_7.jpg')",
-                "require('../assets/images/분식_menu6_7.jpg')",
-                "require('../assets/images/분식_menu7_7.jpg')",
-                "require('../assets/images/분식_menu8_7.jpg')",
-                "require('../assets/images/분식_menu9_7.jpg')",
-                "require('../assets/images/분식_menu10_7.jpg')"
             ],
             "rating": 4.5,
             "reviewCount": 128,
@@ -1265,22 +848,10 @@ export const restaurantsByCategory = {
             "id": "분9",
             "name": "떡볶이천국 9호점",
             "banners": [
-                "require('../assets/images/분식_banner1_8.jpg')",
-                "require('../assets/images/분식_banner2_8.jpg')",
-                "require('../assets/images/분식_banner3_8.jpg')",
-                "require('../assets/images/분식_banner4_8.jpg')"
+
             ],
             "menus": [
-                "require('../assets/images/분식_menu1_8.jpg')",
-                "require('../assets/images/분식_menu2_8.jpg')",
-                "require('../assets/images/분식_menu3_8.jpg')",
-                "require('../assets/images/분식_menu4_8.jpg')",
-                "require('../assets/images/분식_menu5_8.jpg')",
-                "require('../assets/images/분식_menu6_8.jpg')",
-                "require('../assets/images/분식_menu7_8.jpg')",
-                "require('../assets/images/분식_menu8_8.jpg')",
-                "require('../assets/images/분식_menu9_8.jpg')",
-                "require('../assets/images/분식_menu10_8.jpg')"
+
             ],
             "rating": 4.0,
             "reviewCount": 137,
@@ -1290,22 +861,10 @@ export const restaurantsByCategory = {
             "id": "분10",
             "name": "떡볶이천국 10호점",
             "banners": [
-                "require('../assets/images/분식_banner1_9.jpg')",
-                "require('../assets/images/분식_banner2_9.jpg')",
-                "require('../assets/images/분식_banner3_9.jpg')",
-                "require('../assets/images/분식_banner4_9.jpg')"
+
             ],
             "menus": [
-                "require('../assets/images/분식_menu1_9.jpg')",
-                "require('../assets/images/분식_menu2_9.jpg')",
-                "require('../assets/images/분식_menu3_9.jpg')",
-                "require('../assets/images/분식_menu4_9.jpg')",
-                "require('../assets/images/분식_menu5_9.jpg')",
-                "require('../assets/images/분식_menu6_9.jpg')",
-                "require('../assets/images/분식_menu7_9.jpg')",
-                "require('../assets/images/분식_menu8_9.jpg')",
-                "require('../assets/images/분식_menu9_9.jpg')",
-                "require('../assets/images/분식_menu10_9.jpg')"
+
             ],
             "rating": 4.6,
             "reviewCount": 114,
@@ -1317,22 +876,9 @@ export const restaurantsByCategory = {
             "id": "일1",
             "name": "라멘하우스 1호점",
             "banners": [
-                "require('../assets/images/일식_banner1_0.jpg')",
-                "require('../assets/images/일식_banner2_0.jpg')",
-                "require('../assets/images/일식_banner3_0.jpg')",
-                "require('../assets/images/일식_banner4_0.jpg')"
+
             ],
             "menus": [
-                "require('../assets/images/일식_menu1_0.jpg')",
-                "require('../assets/images/일식_menu2_0.jpg')",
-                "require('../assets/images/일식_menu3_0.jpg')",
-                "require('../assets/images/일식_menu4_0.jpg')",
-                "require('../assets/images/일식_menu5_0.jpg')",
-                "require('../assets/images/일식_menu6_0.jpg')",
-                "require('../assets/images/일식_menu7_0.jpg')",
-                "require('../assets/images/일식_menu8_0.jpg')",
-                "require('../assets/images/일식_menu9_0.jpg')",
-                "require('../assets/images/일식_menu10_0.jpg')"
             ],
             "rating": 4.4,
             "reviewCount": 101,
@@ -1342,22 +888,8 @@ export const restaurantsByCategory = {
             "id": "일2",
             "name": "스시로드 2호점",
             "banners": [
-                "require('../assets/images/일식_banner1_1.jpg')",
-                "require('../assets/images/일식_banner2_1.jpg')",
-                "require('../assets/images/일식_banner3_1.jpg')",
-                "require('../assets/images/일식_banner4_1.jpg')"
             ],
             "menus": [
-                "require('../assets/images/일식_menu1_1.jpg')",
-                "require('../assets/images/일식_menu2_1.jpg')",
-                "require('../assets/images/일식_menu3_1.jpg')",
-                "require('../assets/images/일식_menu4_1.jpg')",
-                "require('../assets/images/일식_menu5_1.jpg')",
-                "require('../assets/images/일식_menu6_1.jpg')",
-                "require('../assets/images/일식_menu7_1.jpg')",
-                "require('../assets/images/일식_menu8_1.jpg')",
-                "require('../assets/images/일식_menu9_1.jpg')",
-                "require('../assets/images/일식_menu10_1.jpg')"
             ],
             "rating": 4.7,
             "reviewCount": 51,
@@ -1367,22 +899,10 @@ export const restaurantsByCategory = {
             "id": "일3",
             "name": "스시야 3호점",
             "banners": [
-                "require('../assets/images/일식_banner1_2.jpg')",
-                "require('../assets/images/일식_banner2_2.jpg')",
-                "require('../assets/images/일식_banner3_2.jpg')",
-                "require('../assets/images/일식_banner4_2.jpg')"
+
             ],
             "menus": [
-                "require('../assets/images/일식_menu1_2.jpg')",
-                "require('../assets/images/일식_menu2_2.jpg')",
-                "require('../assets/images/일식_menu3_2.jpg')",
-                "require('../assets/images/일식_menu4_2.jpg')",
-                "require('../assets/images/일식_menu5_2.jpg')",
-                "require('../assets/images/일식_menu6_2.jpg')",
-                "require('../assets/images/일식_menu7_2.jpg')",
-                "require('../assets/images/일식_menu8_2.jpg')",
-                "require('../assets/images/일식_menu9_2.jpg')",
-                "require('../assets/images/일식_menu10_2.jpg')"
+
             ],
             "rating": 3.7,
             "reviewCount": 433,
@@ -1392,22 +912,8 @@ export const restaurantsByCategory = {
             "id": "일4",
             "name": "일식명가 4호점",
             "banners": [
-                "require('../assets/images/일식_banner1_3.jpg')",
-                "require('../assets/images/일식_banner2_3.jpg')",
-                "require('../assets/images/일식_banner3_3.jpg')",
-                "require('../assets/images/일식_banner4_3.jpg')"
             ],
             "menus": [
-                "require('../assets/images/일식_menu1_3.jpg')",
-                "require('../assets/images/일식_menu2_3.jpg')",
-                "require('../assets/images/일식_menu3_3.jpg')",
-                "require('../assets/images/일식_menu4_3.jpg')",
-                "require('../assets/images/일식_menu5_3.jpg')",
-                "require('../assets/images/일식_menu6_3.jpg')",
-                "require('../assets/images/일식_menu7_3.jpg')",
-                "require('../assets/images/일식_menu8_3.jpg')",
-                "require('../assets/images/일식_menu9_3.jpg')",
-                "require('../assets/images/일식_menu10_3.jpg')"
             ],
             "rating": 4.9,
             "reviewCount": 90,
@@ -1417,22 +923,10 @@ export const restaurantsByCategory = {
             "id": "일5",
             "name": "돈부리킹 5호점",
             "banners": [
-                "require('../assets/images/일식_banner1_4.jpg')",
-                "require('../assets/images/일식_banner2_4.jpg')",
-                "require('../assets/images/일식_banner3_4.jpg')",
-                "require('../assets/images/일식_banner4_4.jpg')"
+
             ],
             "menus": [
-                "require('../assets/images/일식_menu1_4.jpg')",
-                "require('../assets/images/일식_menu2_4.jpg')",
-                "require('../assets/images/일식_menu3_4.jpg')",
-                "require('../assets/images/일식_menu4_4.jpg')",
-                "require('../assets/images/일식_menu5_4.jpg')",
-                "require('../assets/images/일식_menu6_4.jpg')",
-                "require('../assets/images/일식_menu7_4.jpg')",
-                "require('../assets/images/일식_menu8_4.jpg')",
-                "require('../assets/images/일식_menu9_4.jpg')",
-                "require('../assets/images/일식_menu10_4.jpg')"
+
             ],
             "rating": 3.6,
             "reviewCount": 312,
@@ -1442,22 +936,10 @@ export const restaurantsByCategory = {
             "id": "일6",
             "name": "스시로드 6호점",
             "banners": [
-                "require('../assets/images/일식_banner1_5.jpg')",
-                "require('../assets/images/일식_banner2_5.jpg')",
-                "require('../assets/images/일식_banner3_5.jpg')",
-                "require('../assets/images/일식_banner4_5.jpg')"
+
             ],
             "menus": [
-                "require('../assets/images/일식_menu1_5.jpg')",
-                "require('../assets/images/일식_menu2_5.jpg')",
-                "require('../assets/images/일식_menu3_5.jpg')",
-                "require('../assets/images/일식_menu4_5.jpg')",
-                "require('../assets/images/일식_menu5_5.jpg')",
-                "require('../assets/images/일식_menu6_5.jpg')",
-                "require('../assets/images/일식_menu7_5.jpg')",
-                "require('../assets/images/일식_menu8_5.jpg')",
-                "require('../assets/images/일식_menu9_5.jpg')",
-                "require('../assets/images/일식_menu10_5.jpg')"
+
             ],
             "rating": 3.5,
             "reviewCount": 475,
@@ -1467,22 +949,8 @@ export const restaurantsByCategory = {
             "id": "일7",
             "name": "일식명가 7호점",
             "banners": [
-                "require('../assets/images/일식_banner1_6.jpg')",
-                "require('../assets/images/일식_banner2_6.jpg')",
-                "require('../assets/images/일식_banner3_6.jpg')",
-                "require('../assets/images/일식_banner4_6.jpg')"
             ],
             "menus": [
-                "require('../assets/images/일식_menu1_6.jpg')",
-                "require('../assets/images/일식_menu2_6.jpg')",
-                "require('../assets/images/일식_menu3_6.jpg')",
-                "require('../assets/images/일식_menu4_6.jpg')",
-                "require('../assets/images/일식_menu5_6.jpg')",
-                "require('../assets/images/일식_menu6_6.jpg')",
-                "require('../assets/images/일식_menu7_6.jpg')",
-                "require('../assets/images/일식_menu8_6.jpg')",
-                "require('../assets/images/일식_menu9_6.jpg')",
-                "require('../assets/images/일식_menu10_6.jpg')"
             ],
             "rating": 5.0,
             "reviewCount": 49,
@@ -1492,22 +960,9 @@ export const restaurantsByCategory = {
             "id": "일8",
             "name": "일식명가 8호점",
             "banners": [
-                "require('../assets/images/일식_banner1_7.jpg')",
-                "require('../assets/images/일식_banner2_7.jpg')",
-                "require('../assets/images/일식_banner3_7.jpg')",
-                "require('../assets/images/일식_banner4_7.jpg')"
             ],
             "menus": [
-                "require('../assets/images/일식_menu1_7.jpg')",
-                "require('../assets/images/일식_menu2_7.jpg')",
-                "require('../assets/images/일식_menu3_7.jpg')",
-                "require('../assets/images/일식_menu4_7.jpg')",
-                "require('../assets/images/일식_menu5_7.jpg')",
-                "require('../assets/images/일식_menu6_7.jpg')",
-                "require('../assets/images/일식_menu7_7.jpg')",
-                "require('../assets/images/일식_menu8_7.jpg')",
-                "require('../assets/images/일식_menu9_7.jpg')",
-                "require('../assets/images/일식_menu10_7.jpg')"
+
             ],
             "rating": 4.4,
             "reviewCount": 59,
@@ -1517,22 +972,9 @@ export const restaurantsByCategory = {
             "id": "일9",
             "name": "스시로드 9호점",
             "banners": [
-                "require('../assets/images/일식_banner1_8.jpg')",
-                "require('../assets/images/일식_banner2_8.jpg')",
-                "require('../assets/images/일식_banner3_8.jpg')",
-                "require('../assets/images/일식_banner4_8.jpg')"
             ],
             "menus": [
-                "require('../assets/images/일식_menu1_8.jpg')",
-                "require('../assets/images/일식_menu2_8.jpg')",
-                "require('../assets/images/일식_menu3_8.jpg')",
-                "require('../assets/images/일식_menu4_8.jpg')",
-                "require('../assets/images/일식_menu5_8.jpg')",
-                "require('../assets/images/일식_menu6_8.jpg')",
-                "require('../assets/images/일식_menu7_8.jpg')",
-                "require('../assets/images/일식_menu8_8.jpg')",
-                "require('../assets/images/일식_menu9_8.jpg')",
-                "require('../assets/images/일식_menu10_8.jpg')"
+
             ],
             "rating": 4.9,
             "reviewCount": 237,
@@ -1542,22 +984,10 @@ export const restaurantsByCategory = {
             "id": "일10",
             "name": "돈부리킹 10호점",
             "banners": [
-                "require('../assets/images/일식_banner1_9.jpg')",
-                "require('../assets/images/일식_banner2_9.jpg')",
-                "require('../assets/images/일식_banner3_9.jpg')",
-                "require('../assets/images/일식_banner4_9.jpg')"
+
             ],
             "menus": [
-                "require('../assets/images/일식_menu1_9.jpg')",
-                "require('../assets/images/일식_menu2_9.jpg')",
-                "require('../assets/images/일식_menu3_9.jpg')",
-                "require('../assets/images/일식_menu4_9.jpg')",
-                "require('../assets/images/일식_menu5_9.jpg')",
-                "require('../assets/images/일식_menu6_9.jpg')",
-                "require('../assets/images/일식_menu7_9.jpg')",
-                "require('../assets/images/일식_menu8_9.jpg')",
-                "require('../assets/images/일식_menu9_9.jpg')",
-                "require('../assets/images/일식_menu10_9.jpg')"
+
             ],
             "rating": 3.7,
             "reviewCount": 460,
@@ -1569,22 +999,8 @@ export const restaurantsByCategory = {
             "id": "피1",
             "name": "피자몽 1호점",
             "banners": [
-                "require('../assets/images/피자_banner1_0.jpg')",
-                "require('../assets/images/피자_banner2_0.jpg')",
-                "require('../assets/images/피자_banner3_0.jpg')",
-                "require('../assets/images/피자_banner4_0.jpg')"
             ],
             "menus": [
-                "require('../assets/images/피자_menu1_0.jpg')",
-                "require('../assets/images/피자_menu2_0.jpg')",
-                "require('../assets/images/피자_menu3_0.jpg')",
-                "require('../assets/images/피자_menu4_0.jpg')",
-                "require('../assets/images/피자_menu5_0.jpg')",
-                "require('../assets/images/피자_menu6_0.jpg')",
-                "require('../assets/images/피자_menu7_0.jpg')",
-                "require('../assets/images/피자_menu8_0.jpg')",
-                "require('../assets/images/피자_menu9_0.jpg')",
-                "require('../assets/images/피자_menu10_0.jpg')"
             ],
             "rating": 4.0,
             "reviewCount": 373,
@@ -1594,22 +1010,10 @@ export const restaurantsByCategory = {
             "id": "피2",
             "name": "페퍼로니 2호점",
             "banners": [
-                "require('../assets/images/피자_banner1_1.jpg')",
-                "require('../assets/images/피자_banner2_1.jpg')",
-                "require('../assets/images/피자_banner3_1.jpg')",
-                "require('../assets/images/피자_banner4_1.jpg')"
+
             ],
             "menus": [
-                "require('../assets/images/피자_menu1_1.jpg')",
-                "require('../assets/images/피자_menu2_1.jpg')",
-                "require('../assets/images/피자_menu3_1.jpg')",
-                "require('../assets/images/피자_menu4_1.jpg')",
-                "require('../assets/images/피자_menu5_1.jpg')",
-                "require('../assets/images/피자_menu6_1.jpg')",
-                "require('../assets/images/피자_menu7_1.jpg')",
-                "require('../assets/images/피자_menu8_1.jpg')",
-                "require('../assets/images/피자_menu9_1.jpg')",
-                "require('../assets/images/피자_menu10_1.jpg')"
+
             ],
             "rating": 3.7,
             "reviewCount": 359,
@@ -1619,22 +1023,8 @@ export const restaurantsByCategory = {
             "id": "피3",
             "name": "오븐피자 3호점",
             "banners": [
-                "require('../assets/images/피자_banner1_2.jpg')",
-                "require('../assets/images/피자_banner2_2.jpg')",
-                "require('../assets/images/피자_banner3_2.jpg')",
-                "require('../assets/images/피자_banner4_2.jpg')"
             ],
             "menus": [
-                "require('../assets/images/피자_menu1_2.jpg')",
-                "require('../assets/images/피자_menu2_2.jpg')",
-                "require('../assets/images/피자_menu3_2.jpg')",
-                "require('../assets/images/피자_menu4_2.jpg')",
-                "require('../assets/images/피자_menu5_2.jpg')",
-                "require('../assets/images/피자_menu6_2.jpg')",
-                "require('../assets/images/피자_menu7_2.jpg')",
-                "require('../assets/images/피자_menu8_2.jpg')",
-                "require('../assets/images/피자_menu9_2.jpg')",
-                "require('../assets/images/피자_menu10_2.jpg')"
             ],
             "rating": 4.3,
             "reviewCount": 277,
@@ -1644,22 +1034,8 @@ export const restaurantsByCategory = {
             "id": "피4",
             "name": "피자몽 4호점",
             "banners": [
-                "require('../assets/images/피자_banner1_3.jpg')",
-                "require('../assets/images/피자_banner2_3.jpg')",
-                "require('../assets/images/피자_banner3_3.jpg')",
-                "require('../assets/images/피자_banner4_3.jpg')"
             ],
             "menus": [
-                "require('../assets/images/피자_menu1_3.jpg')",
-                "require('../assets/images/피자_menu2_3.jpg')",
-                "require('../assets/images/피자_menu3_3.jpg')",
-                "require('../assets/images/피자_menu4_3.jpg')",
-                "require('../assets/images/피자_menu5_3.jpg')",
-                "require('../assets/images/피자_menu6_3.jpg')",
-                "require('../assets/images/피자_menu7_3.jpg')",
-                "require('../assets/images/피자_menu8_3.jpg')",
-                "require('../assets/images/피자_menu9_3.jpg')",
-                "require('../assets/images/피자_menu10_3.jpg')"
             ],
             "rating": 4.8,
             "reviewCount": 236,
@@ -1669,22 +1045,9 @@ export const restaurantsByCategory = {
             "id": "피5",
             "name": "페퍼로니 5호점",
             "banners": [
-                "require('../assets/images/피자_banner1_4.jpg')",
-                "require('../assets/images/피자_banner2_4.jpg')",
-                "require('../assets/images/피자_banner3_4.jpg')",
-                "require('../assets/images/피자_banner4_4.jpg')"
             ],
             "menus": [
-                "require('../assets/images/피자_menu1_4.jpg')",
-                "require('../assets/images/피자_menu2_4.jpg')",
-                "require('../assets/images/피자_menu3_4.jpg')",
-                "require('../assets/images/피자_menu4_4.jpg')",
-                "require('../assets/images/피자_menu5_4.jpg')",
-                "require('../assets/images/피자_menu6_4.jpg')",
-                "require('../assets/images/피자_menu7_4.jpg')",
-                "require('../assets/images/피자_menu8_4.jpg')",
-                "require('../assets/images/피자_menu9_4.jpg')",
-                "require('../assets/images/피자_menu10_4.jpg')"
+
             ],
             "rating": 3.7,
             "reviewCount": 368,
@@ -1694,22 +1057,9 @@ export const restaurantsByCategory = {
             "id": "피6",
             "name": "치즈피자 6호점",
             "banners": [
-                "require('../assets/images/피자_banner1_5.jpg')",
-                "require('../assets/images/피자_banner2_5.jpg')",
-                "require('../assets/images/피자_banner3_5.jpg')",
-                "require('../assets/images/피자_banner4_5.jpg')"
             ],
             "menus": [
-                "require('../assets/images/피자_menu1_5.jpg')",
-                "require('../assets/images/피자_menu2_5.jpg')",
-                "require('../assets/images/피자_menu3_5.jpg')",
-                "require('../assets/images/피자_menu4_5.jpg')",
-                "require('../assets/images/피자_menu5_5.jpg')",
-                "require('../assets/images/피자_menu6_5.jpg')",
-                "require('../assets/images/피자_menu7_5.jpg')",
-                "require('../assets/images/피자_menu8_5.jpg')",
-                "require('../assets/images/피자_menu9_5.jpg')",
-                "require('../assets/images/피자_menu10_5.jpg')"
+
             ],
             "rating": 3.6,
             "reviewCount": 229,
@@ -1719,22 +1069,9 @@ export const restaurantsByCategory = {
             "id": "피7",
             "name": "페퍼로니 7호점",
             "banners": [
-                "require('../assets/images/피자_banner1_6.jpg')",
-                "require('../assets/images/피자_banner2_6.jpg')",
-                "require('../assets/images/피자_banner3_6.jpg')",
-                "require('../assets/images/피자_banner4_6.jpg')"
             ],
             "menus": [
-                "require('../assets/images/피자_menu1_6.jpg')",
-                "require('../assets/images/피자_menu2_6.jpg')",
-                "require('../assets/images/피자_menu3_6.jpg')",
-                "require('../assets/images/피자_menu4_6.jpg')",
-                "require('../assets/images/피자_menu5_6.jpg')",
-                "require('../assets/images/피자_menu6_6.jpg')",
-                "require('../assets/images/피자_menu7_6.jpg')",
-                "require('../assets/images/피자_menu8_6.jpg')",
-                "require('../assets/images/피자_menu9_6.jpg')",
-                "require('../assets/images/피자_menu10_6.jpg')"
+
             ],
             "rating": 3.5,
             "reviewCount": 197,
@@ -1744,22 +1081,9 @@ export const restaurantsByCategory = {
             "id": "피8",
             "name": "페퍼로니 8호점",
             "banners": [
-                "require('../assets/images/피자_banner1_7.jpg')",
-                "require('../assets/images/피자_banner2_7.jpg')",
-                "require('../assets/images/피자_banner3_7.jpg')",
-                "require('../assets/images/피자_banner4_7.jpg')"
             ],
             "menus": [
-                "require('../assets/images/피자_menu1_7.jpg')",
-                "require('../assets/images/피자_menu2_7.jpg')",
-                "require('../assets/images/피자_menu3_7.jpg')",
-                "require('../assets/images/피자_menu4_7.jpg')",
-                "require('../assets/images/피자_menu5_7.jpg')",
-                "require('../assets/images/피자_menu6_7.jpg')",
-                "require('../assets/images/피자_menu7_7.jpg')",
-                "require('../assets/images/피자_menu8_7.jpg')",
-                "require('../assets/images/피자_menu9_7.jpg')",
-                "require('../assets/images/피자_menu10_7.jpg')"
+
             ],
             "rating": 4.5,
             "reviewCount": 101,
@@ -1769,22 +1093,10 @@ export const restaurantsByCategory = {
             "id": "피9",
             "name": "치즈피자 9호점",
             "banners": [
-                "require('../assets/images/피자_banner1_8.jpg')",
-                "require('../assets/images/피자_banner2_8.jpg')",
-                "require('../assets/images/피자_banner3_8.jpg')",
-                "require('../assets/images/피자_banner4_8.jpg')"
+
             ],
             "menus": [
-                "require('../assets/images/피자_menu1_8.jpg')",
-                "require('../assets/images/피자_menu2_8.jpg')",
-                "require('../assets/images/피자_menu3_8.jpg')",
-                "require('../assets/images/피자_menu4_8.jpg')",
-                "require('../assets/images/피자_menu5_8.jpg')",
-                "require('../assets/images/피자_menu6_8.jpg')",
-                "require('../assets/images/피자_menu7_8.jpg')",
-                "require('../assets/images/피자_menu8_8.jpg')",
-                "require('../assets/images/피자_menu9_8.jpg')",
-                "require('../assets/images/피자_menu10_8.jpg')"
+
             ],
             "rating": 3.6,
             "reviewCount": 42,
@@ -1794,22 +1106,9 @@ export const restaurantsByCategory = {
             "id": "피10",
             "name": "피자몽 10호점",
             "banners": [
-                "require('../assets/images/피자_banner1_9.jpg')",
-                "require('../assets/images/피자_banner2_9.jpg')",
-                "require('../assets/images/피자_banner3_9.jpg')",
-                "require('../assets/images/피자_banner4_9.jpg')"
             ],
             "menus": [
-                "require('../assets/images/피자_menu1_9.jpg')",
-                "require('../assets/images/피자_menu2_9.jpg')",
-                "require('../assets/images/피자_menu3_9.jpg')",
-                "require('../assets/images/피자_menu4_9.jpg')",
-                "require('../assets/images/피자_menu5_9.jpg')",
-                "require('../assets/images/피자_menu6_9.jpg')",
-                "require('../assets/images/피자_menu7_9.jpg')",
-                "require('../assets/images/피자_menu8_9.jpg')",
-                "require('../assets/images/피자_menu9_9.jpg')",
-                "require('../assets/images/피자_menu10_9.jpg')"
+
             ],
             "rating": 4.1,
             "reviewCount": 367,
@@ -1821,22 +1120,8 @@ export const restaurantsByCategory = {
             "id": "찌1",
             "name": "찌개천국 1호점",
             "banners": [
-                "require('../assets/images/찌개_banner1_0.jpg')",
-                "require('../assets/images/찌개_banner2_0.jpg')",
-                "require('../assets/images/찌개_banner3_0.jpg')",
-                "require('../assets/images/찌개_banner4_0.jpg')"
             ],
             "menus": [
-                "require('../assets/images/찌개_menu1_0.jpg')",
-                "require('../assets/images/찌개_menu2_0.jpg')",
-                "require('../assets/images/찌개_menu3_0.jpg')",
-                "require('../assets/images/찌개_menu4_0.jpg')",
-                "require('../assets/images/찌개_menu5_0.jpg')",
-                "require('../assets/images/찌개_menu6_0.jpg')",
-                "require('../assets/images/찌개_menu7_0.jpg')",
-                "require('../assets/images/찌개_menu8_0.jpg')",
-                "require('../assets/images/찌개_menu9_0.jpg')",
-                "require('../assets/images/찌개_menu10_0.jpg')"
             ],
             "rating": 3.6,
             "reviewCount": 359,
@@ -1964,22 +1249,9 @@ export const restaurantsByCategory = {
             "id": "찌1",
             "name": "찌개천국 1호점",
             "banners": [
-                "require('../assets/images/찌개_banner1_0.jpg')",
-                "require('../assets/images/찌개_banner2_0.jpg')",
-                "require('../assets/images/찌개_banner3_0.jpg')",
-                "require('../assets/images/찌개_banner4_0.jpg')"
             ],
             "menus": [
-                "require('../assets/images/찌개_menu1_0.jpg')",
-                "require('../assets/images/찌개_menu2_0.jpg')",
-                "require('../assets/images/찌개_menu3_0.jpg')",
-                "require('../assets/images/찌개_menu4_0.jpg')",
-                "require('../assets/images/찌개_menu5_0.jpg')",
-                "require('../assets/images/찌개_menu6_0.jpg')",
-                "require('../assets/images/찌개_menu7_0.jpg')",
-                "require('../assets/images/찌개_menu8_0.jpg')",
-                "require('../assets/images/찌개_menu9_0.jpg')",
-                "require('../assets/images/찌개_menu10_0.jpg')"
+
             ],
             "rating": 3.6,
             "reviewCount": 359,

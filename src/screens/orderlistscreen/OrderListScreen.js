@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import HeaderBar from './components/HeaderBar'
 import SearchBar from './components/SearchBar'
@@ -11,7 +11,7 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 export default function OrderListScreen() {
     const navigation = useNavigation();
     const route = useRoute();
-
+    const [activeTab] = useState('order');
     return (
         <View style={styles.container}>
             <ScrollView contentContainerStyle={styles.scrollContent}>
@@ -22,7 +22,7 @@ export default function OrderListScreen() {
 
             </ScrollView>
             <BottomNavigationBar
-                activeTab={route.name.toLowerCase()} // 현재 화면 이름과 일치 여부 체크
+                activeTab={activeTab} // 현재 화면 이름과 일치 여부 체크
                 onTabPress={(tabKey) => {
                     if (tabKey !== route.name.toLowerCase()) {
                         navigation.navigate(
@@ -30,7 +30,8 @@ export default function OrderListScreen() {
                             tabKey === 'cart' ? 'CartScreen' :
                             tabKey === 'bot' ? 'KbotScreen' :
                             tabKey === 'order' ? 'OrderList' :
-                            tabKey === 'my' ? 'MyFork' : 'Home'
+                            tabKey === 'my' ? 'MyFork' :
+                                'order'
                         );
                     }
                 }}
