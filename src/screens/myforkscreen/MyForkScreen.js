@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import BottomNavigationBar from '../utils/BottomNavigationBar';
@@ -6,7 +6,7 @@ import BottomNavigationBar from '../utils/BottomNavigationBar';
 export default function MyForkScreen() {
   const navigation = useNavigation();
   const route = useRoute();
-  
+  const [activeTab, setActiveTab] = useState('my');
   return (
     <View style={styles.rootContainer}>
       <View style={styles.container}>
@@ -21,7 +21,7 @@ export default function MyForkScreen() {
         <View style={styles.profileRow}>
           {/* 프로필 이미지 */}
           <Image
-            source={require('../../assets/images/defaultProfile.png')}
+            source={require('../../dummyData/dummyImages/defaultProfile.png')}
             style={styles.profileImage}
           />
 
@@ -119,16 +119,16 @@ export default function MyForkScreen() {
       </View>
 
       <BottomNavigationBar
-        activeTab={route.name.toLowerCase()} // 현재 화면 이름과 일치 여부 체크
+        activeTab={activeTab} // 현재 화면 이름과 일치 여부 체크
         onTabPress={(tabKey) => {
           if (tabKey !== route.name.toLowerCase()) {
             navigation.navigate(
               tabKey === 'home' ? 'Home' :
-                tabKey === 'cart' ? 'Cart' :
+                tabKey === 'cart' ? 'CartScreen' :
                   tabKey === 'bot' ? 'KbotScreen' :
                     tabKey === 'order' ? 'OrderList' :
                       tabKey === 'my' ? 'MyFork' :
-                        'Home'
+                        'MyFork'
             );
           }
         }}

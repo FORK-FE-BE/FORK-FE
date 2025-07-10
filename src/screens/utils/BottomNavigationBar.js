@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 
 
@@ -26,13 +26,17 @@ export default function BottomNavigationBar({ activeTab, onTabPress }) {
           <TouchableOpacity
             key={tab.key}
             style={styles.tab}
-            onPress={() => onTabPress(tab.key)}
+            onPress={() => {
+                console.log(`탭키 클릭 ${tab.key}`);
+                onTabPress(tab.key)
+            }
+          }
             activeOpacity={0.7}
           >
             <IconComponent
               width={28}
               height={28}
-              fill={focused ? '#006DF0' : '#bbb'} // 선택된 탭은 파란색, 아니면 회색
+              color={focused ? '#5599FF' : '#bbb'} // 선택된 탭은 파란색, 아니면 회색
             />
             <Text style={[styles.label, focused && styles.labelFocused]}>
               {tab.label}
@@ -64,7 +68,7 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   labelFocused: {
-    color: '#4A7AFF',
+    color: '#5599FF',
     fontWeight: 'bold',
   },
 });

@@ -35,16 +35,14 @@ export default function App() {
     'Paperlogy-ExtraBold': require('./src/assets/fonts/Paperlogy-8ExtraBold.ttf'),
     'Paperlogy-Black': require('./src/assets/fonts/Paperlogy-9Black.ttf'),
   });
-
   if (!fontsLoaded) return null;
-
   return (
     <SafeAreaProvider>
 
       <SafeAreaView style={{ flex: 1 }}>
 
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="CartScreen">
+          <Stack.Navigator initialRouteName="Home">
             <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
             <Stack.Screen name="KbotScreen" component={ChatBotScreen} options={{ headerShown: false }} />
             <Stack.Screen name="Category" component={CategoryScreen} options={{ headerShown: false }} />

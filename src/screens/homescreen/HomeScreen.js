@@ -1,26 +1,57 @@
-// 
-// src/screens/HomeScreen.js
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import HeaderBar from './components/HeaderBar';
+import SearchBar from './components/SearchBar';
+import BannerSection from './components/BannerSection';
+import CategorySection from './components/CategorySection';
+import MiddleSection from './components/MiddleSection';
+
+import Line from '../utils/Line';
+import BottomNavigationBar from '../utils/BottomNavigationBar';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 export default function HomeScreen() {
+  const navigation = useNavigation();
+  const route = useRoute();
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>🍜 FORK 홈 </Text>
-    </View>
+    <LinearGradient
+      colors={['#EDF4FF', '#D8E8FF', '#B7D4FF']}
+      style={styles.container}
+    >
+
+      <ScrollView contentContainerStyle={styles.scrollContent}>
+        <HeaderBar />
+        <SearchBar />
+        <BannerSection />
+        <CategorySection />
+        <Line /> 
+        <MiddleSection />
+      </ScrollView>
+
+      <BottomNavigationBar
+        activeTab={route.name.toLowerCase()} // 현재 화면 이름과 일치 여부 체크
+        onTabPress={(tabKey) => {
+          if (tabKey !== route.name.toLowerCase()) {
+            navigation.navigate(
+              tabKey === 'home' ? 'Home' :
+              tabKey === 'cart' ? 'CartScreen' :
+              tabKey === 'bot' ? 'KbotScreen' :
+              tabKey === 'order' ? 'OrderList' :
+              tabKey === 'my' ? 'MyFork' : 
+              'Home'
+            );
+          }
+        }}
+      />
+    </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f5f5f5', // 배경색 예시
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#333', // 텍스트 색상 예시
-  },
+
+
 });

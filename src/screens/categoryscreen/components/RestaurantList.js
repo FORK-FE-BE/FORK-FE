@@ -1,95 +1,79 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 import Line from '../../utils/Line';
+import { TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import {restaurantsByCategory} from "../../../dummyData/restaurantsByCategory";
 
-export default function RestaurantList() {
-    const restaurants = [
-        {
-            id: '1',
-            name: '맛있는 치킨',
-            photos: [
-                require('../../../assets/images/chicken.png'),
-                null,
-                require('../../../assets/images/chicken.png'),
-                null,
-                null,
-            ],
-            rating: 4.9,
-            reviewCount: 777,
-        },
-        {
-            id: '2',
-            name: '피자 천국',
-            photos: [
-                require('../../../assets/images/egg.png'),
-                require('../../../assets/images/egg.png'),
-                null,
-                null,
-                require('../../../assets/images/egg.png'),
-            ],
-            rating: 4.7,
-            reviewCount: 512,
-        },
-    ];
+export default function RestaurantList({category}) {
+    const navigation = useNavigation();
+    const restaurants = restaurantsByCategory[category];
+    const RestaurantCard = ({ name, menus, rating, reviewCount, isLast }) => {
+        const photos = menus && menus.length ? menus : [null, null, null, null]; // 기본 4칸
+        return (
+            <View style={styles.restaurantItem} onTouchEnd={() => navigation.navigate('RestaurantDetail')}>
+                {/* 사진 스크롤 */}
+                <ScrollView
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    contentContainerStyle={styles.photoScroll}
+                >
+                    {photos.map((photo, index) => {
+                        const isLastPhoto = index === photos.length - 1;
+                        return (
+                            <View
+                                key={index}
+                                style={[
+                                    styles.photoWrapper,
+                                    { marginRight: isLastPhoto ? 0 : 12 },
+                                ]}
+                            >
+                                {photo ? (
+                                    <Image source={photo} style={styles.photo} />
+                                ) : (
+                                    <View style={styles.imagePlaceholder}>
+                                        <Text style={styles.placeholderText}>사진</Text>
+                                    </View>
+                                )}
+                            </View>
+                        );
+                    })}
+                </ScrollView>
 
+                {/* 식당명 및 평점 */}
+                <View style={styles.nameRatingRow}>
+                    <Text style={styles.restaurantName}>{name}</Text>
+                    <Text style={styles.restaurantRating}>★ {rating}</Text>
+                    <Text style={styles.restaurantReview}>({reviewCount})</Text>
+                </View>
+
+                {/* 보유 뱃지 */}
+                <View style={styles.contentWrap}>
+                    <Text style={styles.arcontent}>AR보유</Text>
+                    <Text style={styles.coupon}>쿠폰보유</Text>
+                </View>
+
+                {/* 마지막 카드가 아니면 선 추가 */}
+                {!isLast && <Line />}
+            </View>
+        );
+    };
     return (
         <View style={styles.container}>
-            {restaurants.map((restaurant, index) => {
-                const isLast = index === restaurants.length - 1;
-                return (<View key={restaurant.id} style={styles.restaurantItem}>
-                    {/* 👇 가로 스크롤로 이미지 목록 표시 */}
-                    <ScrollView
-                        horizontal
-                        showsHorizontalScrollIndicator={false}
-                        contentContainerStyle={styles.photoScroll} // ✅ 좌우 여백 포함
-                    >
-                        {restaurant.photos.map((photo, index) => {
-                            const isLastPhoto = index === restaurant.photos.length - 1;
-                            return (
-                                <View
-                                    key={index}
-                                    style={[
-                                        styles.photoWrapper,
-                                        { marginRight: isLastPhoto ? 0 : 12 }, // ✅ 마지막 사진이면 간격 제거
-                                    ]}
-                                >
-                                    {photo ? (
-                                        <Image source={photo} style={styles.photo} />
-                                    ) : (
-                                        <View style={styles.imagePlaceholder}>
-                                            <Text style={styles.placeholderText}>사진</Text>
-                                        </View>
-                                    )}
-                                </View>
-                            );
-                        })}
-                    </ScrollView>
-                    <View style={styles.nameRatingRow}>
-                        <Text style={styles.restaurantName}>{restaurant.name}</Text>
-                        <Text style={styles.restaurantRating}>
-                            ★ {restaurant.rating}
-                        </Text>
-                        <Text style={styles.restaurantReview}>
-                            ({restaurant.reviewCount})
-                        </Text>
-
-                    </View>
-
-                    <View style={styles.contentWrap}>
-                        <Text style={styles.arcontent}>AR보유</Text>
-                        <Text style={styles.coupon}>쿠폰보유</Text>
-                    </View>
-                    {/* ✅ 마지막 식당이면 Line 안보이게 */}
-                    {!isLast && <Line />}
-                </View>
-                );
-            })}
+            {restaurants.map((restaurant, index) => (
+                <RestaurantCard
+                    key={restaurant.id}
+                    {...restaurant}
+                    isLast={index === restaurants.length - 1}
+                />
+            ))}
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
+        flex:1,
         backgroundColor: '#fff',
     },
     restaurantItem: {

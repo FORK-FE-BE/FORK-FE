@@ -9,7 +9,7 @@ const items = [
         name: '돈코츠 라멘',
         price: '13,900원',
         quantity: 1,
-        image: require('../../../assets/images/ramen.png'),
+        image: require('../../../dummyData/dummyImages/ramen.png'),
     },
 ];
 

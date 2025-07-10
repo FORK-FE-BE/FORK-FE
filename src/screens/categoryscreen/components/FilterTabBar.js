@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity, ScrollView, StyleSheet } from 'react-nati
 
 export default function FilterTabBar() {
     const sortOptions = ['크봇 추천순', '기본 순', '별점 높은 순', '주문 많은 순', '랜덤'];
-
     return (
         <View style={styles.container}>
             <ScrollView

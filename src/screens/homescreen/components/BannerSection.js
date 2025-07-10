@@ -3,15 +3,17 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 import FORKIcon from '../../../assets/icons/FORKIcon.svg';
 import Image1 from '../../../assets/icons/image1.png';
+import { useNavigation } from '@react-navigation/native';
 
 export default function BannerSection() {
+  const navigation = useNavigation();
   return (
     <View style={styles.banner}>
       {/* 텍스트 섹션 */}
       <View style={styles.textContainer}>
         <Text style={styles.bannerTitle}>나만의 크봇 만들어보기</Text>
         <Text style={styles.bannerDesc}>피하고 싶은 음식을 등록해보세요!</Text>
-        <TouchableOpacity style={styles.bannerButton}>
+        <TouchableOpacity style={styles.bannerButton} onPress={()=> navigation.navigate('KbotSettings')}>
           <Text style={styles.bannerButtonText}>크봇 설정하러 가기</Text>
         </TouchableOpacity>
       </View>

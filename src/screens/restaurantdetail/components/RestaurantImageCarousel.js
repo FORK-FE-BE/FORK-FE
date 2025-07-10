@@ -3,11 +3,11 @@ import React, { useRef, useState } from 'react';
 import { FlatList, Image, StyleSheet, View, Dimensions } from 'react-native';
 
 const slides = [
-  { id: '1', uri: require('../../../assets/image1.jpg') },
-  { id: '2', uri: require('../../../assets/image2.jpg') },
-  { id: '3', uri: require('../../../assets/image3.jpg') },
-  { id: '4', uri: require('../../../assets/image4.jpg') },
-  { id: '5', uri: require('../../../assets/image5.jpg') },
+  { id: '1', uri: require('../../../dummyData/dummyImages/image1.jpg') },
+  { id: '2', uri: require('../../../dummyData/dummyImages/image2.jpg') },
+  { id: '3', uri: require('../../../dummyData/dummyImages/image3.jpg') },
+  { id: '4', uri: require('../../../dummyData/dummyImages/image4.jpg') },
+  { id: '5', uri: require('../../../dummyData/dummyImages/image5.jpg') },
 ];
 
 const { width } = Dimensions.get('window');
