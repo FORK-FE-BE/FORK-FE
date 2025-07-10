@@ -89,9 +89,13 @@ export default function CartScreen() {
         <Text style={styles.bottomPrice}>총 결제금액{"\n"}</Text>
         <Text style={styles.bottomPriceNumber}> {quantity * 31400}원</Text>
        
-        <TouchableOpacity style={styles.orderButton}>
-          <Text style={styles.orderButtonText}>주문하러 가기</Text>
+        <TouchableOpacity
+        style={styles.orderButton}
+        onPress={() => navigation.navigate('Payment')}
+      >
+        <Text style={styles.orderButtonText}>주문하러 가기</Text>
         </TouchableOpacity>
+
       </View>
 
       {/* 하단 네비게이션 */}

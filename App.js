@@ -19,6 +19,8 @@ import OrderListScreen from './src/screens/orderlistscreen/OrderListScreen';
 import OrderDetailScreen from './src/screens/orderdetailscreen/OrderDetailScreen';
 import RestaurantDetail from './src/screens/restaurantdetail/RestaurantDetail';
 import CartScreen from './src/screens/cartscreen/CartScreen';
+import PaymentScreen from './src/screens/paymentscreen/PaymentScreen';
+
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 
 const Stack = createNativeStackNavigator();
@@ -58,7 +60,7 @@ export default function App() {
             <Stack.Screen name="KbotSettings" component={KbotSettingsScreen} options={{ headerShown: false }} />
             <Stack.Screen name="RestaurantDetail" component={RestaurantDetail} options={{ headerShown: false }} />
             <Stack.Screen name="CartScreen" component={CartScreen} options={{ headerShown: false }} />
-
+            <Stack.Screen name="Payment" component={PaymentScreen} options={{ headerShown: false }}/>
 
           </Stack.Navigator>
         </NavigationContainer>
