@@ -15,7 +15,7 @@ export default function LoginScreen() {
 
         } catch (err) {
             console.error('카카오 로그인 실패:', err);
-        }
+
     }
     return (
         <LinearGradient
@@ -167,4 +167,4 @@ const styles = StyleSheet.create({
         marginTop: 40,          // 위 요소들과 간격
         marginBottom: 30,       // 하단 여백
     },
-});
+})}
