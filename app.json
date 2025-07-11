@@ -19,10 +19,15 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.anonymous.myapp"
+      "package": "com.parkyoungho.myapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c87ab259-9978-4c1b-87a8-d610ba6bfb02"
+      }
     }
   }
 }
