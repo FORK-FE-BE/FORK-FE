@@ -4,7 +4,9 @@ import ForkIcon from '../../assets/icons/FORKIcon.svg';
 import {getProfile, login} from "@react-native-seoul/kakao-login";
 
 export default function LoginScreen() {
+    
     const handleKakaoLogin = async () => {
+      console.log('카카오 로그인 버튼 클릭됨');
         try {
             const token = await login(); // 카카오 로그인 시도
             console.log("카카오 accessToken:", token);
@@ -15,7 +17,7 @@ export default function LoginScreen() {
 
         } catch (err) {
             console.error('카카오 로그인 실패:', err);
-
+        }
     }
     return (
         <LinearGradient
@@ -66,7 +68,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     mainText:{
-        width: 149,
+        width: "100%",
         fontSize: 50,
         fontFamily: "Paperlogy-Bold",
         color: "#000",
@@ -167,4 +169,4 @@ const styles = StyleSheet.create({
         marginTop: 40,          // 위 요소들과 간격
         marginBottom: 30,       // 하단 여백
     },
-})}
+})

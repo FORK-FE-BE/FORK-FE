@@ -12,10 +12,10 @@ web-build/
 .expo-env.d.ts
 
 # 📱 native (eject 시)
-android/
-ios/
-*.apk
-*.ipa
+# android/
+# ios/
+# *.apk
+# *.ipa
 
 # 🖥️ OS-specific
 .DS_Store
