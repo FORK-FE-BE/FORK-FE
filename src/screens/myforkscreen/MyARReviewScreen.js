@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -15,6 +15,9 @@ import { useNavigation } from '@react-navigation/native';
 export default function MyARReviewScreen() {
   const navigation = useNavigation();
 
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+
   const dummyReviews = [
     {
       id: '1',
@@ -23,7 +26,11 @@ export default function MyARReviewScreen() {
       date: '2개월 전',
       comment: '맛있어요',
       tags: ['치킨1', '치즈볼'],
-      arPhotos: [null, null, null],
+      arPhotos: [
+        require('../../assets/images/dummy1.png'),
+        require('../../assets/images/dummy2.png'),
+        require('../../assets/images/dummy3.png'),
+      ],
       reply: {
         author: '사장님',
         content: '○○님,\n어쩌구저쩌구\n감사!',
@@ -36,7 +43,11 @@ export default function MyARReviewScreen() {
       date: '2개월 전',
       comment: '맛있어요',
       tags: ['치킨1', '치즈볼'],
-      arPhotos: [null, null, null],
+      arPhotos: [
+        require('../../assets/images/dummy1.png'),
+        require('../../assets/images/dummy2.png'),
+        require('../../assets/images/dummy3.png'),
+      ],
       reply: {
         author: '사장님',
         content: '○○님,\n어쩌구저쩌구\n감사!',
@@ -49,13 +60,18 @@ export default function MyARReviewScreen() {
       date: '3개월 전',
       comment: '맛있어요',
       tags: ['치킨1', '치즈볼'],
-      arPhotos: [null, null, null],
+      arPhotos: [
+        require('../../assets/images/dummy1.png'),
+        require('../../assets/images/dummy2.png'),
+        require('../../assets/images/dummy3.png'),
+      ],
       reply: {
         author: '사장님',
         content: '○○님,\n어쩌구저쩌구\n감사!',
       },
     },
   ];
+
 
   return (
     <View style={styles.container}>
@@ -107,14 +123,21 @@ export default function MyARReviewScreen() {
               horizontal
               showsHorizontalScrollIndicator={false}
               style={styles.imageRow}
-              contentContainerStyle={styles.imageRowContent} // 여기!
+              contentContainerStyle={styles.imageRowContent}
             >
-              {item.arPhotos.map((_, idx) => (
-                <View key={idx} style={styles.photoPlaceholder}>
-                  <Text style={styles.photoText}>사진 또는 AR</Text>
-                </View>
+              {item.arPhotos.map((photo, idx) => (
+                <TouchableOpacity
+                  key={idx}
+                  onPress={() => {
+                    setSelectedImage(photo);
+                    setModalVisible(true);
+                  }}
+                >
+                  <Image source={photo} style={styles.reviewImage} />
+                </TouchableOpacity>
               ))}
             </ScrollView>
+
 
             {/* 태그 */}
             <View style={styles.tagRow}>
@@ -128,9 +151,14 @@ export default function MyARReviewScreen() {
             {/* 사장님 댓글 */}
             {item.reply && (
               <View style={styles.replyContainer}>
-                <View style={styles.profileCircle} />
+                <Image
+                  source={require('../../assets/images/owner.png')}
+                  style={styles.profileCircle}
+                  resizeMode="contain"
+                />
+                {/* <View style={styles.profileCircle} /> */}
                 <View style={styles.replyBubble}>
-                  <Text style={styles.replyAuthor}>{item.reply.author} · {item.date}</Text>
+                  <Text style={styles.replyAuthor}>사장님 · {item.date}</Text>
                   <Text style={styles.replyContent}>{item.reply.content}</Text>
                 </View>
               </View>
@@ -138,6 +166,23 @@ export default function MyARReviewScreen() {
           </View>
         )}
       />
+
+      <Modal
+        visible={modalVisible}
+        transparent={true}
+        animationType="fade"
+      >
+        <View style={styles.modalContainer}>
+          <TouchableOpacity
+            style={styles.closeButton}
+            onPress={() => setModalVisible(false)}
+          >
+            <Text style={styles.closeText}>X</Text>
+          </TouchableOpacity>
+          <Image source={selectedImage} style={styles.fullImage} resizeMode="contain" />
+        </View>
+      </Modal>
+
     </View>
   );
 }
@@ -285,7 +330,6 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: '#D9D9D9',
     marginRight: 8,
   },
 
@@ -306,5 +350,38 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontFamily: 'Paperlogy-Medium',
   },
+
+  reviewImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 8,
+    marginRight: 10,
+  },
+
+  modalContainer: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.9)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  closeButton: {
+    position: 'absolute',
+    top: 40,
+    left: 20,
+    zIndex: 10,
+  },
+
+  closeText: {
+    color: '#fff',
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+
+  fullImage: {
+    width: '90%',
+    height: '70%',
+  },
+
 
 });

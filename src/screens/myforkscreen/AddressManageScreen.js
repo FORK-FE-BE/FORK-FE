@@ -12,9 +12,12 @@ import {
   Keyboard,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Alert } from 'react-native';
 
 export default function AddressManageScreen() {
   const navigation = useNavigation();
+  const [addressList, setAddressList] = useState([]);
 
   const dummyAddresses = [
     {
@@ -33,6 +36,65 @@ export default function AddressManageScreen() {
       note: '1층 로비에 맡겨주세요',
     },
   ];
+
+  useEffect(() => {
+    const loadAddresses = async () => {
+      try {
+        const saved = await AsyncStorage.getItem('userAddresses');
+        if (saved !== null) {
+          setAddressList(JSON.parse(saved));
+        } else {
+          // 초기 더미 데이터
+          setAddressList([
+            {
+              title: '서울특별시 마포구 와우산로',
+              sub: '홍익대학교 제1기숙사 101호',
+              note: '문 앞에 두고 벨 눌러주세요',
+            },
+            {
+              title: '서울시 종로구 세종대로 175',
+              sub: 'KT 광화문빌딩',
+              note: '경비실 맡겨주세요',
+            },
+            {
+              title: '경기도 성남시 분당구 판교로',
+              sub: '네이버 그린팩토리 4층',
+              note: '1층 로비에 맡겨주세요',
+            },
+          ]);
+        }
+      } catch (e) {
+        console.error('주소 불러오기 실패:', e);
+      }
+    };
+
+    loadAddresses();
+  }, []);
+
+  const handleDelete = (index) => {
+    Alert.alert(
+      '주소 삭제',
+      '정말 이 주소를 삭제하시겠어요?',
+      [
+        { text: '취소', style: 'cancel' },
+        {
+          text: '삭제',
+          style: 'destructive',
+          onPress: async () => {
+            const updated = [...addressList];
+            updated.splice(index, 1);
+            setAddressList(updated);
+            try {
+              await AsyncStorage.setItem('userAddresses', JSON.stringify(updated));
+            } catch (e) {
+              console.error('주소 저장 실패:', e);
+            }
+          }
+        }
+      ]
+    );
+  };
+
 
   return (
     <View style={styles.container}>
@@ -54,7 +116,7 @@ export default function AddressManageScreen() {
         contentContainerStyle={{ paddingBottom: 20 }}
         showsVerticalScrollIndicator={false}
       >
-        {dummyAddresses.map((addr, index) => (
+        {addressList.map((addr, index) => (
           <View key={index} style={styles.addressCard}>
             <View style={styles.row}>
               <Image
@@ -76,7 +138,10 @@ export default function AddressManageScreen() {
                     <Text style={styles.outlineButtonText}>수정</Text>
                   </TouchableOpacity>
                   {index !== 0 && (
-                    <TouchableOpacity style={styles.outlineButton}>
+                    <TouchableOpacity
+                      style={styles.outlineButton}
+                      onPress={() => handleDelete(index)}
+                    >
                       <Text style={styles.outlineButtonText}>삭제</Text>
                     </TouchableOpacity>
                   )}
@@ -84,10 +149,9 @@ export default function AddressManageScreen() {
               </View>
             </View>
 
-            {index !== dummyAddresses.length - 1 && <View style={styles.divider} />}
+            {index !== addressList.length - 1 && <View style={styles.divider} />}
           </View>
         ))}
-
       </ScrollView>
     </View>
   );

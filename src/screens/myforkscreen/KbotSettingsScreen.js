@@ -12,17 +12,31 @@ import {
   Keyboard,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function KbotSettingsScreen() {
   const navigation = useNavigation();
   const [avoidList, setAvoidList] = useState(['우유', '새우', '땅콩', '음식']);
   const [candidateList, setCandidateList] = useState([
-    '우유', '땅콩', '새우', '음식1', '음식2', '음식3', '음식4', '음식5'
+    '우유', '땅콩', '새우', '랍스터', '밀가루', '알콜', '치즈', '설탕'
   ]);
   const [inputText, setInputText] = useState('');
   const [isKeyboardVisible, setIsKeyboardVisible] = useState(false);
 
   useEffect(() => {
+    const loadAvoidList = async () => {
+      try {
+        const saved = await AsyncStorage.getItem('avoidList');
+        if (saved !== null) {
+          setAvoidList(JSON.parse(saved));
+        }
+      } catch (e) {
+        console.error('불러오기 실패:', e);
+      }
+    };
+
+    loadAvoidList();
+
     const showSub = Keyboard.addListener('keyboardDidShow', () => setIsKeyboardVisible(true));
     const hideSub = Keyboard.addListener('keyboardDidHide', () => setIsKeyboardVisible(false));
     return () => {
@@ -30,6 +44,7 @@ export default function KbotSettingsScreen() {
       hideSub.remove();
     };
   }, []);
+
 
   const handleSelect = (item) => {
     if (!avoidList.includes(item)) {
@@ -49,9 +64,14 @@ export default function KbotSettingsScreen() {
     }
   };
 
-  const handleSave = () => {
-    console.log('저장된 피하고 싶은 음식:', avoidList);
-    navigation.goBack();
+  const handleSave = async () => {
+    try {
+      await AsyncStorage.setItem('avoidList', JSON.stringify(avoidList));
+      console.log('저장 완료:', avoidList);
+      navigation.goBack();
+    } catch (e) {
+      console.error('저장 실패:', e);
+    }
   };
 
   return (
@@ -79,7 +99,7 @@ export default function KbotSettingsScreen() {
         {/* 안내 말풍선 */}
         <View style={{ flexDirection: 'row', alignItems: 'flex-start', marginBottom: 30 }}>
           <Image
-            source={require('../../assets/images/Kbot.png')}
+            source={require('../../assets/icons/ForkBot.png')}
             style={styles.kBot}
           />
           <View style={styles.bubble}>
@@ -200,8 +220,8 @@ const styles = StyleSheet.create({
     width: 230,
   },
   kBot: {
-    width: 57,
-    height: 36,
+    width: 60,
+    height: 60,
     marginRight: 15,
   },
   boldGreeting: {
