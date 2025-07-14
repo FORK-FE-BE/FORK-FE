@@ -1,10 +1,12 @@
-import {StyleSheet, Text, TouchableOpacity, View, Image} from 'react-native';
-import {LinearGradient} from 'expo-linear-gradient';
+import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import ForkIcon from '../../assets/icons/FORKIcon.svg';
-import {getProfile, login} from "@react-native-seoul/kakao-login";
+import { getProfile, login } from "@react-native-seoul/kakao-login";
 
 export default function LoginScreen() {
+
     const handleKakaoLogin = async () => {
+        console.log('카카오 로그인 버튼 클릭됨');
         try {
             const token = await login(); // 카카오 로그인 시도
             console.log("카카오 accessToken:", token);
@@ -34,21 +36,21 @@ export default function LoginScreen() {
 
                 <TouchableOpacity style={styles.kakao} activeOpacity={0.7} onPress={handleKakaoLogin}>
                     <View style={styles.loginRow}>
-                        <Image source={require('./resource/kakao.png')} style={styles.kakaoLogo}/>
+                        <Image source={require('./resource/kakao.png')} style={styles.kakaoLogo} />
                         <Text style={styles.loginTextKakao}>카카오로 로그인하기</Text>
                     </View>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.naver} activeOpacity={0.7}>
                     <View style={styles.loginRow}>
-                        <Image source={require('./resource/naver.png')} style={styles.naverLogo}/>
+                        <Image source={require('./resource/naver.png')} style={styles.naverLogo} />
                         <Text style={styles.loginTextNaver}>네이버로 로그인하기</Text>
                     </View>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.google} activeOpacity={0.7}>
                     <View style={styles.loginRow}>
-                        <Image source={require('./resource/google.png')} style={styles.googleLogo}/>
+                        <Image source={require('./resource/google.png')} style={styles.googleLogo} />
                         <Text style={styles.loginTextGoogle}>구글로 로그인하기</Text>
                     </View>
                 </TouchableOpacity>
@@ -65,8 +67,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
-    mainText:{
-        width: 149,
+    mainText: {
+        width: "100%",
         fontSize: 50,
         fontFamily: "Paperlogy-Bold",
         color: "#000",
@@ -162,7 +164,7 @@ const styles = StyleSheet.create({
         marginBottom: 40,
         color: '#000',
     },
-    forkIconWrapper:{
+    forkIconWrapper: {
         alignSelf: 'center',    // 화면 가운데 정렬
         marginTop: 40,          // 위 요소들과 간격
         marginBottom: 30,       // 하단 여백
