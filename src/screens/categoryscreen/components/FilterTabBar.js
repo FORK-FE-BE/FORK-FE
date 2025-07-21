@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
 
 export default function FilterTabBar() {
     const sortOptions = ['크봇 추천순', '기본 순', '별점 높은 순', '주문 많은 순', '랜덤'];
+    const [selectedOption, setSelectedOption] = useState(sortOptions[0]); // 기본 선택값
+
     return (
         <View style={styles.container}>
             <ScrollView
@@ -10,25 +12,30 @@ export default function FilterTabBar() {
                 showsHorizontalScrollIndicator={false}
                 contentContainerStyle={styles.scrollContainer} // ✅ 좌우 여백 적용
             >
-                {sortOptions.map((option, index) => (
-                    <TouchableOpacity
-                        key={index}
-                        style={[
-                            styles.option,
-                            { marginRight: index === sortOptions.length - 1 ? 0 : 12 }, // ✅ 버튼 간 간격
-                            index === 0 && styles.activeOption,
-                        ]}
-                    >
-                        <Text
+                {sortOptions.map((option, index) => {
+                    const isActive = selectedOption === option;
+
+                    return (
+                        <TouchableOpacity
+                            key={index}
+                            onPress={() => setSelectedOption(option)}
                             style={[
-                                styles.optionText,
-                                index === 0 && styles.activeOptionText,
+                                styles.option,
+                                { marginRight: index === sortOptions.length - 1 ? 0 : 12 },
+                                isActive && styles.activeOption,
                             ]}
                         >
-                            {option}
-                        </Text>
-                    </TouchableOpacity>
-                ))}
+                            <Text
+                                style={[
+                                    styles.optionText,
+                                    isActive && styles.activeOptionText,
+                                ]}
+                            >
+                                {option}
+                            </Text>
+                        </TouchableOpacity>
+                    );
+                })}
             </ScrollView>
         </View>
     );
@@ -39,7 +46,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     scrollContainer: {
-        paddingHorizontal: 24, 
+        paddingHorizontal: 24,
         flexDirection: 'row',
     },
     option: {
@@ -50,14 +57,14 @@ const styles = StyleSheet.create({
     },
     optionText: {
         fontSize: 13,
-        fontFamily: 'Paperlogy-Regular',
+        fontFamily: 'Paperlogy-Medium',
         color: '#000',
     },
     activeOption: {
         backgroundColor: '#EDF4FF',
     },
     activeOptionText: {
-        fontFamily: 'Paperlogy-Regular',
+        fontFamily: 'Paperlogy-SemiBold',
         color: '#006DF0',
     },
 });

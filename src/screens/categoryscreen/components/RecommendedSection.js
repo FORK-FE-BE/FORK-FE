@@ -1,8 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 import { TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 export default function RecommendedSection() {
+    const navigation = useNavigation();
+
     const restaurantList = [
         {
             id: '1',
@@ -30,17 +33,18 @@ export default function RecommendedSection() {
     // ✅ 카드 컴포넌트에 index와 isLast 추가 → 마지막 카드엔 marginRight 제거
     const RestaurantCard = ({ image, title, rating, reviewCount, index, isLast }) => (
         <TouchableOpacity
+            onPress={() => navigation.navigate('RestaurantDetail')}
             style={[
                 styles.restaurantCard,
                 {
-                    marginRight: isLast ? 0 : 24, // ✅ 카드 간격은 12, 마지막 카드는 0
+                    marginRight: isLast ? 0 : 24,
                 },
             ]}
         >
             <Image source={image} style={styles.restaurantImage} />
             <View>
                 <Text style={styles.restaurantTitle}>{title}</Text>
-                <Text style={styles.restaurantRating}>★ {rating} ({reviewCount})</Text>
+                <Text style={styles.restaurantRating}>  <Text style={styles.star}>★</Text> {rating} ({reviewCount})</Text>
                 <Text style={styles.arcontent}>AR보유</Text>
             </View>
         </TouchableOpacity>
@@ -74,17 +78,17 @@ const styles = StyleSheet.create({
         paddingVertical: 34,
     },
     title: {
-        marginLeft: 24,
-        fontSize: 16,
-        fontFamily: 'Paperlogy-Medium',
+        marginLeft: 16,
+        fontSize: 18,
+        fontFamily: 'Paperlogy-SemiBold',
     },
     cardRow: {
         flexDirection: 'row',
         paddingHorizontal: 24, // ✅ 좌우 여백을 카드 간격과 동일하게 설정
-        marginTop: 15, 
+        marginTop: 15,
     },
     restaurantCard: {
-        width: 150, 
+        width: 150,
     },
     restaurantImage: {
         width: '100%',
@@ -94,13 +98,18 @@ const styles = StyleSheet.create({
     },
     restaurantTitle: {
         color: '#000000',
-        marginTop: 6,
-        fontFamily: 'Paperlogy-Medium',
-        fontSize: 13,
+        marginTop: 7,
+        fontFamily: 'Paperlogy-SemiBold',
+        fontSize: 15,
     },
     restaurantRating: {
         color: '#000000',
         fontSize: 13,
+        fontFamily: 'Paperlogy-Medium',
+    },
+    star: {
+        color: '#FFD900',
+        fontSize: 16,
         fontFamily: 'Paperlogy-Medium',
     },
     arcontent: {
@@ -109,9 +118,10 @@ const styles = StyleSheet.create({
         borderRadius: 3,
         width: 47,
         height: 20,
-        fontSize: 12,
+        fontSize: 10,
         textAlign: 'center',
         color: '#006DF0',
         lineHeight: 20,
+        fontFamily: 'Paperlogy-SemiBold'
     },
 });

@@ -3,9 +3,9 @@ import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 import Line from '../../utils/Line';
 import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import {restaurantsByCategory} from "../../../dummyData/restaurantsByCategory";
+import { restaurantsByCategory } from "../../../dummyData/restaurantsByCategory";
 
-export default function RestaurantList({category}) {
+export default function RestaurantList({ category }) {
     const navigation = useNavigation();
     const restaurants = restaurantsByCategory[category];
     const RestaurantCard = ({ name, menus, rating, reviewCount, isLast }) => {
@@ -43,7 +43,7 @@ export default function RestaurantList({category}) {
                 {/* 식당명 및 평점 */}
                 <View style={styles.nameRatingRow}>
                     <Text style={styles.restaurantName}>{name}</Text>
-                    <Text style={styles.restaurantRating}>★ {rating}</Text>
+                    <Text style={styles.restaurantRating}><Text style={styles.star}>★</Text> {rating}</Text>
                     <Text style={styles.restaurantReview}>({reviewCount})</Text>
                 </View>
 
@@ -73,7 +73,7 @@ export default function RestaurantList({category}) {
 
 const styles = StyleSheet.create({
     container: {
-        flex:1,
+        flex: 1,
         backgroundColor: '#fff',
     },
     restaurantItem: {
@@ -95,6 +95,11 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         fontFamily: 'Paperlogy-Medium',
     },
+    star: {
+        color: '#FFD900',
+        fontSize: 16,
+        fontFamily: 'Paperlogy-Medium',
+    },
     restaurantReview: {
         marginLeft: 3,
         marginTop: 2,
@@ -113,22 +118,24 @@ const styles = StyleSheet.create({
         borderRadius: 3,
         width: 47,
         height: 20,
-        fontSize: 12,
+        fontSize: 10,
         textAlign: 'center',
         color: '#006DF0',
         lineHeight: 20,
         marginLeft: 24,
+        fontFamily: 'Paperlogy-SemiBold'
     },
     coupon: {
         backgroundColor: '#EDF4FF',
         borderRadius: 3,
         width: 47,
         height: 20,
-        fontSize: 12,
+        fontSize: 10,
         textAlign: 'center',
         color: '#006DF0',
         lineHeight: 20,
         marginLeft: 5,
+        fontFamily: 'Paperlogy-SemiBold'
     },
     photoScroll: {
         flexDirection: 'row',

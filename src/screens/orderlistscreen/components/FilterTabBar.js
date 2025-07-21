@@ -32,7 +32,7 @@ function FilterButton({ label, onPress }) {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 10,
+        marginTop: 20,
         flexDirection: 'row',
         marginHorizontal: 16,
         marginBottom: 10,
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     label: {
         marginLeft: 5,
         marginRight: 6,
-        fontSize: 11,
+        fontSize: 12,
         fontFamily: 'Paperlogy-Medium',
         color: '#333',
     },
