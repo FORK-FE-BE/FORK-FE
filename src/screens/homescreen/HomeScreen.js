@@ -16,7 +16,7 @@ export default function HomeScreen() {
 
   return (
     <LinearGradient
-      colors={['#EDF4FF', '#D8E8FF', '#B7D4FF']}
+      colors={['#FFFFFF', '#C3DBFF', '#B7D4FF']}
       style={styles.container}
     >
 
@@ -25,7 +25,7 @@ export default function HomeScreen() {
         <SearchBar />
         <BannerSection />
         <CategorySection />
-        <Line /> 
+        {/* <Line />  */}
         <MiddleSection />
       </ScrollView>
 

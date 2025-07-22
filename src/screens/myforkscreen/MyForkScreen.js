@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import BottomNavigationBar from '../utils/BottomNavigationBar';
@@ -60,7 +60,11 @@ export default function MyForkScreen() {
             onPress={() => navigation.navigate('Coupon')}
             style={styles.summaryItem}
           >
-            <View style={styles.grayCircle} />
+            <Image
+              source={require('../../assets/icons/Coupon.png')}
+              style={styles.iconImage}
+              resizeMode="contain"
+            />
             <Text style={styles.summaryValue}>10장</Text>
             <Text style={styles.summaryLabel}>쿠폰함</Text>
           </TouchableOpacity>
@@ -72,7 +76,11 @@ export default function MyForkScreen() {
             onPress={() => navigation.navigate('ForkPoint')}
             style={styles.summaryItem}
           >
-            <View style={styles.grayCircle} />
+            <Image
+              source={require('../../assets/icons/ForkPoint.png')}
+              style={styles.iconImage}
+              resizeMode="contain"
+            />
             <Text style={styles.summaryValue}>1,000원</Text>
             <Text style={styles.summaryLabel}>포크포인트</Text>
           </TouchableOpacity>
@@ -84,7 +92,11 @@ export default function MyForkScreen() {
             onPress={() => navigation.navigate('ReceivedGifts')}
             style={styles.summaryItem}
           >
-            <View style={styles.grayCircle} />
+            <Image
+              source={require('../../assets/icons/Gift.png')}
+              style={styles.iconImage}
+              resizeMode="contain"
+            />
             <Text style={styles.summaryValue}>0원</Text>
             <Text style={styles.summaryLabel}>받은 선물</Text>
           </TouchableOpacity>
@@ -110,7 +122,7 @@ export default function MyForkScreen() {
             </View>
             <View>
               <Image
-                source={require('../../assets/images/Kbot.png')}
+                source={require('../../assets/icons/ForkBot.png')}
                 style={styles.kBot}
               />
             </View>
@@ -294,8 +306,15 @@ const styles = StyleSheet.create({
   },
 
   kBot: {
-    width: 70,
-    height: 45,
+    width: 60,
+    height: 60,
+    marginTop: -5,
   },
+
+  iconImage: {
+    width: 40,
+    height: 40,
+    marginBottom: 6,
+  }
 
 });

@@ -31,9 +31,8 @@ const styles = StyleSheet.create({
   },
   text: {
     marginLeft: 25,
-    width: 130,
     fontSize: 16,
-    fontFamily: "Paperlogy-Medium",
+    fontFamily: "Paperlogy-SemiBold",
     color: "#000",
     textAlign: "left",
   },

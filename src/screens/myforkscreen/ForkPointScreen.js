@@ -60,7 +60,11 @@ export default function ForkPointScreen() {
 
       {/* 포인트 표시 */}
       <View style={styles.pointBox}>
-        <View style={styles.grayCircle} />
+        <Image
+          source={require('../../assets/icons/ForkPoint.png')}
+          style={styles.ForkPoint}
+          resizeMode="contain"
+        />
         <Text style={styles.pointText}>1,000원</Text>
       </View>
 
@@ -190,6 +194,11 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 25,
     backgroundColor: '#D9D9D9',
+    marginRight: 10,
+  },
+  ForkPoint: {
+    width: 50,
+    height: 50,
     marginRight: 10,
   },
   pointText: {

@@ -19,8 +19,8 @@ export default function SearchBar() {
 }
 const styles = StyleSheet.create({
   container: {
-    marginLeft: 20,
-    marginTop: 19,
+    marginLeft: 19,
+    marginTop: 20,
     width: '90%',
     height: 45,
     backgroundColor: '#FFFFFF',
@@ -32,10 +32,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15, // 아이콘과 텍스트 입력 사이에 여백 추가    
   },
   input: {
-    fontFamily: 'Paperlogy-Regular',
+    fontFamily: 'Paperlogy-Medium',
     flex: 1,
-    fontSize: 16,
-    color: '#333',
+    fontSize: 14,
+    color: '#818181',
     marginLeft: 10,
   },
   searchIcon: {

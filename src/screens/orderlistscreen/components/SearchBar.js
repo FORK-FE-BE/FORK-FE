@@ -20,7 +20,7 @@ export default function SearchBar() {
 const styles = StyleSheet.create({
   container: {
     marginLeft: 20,
-    marginTop: 19,
+    marginTop: 0,
     width: '90%',
     height: 45,
     backgroundColor: '#F6F6F6', // 연회색 배경
@@ -30,9 +30,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,  
   },
   input: {
-    fontFamily: 'Paperlogy-Regular',
+    fontFamily: 'Paperlogy-Medium',
     flex: 1,
-    fontSize: 16,
+    fontSize: 14,
     color: '#000',
     marginLeft: 10,
   },

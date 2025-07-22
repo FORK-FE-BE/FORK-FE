@@ -19,7 +19,12 @@ import OrderListScreen from './src/screens/orderlistscreen/OrderListScreen';
 import OrderDetailScreen from './src/screens/orderdetailscreen/OrderDetailScreen';
 import RestaurantDetail from './src/screens/restaurantdetail/RestaurantDetail';
 import CartScreen from './src/screens/cartscreen/CartScreen';
+import PaymentScreen from './src/screens/paymentscreen/PaymentScreen';
+import MenuDetailScreen from './src/screens/menudetail/MenudetailScreen';
+import ARView from './src/screens/ARView.js';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
+import { CartProvider } from './src/contexts/CartContext'; 
+
 
 const Stack = createNativeStackNavigator();
 
@@ -37,7 +42,9 @@ export default function App() {
   });
   if (!fontsLoaded) return null;
   return (
+
     <SafeAreaProvider>
+      <CartProvider> 
 
       <SafeAreaView style={{ flex: 1 }}>
 
@@ -49,7 +56,7 @@ export default function App() {
             <Stack.Screen name="OrderList" component={OrderListScreen} options={{ headerShown: false }} />
             <Stack.Screen name="OrderDetail" component={OrderDetailScreen} options={{ headerShown: false }} />
             <Stack.Screen name="MyFork" component={MyForkScreen} options={{ headerShown: false }} />
-             {/*<Stack.Screen name="Coupon" component={CouponScreen} options={{ headerShown: false }} /> */}
+            {/* <Stack.Screen name="Coupon" component={CouponScreen} options={{ headerShown: false }} /> */}
             <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{ headerShown: false }} />
             <Stack.Screen name="AddressManage" component={AddressManageScreen} options={{ headerShown: false }} />
             <Stack.Screen name="ForkPoint" component={ForkPointScreen} options={{ headerShown: false }} />
@@ -58,11 +65,17 @@ export default function App() {
             <Stack.Screen name="KbotSettings" component={KbotSettingsScreen} options={{ headerShown: false }} />
             <Stack.Screen name="RestaurantDetail" component={RestaurantDetail} options={{ headerShown: false }} />
             <Stack.Screen name="CartScreen" component={CartScreen} options={{ headerShown: false }} />
-
+            <Stack.Screen name="Payment" component={PaymentScreen} options={{ headerShown: false }}/>
+            <Stack.Screen name="MenuDetail" component={MenuDetailScreen} options={{ headerShown: false }}/>
+            <Stack.Screen name="AR" component={ARView} options={{ headerShown: false }} />
 
           </Stack.Navigator>
         </NavigationContainer>
+
       </SafeAreaView>
+      </CartProvider> 
+
     </SafeAreaProvider>
+
   );
 }

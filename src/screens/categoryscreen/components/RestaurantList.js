@@ -3,15 +3,21 @@ import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 import Line from '../../utils/Line';
 import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import {restaurantsByCategory} from "../../../dummyData/restaurantsByCategory";
+import { restaurantsByCategory } from "../../../dummyData/restaurantsByCategory";
 
-export default function RestaurantList({category}) {
+export default function RestaurantList({ category }) {
     const navigation = useNavigation();
     const restaurants = restaurantsByCategory[category];
-    const RestaurantCard = ({ name, menus, rating, reviewCount, isLast }) => {
-        const photos = menus && menus.length ? menus : [null, null, null, null]; // 기본 4칸
-        return (
-            <View style={styles.restaurantItem} onTouchEnd={() => navigation.navigate('RestaurantDetail')}>
+
+const RestaurantCard = ({ name, menus, rating, reviewCount, isLast }) => {
+    const photos = menus && menus.length ? menus : [null, null, null, null];
+
+    return (
+        <TouchableOpacity
+            onPress={() => navigation.navigate('RestaurantDetail')}
+            activeOpacity={0.8}
+        >
+            <View style={styles.restaurantItem}>
                 {/* 사진 스크롤 */}
                 <ScrollView
                     horizontal
@@ -43,21 +49,22 @@ export default function RestaurantList({category}) {
                 {/* 식당명 및 평점 */}
                 <View style={styles.nameRatingRow}>
                     <Text style={styles.restaurantName}>{name}</Text>
-                    <Text style={styles.restaurantRating}>★ {rating}</Text>
+                    <Text style={styles.restaurantRating}><Text style={styles.star}>★</Text> {rating}</Text>
                     <Text style={styles.restaurantReview}>({reviewCount})</Text>
                 </View>
 
-                {/* 보유 뱃지 */}
+                {/* 뱃지 */}
                 <View style={styles.contentWrap}>
                     <Text style={styles.arcontent}>AR보유</Text>
                     <Text style={styles.coupon}>쿠폰보유</Text>
                 </View>
 
-                {/* 마지막 카드가 아니면 선 추가 */}
                 {!isLast && <Line />}
             </View>
-        );
-    };
+        </TouchableOpacity>
+    );
+};
+
     return (
         <View style={styles.container}>
             {restaurants.map((restaurant, index) => (
@@ -73,7 +80,7 @@ export default function RestaurantList({category}) {
 
 const styles = StyleSheet.create({
     container: {
-        flex:1,
+        flex: 1,
         backgroundColor: '#fff',
     },
     restaurantItem: {
@@ -95,6 +102,11 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         fontFamily: 'Paperlogy-Medium',
     },
+    star: {
+        color: '#FFD900',
+        fontSize: 16,
+        fontFamily: 'Paperlogy-Medium',
+    },
     restaurantReview: {
         marginLeft: 3,
         marginTop: 2,
@@ -113,22 +125,24 @@ const styles = StyleSheet.create({
         borderRadius: 3,
         width: 47,
         height: 20,
-        fontSize: 12,
+        fontSize: 10,
         textAlign: 'center',
         color: '#006DF0',
         lineHeight: 20,
         marginLeft: 24,
+        fontFamily: 'Paperlogy-SemiBold'
     },
     coupon: {
         backgroundColor: '#EDF4FF',
         borderRadius: 3,
         width: 47,
         height: 20,
-        fontSize: 12,
+        fontSize: 10,
         textAlign: 'center',
         color: '#006DF0',
         lineHeight: 20,
         marginLeft: 5,
+        fontFamily: 'Paperlogy-SemiBold'
     },
     photoScroll: {
         flexDirection: 'row',
