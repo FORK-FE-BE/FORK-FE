@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ArrowBack from '../../../assets/icons/arrow_back.svg';
+import ArrowBack from '../../assets/icons/arrow_back.svg';
 
 import { useCart } from '../../contexts/CartContext';
 import {
@@ -57,9 +57,9 @@ export default function MenuDetailScreen() {
 
   return (
     <ScrollView style={styles.container}>
-                  <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-                      <ArrowBack width={24} height={24} />
-                  </TouchableOpacity>
+      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+        <ArrowBack width={24} height={24} />
+      </TouchableOpacity>
       <Image source={menu.image} style={styles.image} />
 
       <View style={styles.overlayTextBox}>
@@ -165,6 +165,15 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 16,
     fontFamily: 'Paperlogy-Bold',
+  },
+  backButton: {
+    position: 'absolute',
+    top: 20,
+    left: 20,
+    zIndex: 10,
+    backgroundColor: 'rgba(255,255,255,0.7)',
+    borderRadius: 20,
+    padding: 6,
   },
   arButton: {
     marginTop: 16,
