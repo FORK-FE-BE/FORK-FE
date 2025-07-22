@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import ArrowBack from '../../../assets/icons/arrow_back.svg';
+
 import { useCart } from '../../contexts/CartContext';
 import {
   View,
@@ -55,6 +57,9 @@ export default function MenuDetailScreen() {
 
   return (
     <ScrollView style={styles.container}>
+                  <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+                      <ArrowBack width={24} height={24} />
+                  </TouchableOpacity>
       <Image source={menu.image} style={styles.image} />
 
       <View style={styles.overlayTextBox}>

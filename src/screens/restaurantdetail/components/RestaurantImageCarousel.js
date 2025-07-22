@@ -3,7 +3,6 @@ import React, { useRef, useState } from 'react';
 import { FlatList, Image, StyleSheet, View, Dimensions } from 'react-native';
 
 const slides = [
-  { id: '1', uri: require('../../../dummyData/dummyImages/image1.jpg') },
   { id: '2', uri: require('../../../dummyData/dummyImages/image2.jpg') },
   { id: '3', uri: require('../../../dummyData/dummyImages/image3.jpg') },
   { id: '4', uri: require('../../../dummyData/dummyImages/image4.jpg') },

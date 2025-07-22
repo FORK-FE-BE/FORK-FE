@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     },
     photoScroll: {
         flexDirection: 'row',
-        paddingHorizontal: 24, // ✅ 양쪽 여백
+        paddingHorizontal: 24, 
     },
     photoWrapper: {
         marginTop: 16,
