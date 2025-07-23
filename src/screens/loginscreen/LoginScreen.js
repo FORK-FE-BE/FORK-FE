@@ -3,8 +3,8 @@ import {LinearGradient} from 'expo-linear-gradient';
 import ForkIcon from '../../assets/icons/FORKIcon.svg';
 import {getProfile, login} from "@react-native-seoul/kakao-login";
 import {useNavigation} from "@react-navigation/native";
-import axios from 'axios'; // 누락되어 있다면 꼭 추가
-import { BASE_URL } from '../../constants'; // BASE_URL이 정의돼 있어야 함
+import axios from 'axios';
+import { BASE_URL } from '../../constants';
 
 export default function LoginScreen() {
     const navigation = useNavigation();
@@ -45,21 +45,21 @@ export default function LoginScreen() {
 
                 <TouchableOpacity style={styles.kakao} activeOpacity={0.7} onPress={handleKakaoLogin}>
                     <View style={styles.loginRow}>
-                        <Image source={require('./resource/kakao.png')} style={styles.kakaoLogo}/>
+                        <Image source={require('../../assets/images/kakao.png')} style={styles.kakaoLogo}/>
                         <Text style={styles.loginTextKakao}>카카오로 로그인하기</Text>
                     </View>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.naver} activeOpacity={0.7}>
                     <View style={styles.loginRow}>
-                        <Image source={require('./resource/naver.png')} style={styles.naverLogo}/>
+                        <Image source={require('../../assets/images/naver.png')} style={styles.naverLogo}/>
                         <Text style={styles.loginTextNaver}>네이버로 로그인하기</Text>
                     </View>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.google} activeOpacity={0.7}>
                     <View style={styles.loginRow}>
-                        <Image source={require('./resource/google.png')} style={styles.googleLogo}/>
+                        <Image source={require('../../assets/images/google.png')} style={styles.googleLogo}/>
                         <Text style={styles.loginTextGoogle}>구글로 로그인하기</Text>
                     </View>
                 </TouchableOpacity>

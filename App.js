@@ -23,7 +23,8 @@ import PaymentScreen from './src/screens/paymentscreen/PaymentScreen';
 import MenuDetailScreen from './src/screens/menudetail/MenudetailScreen';
 import ARView from './src/screens/ARView.js';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
-import { CartProvider } from './src/contexts/CartContext'; 
+import { CartProvider } from './src/contexts/CartContext';
+import LoginScreen from "./src/screens/loginscreen/LoginScreen";
 
 
 const Stack = createNativeStackNavigator();
@@ -49,7 +50,8 @@ export default function App() {
       <SafeAreaView style={{ flex: 1 }}>
 
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="Home">
+          <Stack.Navigator initialRouteName="Login">
+            <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
             <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
             <Stack.Screen name="KbotScreen" component={ChatBotScreen} options={{ headerShown: false }} />
             <Stack.Screen name="Category" component={CategoryScreen} options={{ headerShown: false }} />
