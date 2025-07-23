@@ -20,7 +20,7 @@ export default function OrderDetailSection() {
             {items.map((item) => (
                 <View key={item.id} style={styles.itemCard}>
                     <View style={styles.textContainer}>
-                        <Text style={styles.menuName}>{item.name}</Text>
+                        <Text style={styles.menuTitle}>{item.name}</Text>
                         <Text style={styles.menuSub}>{item.price} {item.quantity}개</Text>
                     </View>
 
