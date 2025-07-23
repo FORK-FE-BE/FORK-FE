@@ -2,11 +2,14 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
-export default function RestaurantInfoSection() {
+export default function RestaurantInfoSection({restaurantInfo}) {
+  if (!restaurantInfo) {
+    return null; // 또는 <View><Text>로딩 중...</Text></View> 등
+  }
   return (
     <View style={styles.container}>
       <View style={styles.headerRow}>
-        <Text style={styles.restaurantName}>맛있는 냉면집</Text>
+        <Text style={styles.restaurantName}>{restaurantInfo.name}</Text>
         <TouchableOpacity style={styles.originInfoButton}>
           <Text style={styles.originInfoText}>원산지 정보</Text>
         </TouchableOpacity>
@@ -14,7 +17,7 @@ export default function RestaurantInfoSection() {
 
       <View style={styles.ratingRow}>
         <Text style={styles.star}>★</Text>
-        <Text style={styles.ratingText}>4.79(2931)</Text>
+        <Text style={styles.ratingText}>{restaurantInfo.rating?.toFixed(2)} ({restaurantInfo.reviewCount})</Text>
       </View>
 
       <Text style={styles.description}>
