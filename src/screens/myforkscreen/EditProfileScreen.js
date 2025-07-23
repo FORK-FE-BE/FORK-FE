@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput, Alert } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { useNavigation } from '@react-navigation/native';
+import {useUser} from "../../contexts/UserContext";
 
 export default function EditProfileScreen() {
   const [profileImage, setProfileImage] = useState(null);
   const navigation = useNavigation();
-
+  const {logoutUser} = useUser();
+  const {user} =useUser();
   const pickImage = async () => {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (status !== 'granted') {
@@ -36,7 +38,7 @@ export default function EditProfileScreen() {
           onPress: () => {
             // 여기에 로그아웃 처리 로직 삽입
             console.log('로그아웃 처리됨');
-            // navigation.navigate('Login'); // 필요시 로그인 화면으로
+            navigation.navigate('Login'); // 필요시 로그인 화면으로
           },
         },
       ],
@@ -82,9 +84,9 @@ export default function EditProfileScreen() {
 
       {/* 정보 수정 영역 */}
       <View style={styles.infoBox}>
-        <InfoRow label="닉네임" value="명상하는포크" />
-        <InfoRow label="이름" value="hamjji PARK" />
-        <InfoRow label="대표 이메일" value="iamstillhungry@hmastet.ac.kr" />
+        <InfoRow label="닉네임" value={user.name} />
+        <InfoRow label="이름" value={user.name} />
+        <InfoRow label="대표 이메일" value={user.email} />
         <InfoRow label="비밀번호 변경" isNavigable />
         <InfoRow label="전화번호 변경" isNavigable />
       </View>

@@ -25,6 +25,7 @@ import ARView from './src/screens/ARView.js';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import { CartProvider } from './src/contexts/CartContext';
 import LoginScreen from "./src/screens/loginscreen/LoginScreen";
+import {AppProvider} from "./src/contexts/AppProvider";
 
 
 const Stack = createNativeStackNavigator();
@@ -45,7 +46,7 @@ export default function App() {
   return (
 
     <SafeAreaProvider>
-      <CartProvider> 
+      <AppProvider>
 
       <SafeAreaView style={{ flex: 1 }}>
 
@@ -75,7 +76,7 @@ export default function App() {
         </NavigationContainer>
 
       </SafeAreaView>
-      </CartProvider> 
+      </AppProvider>
 
     </SafeAreaProvider>
 

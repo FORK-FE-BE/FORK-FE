@@ -5,9 +5,11 @@ import {getProfile, login} from "@react-native-seoul/kakao-login";
 import {useNavigation} from "@react-navigation/native";
 import axios from 'axios';
 import { BASE_URL } from '../../constants';
+import {useUser} from "../../contexts/UserContext";
 
 export default function LoginScreen() {
     const navigation = useNavigation();
+    const {loginUser} = useUser();
     const handleKakaoLogin = async () => {
         console.log('카카오 로그인 요청 시작');
         try {
@@ -16,8 +18,9 @@ export default function LoginScreen() {
                 email: "ajk6068@gmail.com",
             };
             const response = await axios.post(`${BASE_URL}/api/login/kakao`, payload);
-            console.log('✅ 서버 응답:', response.data);
-
+            const userData = response.data;
+            console.log('유저 정보:', response.data);
+            loginUser(userData);
             // 🔽 로그인 완료 후 라우팅
             navigation.navigate("Home");
             // const token = await login(); // 카카오 로그인 시도
@@ -143,19 +146,19 @@ const styles = StyleSheet.create({
 
     // 로고 이미지 스타일
     kakaoLogo: {
-        width: 30,
-        height: 30,
+        width: 40,
+        height: 40,
         borderRadius: 100,
         resizeMode: 'contain',
     },
     naverLogo: {
-        width: 30,
-        height: 30,
+        width: 40,
+        height: 40,
         resizeMode: 'contain',
     },
     googleLogo: {
-        width: 30,
-        height: 30,
+        width: 40,
+        height: 40,
         resizeMode: 'contain',
     },
 

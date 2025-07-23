@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import BottomNavigationBar from '../utils/BottomNavigationBar';
+import {useUser} from "../../contexts/UserContext";
 
 export default function MyForkScreen() {
   const navigation = useNavigation();
   const route = useRoute();
   const [activeTab, setActiveTab] = useState('my');
+  const {user} = useUser();
   return (
     <View style={styles.rootContainer}>
       <View style={styles.container}>
@@ -31,7 +33,7 @@ export default function MyForkScreen() {
               onPress={() => navigation.navigate('EditProfile')}
             >
               <View style={styles.nicknameRow}>
-                <Text style={styles.nickname}>명상하는포크</Text>
+                <Text style={styles.nickname}>{user.name}</Text>
                 <Image
                   source={require('../../assets/images/chevron_right.png')}
                   style={styles.chevronIconRight}
