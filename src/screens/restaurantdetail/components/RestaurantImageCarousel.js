@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
         {
             width: width, height: 241, resizeMode: 'cover', justifyContent: 'center',  // ✅ 세로 중앙 정렬
             alignItems: 'center',      // ✅ 가로 중앙 정렬
-            backgroundColor: '#FFFFFF', // (선택) 기본 배경 설정
+            backgroundColor: '#f0f0f0', // (선택) 기본 배경 설정
 
         }, indicatorOverlay: {
         position: 'absolute', bottom: 10, left: 0, right: 0, flexDirection: 'row', justifyContent: 'center',
