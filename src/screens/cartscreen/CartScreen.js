@@ -1,24 +1,77 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     View, Text, StyleSheet, TouchableOpacity, Alert, FlatList, ActivityIndicator
 } from 'react-native';
 import axios from 'axios'; // ❗ import 추가
 import BottomNavigationBar from '../utils/BottomNavigationBar';
-import { useIsFocused, useNavigation, useRoute } from '@react-navigation/native';
-import { useUser } from "../../contexts/UserContext";
-import { useCart } from "../../contexts/CartContext";
-import { BASE_URL } from "../../constants";
+import {useIsFocused, useNavigation, useRoute} from '@react-navigation/native';
+import {useUser} from "../../contexts/UserContext";
+import {useCart} from "../../contexts/CartContext";
+import {BASE_URL} from "../../constants";
 
 export default function CartScreen() {
     const route = useRoute();
     const navigation = useNavigation();
     const [activeTab] = useState('cart');
-    const { cart, updateCart } = useCart(); // ✅ cart 상태 가져오기
+    const {cart, updateCart} = useCart(); // ✅ cart 상태 가져오기
+    const {refreshCart} = useCart();
     const isFocused = useIsFocused();
-    const { user } = useUser();
+    const {user} = useUser();
     const [loading, setLoading] = useState(true);
-
     const deliveryFee = 0; // 배달비 등 추가 비용
+
+    const decreaseQuantity = async (item) => {
+        if (item.quantity <= 1) {
+            Alert.alert('알림', '수량은 최소 1개 이상이어야 합니다.');
+            return;
+        }
+        try {
+            await axios.put(`${BASE_URL}/api/cart/${item.cartItemId}`, {
+                quantity: item.quantity-1,
+            });
+            // 수량 변경 후 장바구니 업데이트
+            await refreshCart(user.userId);
+        } catch (error) {
+            Alert.alert('오류', '수량 감소에 실패했습니다.');
+            console.error(error);
+        }
+    };
+
+    const increaseQuantity = async (item) => {
+        try {
+            await axios.put(`${BASE_URL}/api/cart/${item.cartItemId}`,{
+                quantity: item.quantity+1,
+            });
+            // 수량 변경 후 장바구니 업데이트
+            await refreshCart(user.userId);
+        } catch (error) {
+            Alert.alert('오류', '수량 증가에 실패했습니다.');
+            console.error(error);
+        }
+    };
+
+    const deleteItem = async (item) => {
+        Alert.alert(
+            '삭제 확인',
+            '이 아이템을 삭제하시겠습니까?',
+            [
+                {text: '취소', style: 'cancel'},
+                {
+                    text: '삭제',
+                    style: 'destructive',
+                    onPress: async () => {
+                        try {
+                            await axios.delete(`${BASE_URL}/api/cart/${user.userId}/items/${item.cartItemId}`);
+                            await refreshCart(user.userId);
+                        } catch (error) {
+                            Alert.alert('오류', '삭제에 실패했습니다.');
+                            console.error(error);
+                        }
+                    }
+                }
+            ]
+        );
+    };
 
     useEffect(() => {
         // ✅ 화면이 포커스되고, 사용자 ID가 있을 때만 실행
@@ -41,23 +94,22 @@ export default function CartScreen() {
         }
     }, [isFocused]);
 
-    // ✅ 장바구니 아이템 렌더링 함수
-    const renderCartItem = ({ item }) => (
+    const renderCartItem = ({item}) => (
         <View style={styles.card}>
             <Text style={styles.menuTitle}>{item.menuName}</Text>
             <Text style={styles.price}>가격 : {item.price.toLocaleString()}원</Text>
-            {item.selectedOptions && ( // 옵션이 있을 경우 표시
-                <Text style={styles.topping}>
-                    옵션 : {item.selectedOptions}
-                </Text>
+            {item.selectedOptions && (
+                <Text style={styles.topping}>옵션 : {item.selectedOptions}</Text>
             )}
-
             <View style={styles.quantityWrapper}>
-                <TouchableOpacity onPress={() => Alert.alert('알림', '삭제 기능 구현 예정입니다.')}>
+                <TouchableOpacity onPress={() => deleteItem(item)}>
                     <Text>🗑️</Text>
                 </TouchableOpacity>
+                <TouchableOpacity onPress={() => decreaseQuantity(item)}>
+                    <Text>➖</Text>
+                </TouchableOpacity>
                 <Text style={styles.quantityText}>{item.quantity}</Text>
-                <TouchableOpacity onPress={() => Alert.alert('알림', '수량 변경 기능 구현 예정입니다.')}>
+                <TouchableOpacity onPress={() => increaseQuantity(item)}>
                     <Text>➕</Text>
                 </TouchableOpacity>
             </View>
@@ -65,7 +117,7 @@ export default function CartScreen() {
     );
 
     if (loading) {
-        return <View style={styles.container}><ActivityIndicator size="large" /></View>;
+        return <View style={styles.container}><ActivityIndicator size="large"/></View>;
     }
 
     return (
@@ -88,7 +140,7 @@ export default function CartScreen() {
                 ListFooterComponent={
                     <TouchableOpacity
                         style={styles.addMenuButton}
-                        onPress={() => navigation.navigate('RestaurantDetail', { restaurantId: cart?.restaurantId })}
+                        onPress={() => navigation.navigate('RestaurantDetail', {restaurantId: cart?.restaurantId})}
                     >
                         <Text style={styles.addMenuText}>+ 메뉴 추가하러 가기</Text>
                     </TouchableOpacity>
@@ -106,7 +158,8 @@ export default function CartScreen() {
                     <View style={styles.divider}/>
                     <View style={[styles.rowBetween, {marginTop: 8}]}>
                         <Text style={styles.finalLabel}>최종 결제금액</Text>
-                        <Text style={styles.finalValue}>{((cart?.totalPrice || 0) + deliveryFee).toLocaleString()}원</Text>
+                        <Text
+                            style={styles.finalValue}>{((cart?.totalPrice || 0) + deliveryFee).toLocaleString()}원</Text>
                     </View>
                 </View>
             </View>
@@ -114,7 +167,8 @@ export default function CartScreen() {
             {/* ✅ 하단 바 */}
             <View style={styles.bottomBar}>
                 <Text style={styles.bottomPrice}>총 결제금액</Text>
-                <Text style={styles.bottomPriceNumber}>{((cart?.totalPrice || 0) + deliveryFee).toLocaleString()}원</Text>
+                <Text
+                    style={styles.bottomPriceNumber}>{((cart?.totalPrice || 0) + deliveryFee).toLocaleString()}원</Text>
                 <TouchableOpacity
                     style={styles.orderButton}
                     onPress={() => navigation.navigate('Payment')}
@@ -285,4 +339,4 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
     },
-});
+})

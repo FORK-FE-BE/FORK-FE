@@ -10,7 +10,7 @@ import {useRoute} from "@react-navigation/native";
 
 export default function CategoryScreen() {
     const route = useRoute();
-    const category = route.params?.category || '중식';
+    const category = route.params?.category;
     return (
         <View style={styles.container}>
             <ScrollView showsVerticalScrollIndicator={false}>
