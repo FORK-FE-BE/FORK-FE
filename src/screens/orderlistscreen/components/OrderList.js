@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
         paddingBottom: 30,
         borderRadius: 10,
         marginTop: 10,
+        backgroundColor: '#eee',
     },
     card: {
         backgroundColor: '#fff',
@@ -63,6 +64,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         padding: 25,
         marginBottom: 18,
+        marginTop: 30
     },
     headerRow: {
         flexDirection: 'row',
