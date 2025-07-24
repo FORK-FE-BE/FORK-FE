@@ -2,20 +2,23 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet,Image } from 'react-native';
 
 import oneImage from '../../../assets/images/one.png';
+import {useCart} from "../../../contexts/CartContext";
+import {useNavigation} from "@react-navigation/native";
 export default function CartFixedBar() {
+  const {cart} = useCart();
+  const navigation = useNavigation();
   return (
     <View style={styles.fixedBar}>
       <View>
-        <Text style={styles.priceText}>17,000원</Text>
+        <Text style={styles.priceText}>{cart?.totalPrice?.toLocaleString() ?? 0}원</Text>
         <Text style={styles.subText}>3,000원 더 담으면 주문가능</Text>
       </View>
-      <TouchableOpacity style={styles.cartButton}>
+      <TouchableOpacity style={styles.cartButton} onPress={() => navigation.navigate('CartScreen')}>
         <View style={styles.cartContent}>
-            <Image source={oneImage} style={styles.oneImage} />
+            {/*<Image source={oneImage} style={styles.oneImage} />*/}
             <Text style={styles.cartText}>장바구니 보기</Text>
         </View>
         </TouchableOpacity>
-
     </View>
   );
 }

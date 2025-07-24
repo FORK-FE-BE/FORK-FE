@@ -1,206 +1,78 @@
-import React, {useEffect, useState} from 'react';
+// src/screens/menuDetail/MenuDetailScreen.js
+import React, {use, useState} from 'react';
+import { View, Text, TouchableOpacity, Alert, ScrollView } from 'react-native';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import axios from 'axios';
 import ArrowBack from '../../assets/icons/arrow_back.svg';
+import { BASE_URL } from '../../constants';
+import MenuImage from './components/MenuImage';
+import OptionSelector from './components/OptionSelector';
+import QuantityCounter from './components/QuantityCounter';
+import ARButton from './components/ARButton';
+import styles from './components/styles';
+import {useUser} from "../../contexts/UserContext";
+import {useCart} from "../../contexts/CartContext";
 
-import {useCart} from '../../contexts/CartContext';
-import {
-    View, Text, Image, TouchableOpacity, StyleSheet, Alert, ScrollView,
-} from 'react-native';
-import Checkbox from 'expo-checkbox';
-import {useNavigation, useRoute} from '@react-navigation/native';
-import * as WebBrowser from 'expo-web-browser';
-import {BASE_URL} from "../../constants";
-
-
-const imagePlaceholderIcon = require('../../assets/icons/ForkBot.png');
-
-function MenuImage({imgUrl, style}) {
-    const [loadError, setLoadError] = useState(false);
-
-    if (!imgUrl || loadError) {
-        return (<View style={[styles.menuImagePlaceholder, style]}>
-            <Image
-                source={imagePlaceholderIcon}
-                style={styles.menuPlaceholderImage}
-                resizeMode="contain"
-            />
-        </View>);
-    }
-
-    return (<Image
-        source={{uri: imgUrl}}
-        style={[styles.menuImage, style]} // ✅ 외부 style 병합
-        resizeMode="cover"
-        onError={() => setLoadError(true)}
-    />);
-}
-
-export default function MenuDetailScreen({item}) {
-    const {addToCart} = useCart();
+export default function MenuDetailScreen() {
     const navigation = useNavigation();
     const route = useRoute();
-
     const menu = route.params?.item;
-
+    const {user}= useUser();
     const [quantity, setQuantity] = useState(1);
-    const [extraTea, setExtraTea] = useState(false);
-    const [extraEgg, setExtraEgg] = useState(false);
-
+    // const [extraTea, setExtraTea] = useState(false);
+    // const [extraEgg, setExtraEgg] = useState(false);
+    const {updateCart} = useCart();
     const basePrice = menu.price;
-    const extraPrice = (extraTea ? 1000 : 0) + (extraEgg ? 500 : 0);
-    const totalPrice = (basePrice + extraPrice) * quantity;
+    // const extraPrice = (extraTea ? 1000 : 0) + (extraEgg ? 500 : 0);
+    const totalPrice = (basePrice) * quantity;
 
-    const handleAddToCart = () => {
-        const cartItem = {
-            name: menu.name, description: menu.description, image: menu.image, price: menu.price, quantity, extra: {
-                tea: extraTea, egg: extraEgg
-            }
+    const handleAddToCart = async () => {
+        const payload  = {
+            menuId: menu.menuId,
+            quantity,
         };
-        addToCart(cartItem);
-        navigation.navigate('CartScreen');
+
+        try {
+            await axios.post(`${BASE_URL}/api/cart/${user.userId}`, payload);
+            console.log('장바구니 추가됨', `${menu.name} ${quantity}개 ${menu.price}원 담겼습니다.`);
+            const response = await axios.get(`${BASE_URL}/api/cart/${user.userId}`);
+            updateCart(response.data);
+            navigation.goBack();
+        } catch (error) {
+            console.error('장바구니 추가 실패:', error);
+            Alert.alert('에러', '장바구니에 상품을 담지 못했습니다.');
+        }
     };
 
-    return (<ScrollView style={styles.container}>
-        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-            <ArrowBack width={24} height={24}/>
-        </TouchableOpacity>
-        <MenuImage imgUrl={menu.image} style={styles.image}/>
-
-        <View style={styles.overlayTextBox}>
-            <Text style={styles.overlayText}>더욱 자세한 정보를 원한다면, AR로 보기를 눌러보세요</Text>
-        </View>
-
-        <View style={styles.infoBox}>
-            <Text style={styles.rankLabel}>인기 1위 사장님 추천</Text>
-            <Text style={styles.menuName}>{menu.name}</Text>
-            <Text style={styles.menuDesc}>{menu.description}</Text>
-            <Text style={styles.price}>가격 {basePrice.toLocaleString()}원</Text>
-
-            <TouchableOpacity
-                style={styles.arButton}
-                onPress={() => {
-                    WebBrowser.openBrowserAsync('https://ye-eun-min201.github.io/usdz-hosting/PinkDonut.usdz');
-                }}
-            >
-                <Text style={styles.arButtonText}>AR로 보기</Text>
+    return (
+        <ScrollView style={styles.container}>
+            <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+                <ArrowBack width={24} height={24} />
             </TouchableOpacity>
 
-        </View>
+            <MenuImage imgUrl={menu.image} style={styles.image} />
 
-        <View style={styles.optionBox}>
-            <Text style={styles.optionTitle}>추가선택</Text>
-            <View style={styles.optionRow}>
-                <Checkbox value={extraTea} onValueChange={setExtraTea}/>
-                <Text style={styles.optionLabel}>차슈 추가</Text>
-                <Text style={styles.optionPrice}>+ 1,000원</Text>
-            </View>
-            <View style={styles.optionRow}>
-                <Checkbox value={extraEgg} onValueChange={setExtraEgg}/>
-                <Text style={styles.optionLabel}>계란추가</Text>
-                <Text style={styles.optionPrice}>+ 500원</Text>
-            </View>
-        </View>
+            <View style={styles.infoBox}>
+                <Text style={styles.rankLabel}>인기 1위 사장님 추천</Text>
+                <Text style={styles.menuName}>{menu.name}</Text>
+                <Text style={styles.menuDesc}>{menu.description}</Text>
+                <Text style={styles.price}>가격 {basePrice.toLocaleString()}원</Text>
 
-        <View style={styles.quantityBox}>
-            <Text style={styles.optionTitle}>수량</Text>
-            <View style={styles.counterBox}>
-                <TouchableOpacity onPress={() => setQuantity(Math.max(1, quantity - 1))}>
-                    <Text style={styles.counterBtn}>-</Text>
-                </TouchableOpacity>
-                <Text style={styles.quantityText}>{quantity}</Text>
-                <TouchableOpacity onPress={() => setQuantity(quantity + 1)}>
-                    <Text style={styles.counterBtn}>+</Text>
-                </TouchableOpacity>
+                <ARButton url="https://ye-eun-min201.github.io/usdz-hosting/PinkDonut.usdz" />
             </View>
-        </View>
 
-        <TouchableOpacity style={styles.cartButton} onPress={handleAddToCart}>
-            <Text style={styles.cartButtonText}>{totalPrice.toLocaleString()} 원 담기</Text>
-        </TouchableOpacity>
-    </ScrollView>);
+            <OptionSelector
+                // extraTea={extraTea}
+                // setExtraTea={setExtraTea}
+                // extraEgg={extraEgg}
+                // setExtraEgg={setExtraEgg}
+            />
+
+            <QuantityCounter quantity={quantity} setQuantity={setQuantity} />
+
+            <TouchableOpacity style={styles.cartButton} onPress={handleAddToCart}>
+                <Text style={styles.cartButtonText}>{totalPrice.toLocaleString()} 원 담기</Text>
+            </TouchableOpacity>
+        </ScrollView>
+    );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1, backgroundColor: '#fff',
-    }, image: {
-        width: '100%', height: 220,
-    }, overlayTextBox: {
-        position: 'absolute', top: 190, width: '100%', alignItems: 'center',
-    }, overlayText: {
-        backgroundColor: 'black',
-        color: 'white',
-        paddingHorizontal: 8,
-        paddingVertical: 4,
-        borderRadius: 10,
-        fontSize: 13,
-        fontFamily: 'Paperlogy-Regular',
-    }, infoBox: {
-        padding: 24,
-    }, rankLabel: {
-        color: '#888', fontSize: 12, marginBottom: 6, fontFamily: 'Paperlogy-Regular',
-    }, menuName: {
-        fontSize: 22, fontFamily: 'Paperlogy-Bold',
-    }, menuDesc: {
-        fontSize: 14, color: '#666', marginVertical: 10, fontFamily: 'Paperlogy-Regular',
-    }, price: {
-        fontSize: 16, fontFamily: 'Paperlogy-Bold',
-    }, backButton: {
-        position: 'absolute',
-        top: 20,
-        left: 20,
-        zIndex: 10,
-        backgroundColor: 'rgba(255,255,255,0.7)',
-        borderRadius: 20,
-        padding: 6,
-    }, arButton: {
-        marginTop: 16,
-        borderWidth: 1,
-        borderColor: '#007aff',
-        borderRadius: 10,
-        paddingVertical: 12,
-        alignItems: 'center',
-    }, arButtonText: {
-        color: '#007aff', fontSize: 16, fontFamily: 'Paperlogy-Regular',
-    }, optionBox: {
-        paddingHorizontal: 24, paddingVertical: 20, borderTopWidth: 1, borderBottomWidth: 1, borderColor: '#eee',
-    }, optionTitle: {
-        fontSize: 16, fontFamily: 'Paperlogy-Bold', marginBottom: 12,
-    }, optionRow: {
-        flexDirection: 'row', alignItems: 'center', marginBottom: 12,
-    }, optionLabel: {
-        fontSize: 15, flex: 1, fontFamily: 'Paperlogy-Regular',
-    }, optionPrice: {
-        fontSize: 14, color: '#666', fontFamily: 'Paperlogy-Regular',
-    }, quantityBox: {
-        paddingHorizontal: 24, paddingVertical: 16,
-    }, counterBox: {
-        flexDirection: 'row', alignItems: 'center', marginTop: 10,
-    }, counterBtn: {
-        fontSize: 20, paddingHorizontal: 20, fontFamily: 'Paperlogy-Regular',
-    }, quantityText: {
-        fontSize: 18, fontFamily: 'Paperlogy-Bold', paddingHorizontal: 12,
-    }, cartButton: {
-        marginTop: 20,
-        backgroundColor: '#007aff',
-        borderRadius: 10,
-        paddingVertical: 14,
-        alignItems: 'center',
-        marginHorizontal: 24,
-        marginBottom: 24,
-    }, cartButtonText: {
-        color: '#fff', fontSize: 18, fontFamily: 'Paperlogy-Bold',
-    },
-
-
-    menuImage: {
-        width: '100%', height: 220, borderRadius: 0,
-    },
-
-    menuImagePlaceholder: {
-        width: '100%', height: 220, backgroundColor: '#F0F0F0', justifyContent: 'center', alignItems: 'center',
-    },
-
-    menuPlaceholderImage: {
-        width: 60, height: 60, tintColor: '#ccc',
-    },
-});

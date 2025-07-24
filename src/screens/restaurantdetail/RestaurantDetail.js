@@ -46,7 +46,6 @@ export default function RestaurantDetail() {
                 <RestaurantInfoSection restaurantInfo={restaurantInfo}/>
                 <RestaurantMenuWithCart scrollRef={scrollRef}  menuItems={menus}/>
             </ScrollView>
-
             <CartFixedBar/>
         </View>
     );

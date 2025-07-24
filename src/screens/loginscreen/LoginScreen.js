@@ -6,10 +6,12 @@ import {useNavigation} from "@react-navigation/native";
 import axios from 'axios';
 import { BASE_URL } from '../../constants';
 import {useUser} from "../../contexts/UserContext";
+import {useCart} from "../../contexts/CartContext";
 
 export default function LoginScreen() {
     const navigation = useNavigation();
     const {loginUser} = useUser();
+    const {updateCart} = useCart();
     const handleKakaoLogin = async () => {
         console.log('카카오 로그인 요청 시작');
         try {
@@ -17,9 +19,12 @@ export default function LoginScreen() {
                 nickname: "영호",
                 email: "ajk6068@gmail.com",
             };
-            const response = await axios.post(`${BASE_URL}/api/login/kakao`, payload);
-            const userData = response.data;
-            console.log('유저 정보:', response.data);
+            const userResponse = await axios.post(`${BASE_URL}/api/login/kakao`, payload);
+            const userData = userResponse.data;
+            const userId = userData.userId;
+            const cartResponse = await axios.get(`${BASE_URL}/api/cart/${userId}`);
+            updateCart(cartResponse.data);
+            console.log('유저 정보:', userResponse.data);
             loginUser(userData);
             // 🔽 로그인 완료 후 라우팅
             navigation.navigate("Home");
