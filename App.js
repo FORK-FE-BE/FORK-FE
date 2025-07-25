@@ -26,8 +26,7 @@ import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import { CartProvider } from './src/contexts/CartContext';
 import LoginScreen from "./src/screens/loginscreen/LoginScreen";
 import {AppProvider} from "./src/contexts/AppProvider";
-
-
+import CouponScreen from "./src/screens/myforkscreen/CouponScreen.js";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -68,9 +67,10 @@ export default function App() {
             <Stack.Screen name="KbotSettings" component={KbotSettingsScreen} options={{ headerShown: false }} />
             <Stack.Screen name="RestaurantDetail" component={RestaurantDetail} options={{ headerShown: false }} />
             <Stack.Screen name="CartScreen" component={CartScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="Payment" component={PaymentScreen} options={{ headerShown: false }}/>
+            <Stack.Screen name="PaymentScreen" component={PaymentScreen} options={{ headerShown: false }}/>
             <Stack.Screen name="MenuDetail" component={MenuDetailScreen} options={{ headerShown: false }}/>
             <Stack.Screen name="AR" component={ARView} options={{ headerShown: false }} />
+            <Stack.Screen name="Coupon" component={CouponScreen} />
 
           </Stack.Navigator>
         </NavigationContainer>

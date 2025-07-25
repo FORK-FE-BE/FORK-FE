@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import ArrowBack from '../../assets/icons/arrow_back.svg';
 
 export default function PaymentScreen() {
   const navigation = useNavigation();
+  const route = useRoute();
   const [storeRequest, setStoreRequest] = useState('예: 완전 맵게 해주세요!!!!!!');
   const [riderRequest, setRiderRequest] = useState('예: 빨리좀 와주세요');
   const [paymentMethod, setPaymentMethod] = useState('카카오 페이');
+
+  const { totalPrice = 0, deliveryFee = 0, couponDiscount = 0 } = route.params || {};
+  const finalAmount = totalPrice + deliveryFee - couponDiscount;
+  
 
   const paymentOptions = [
     '카카오 페이',
@@ -17,6 +22,7 @@ export default function PaymentScreen() {
     '계좌결제'
   ];
 
+  
   return (
     <ScrollView style={styles.container}>
       {/* 헤더 */}
@@ -60,12 +66,15 @@ export default function PaymentScreen() {
 
       {/* 결제 요약 */}
       <View style={styles.summaryBox}>
-        <View style={styles.row}><Text style={styles.label}>주문금액</Text><Text style={styles.value}>30,000원</Text></View>
-        <View style={styles.row}><Text style={styles.label}>메뉴금액</Text><Text style={styles.value}>28,000원</Text></View>
-        <View style={styles.row}><Text style={styles.label}>배달비</Text><Text style={styles.value}>1,000원</Text></View>
-        <View style={styles.row}><Text style={styles.label}>쿠폰 할인</Text><Text style={styles.value}>-1,000원</Text></View>
-        <View style={styles.row}><Text style={styles.total}>결제금액</Text><Text style={styles.total}>31,400원</Text></View>
-      </View>
+      <View style={styles.row}><Text style={styles.label}>주문금액</Text><Text style={styles.value}>{(totalPrice + deliveryFee).toLocaleString()}원</Text></View>
+      <View style={styles.row}><Text style={styles.label}>메뉴금액</Text><Text style={styles.value}>{totalPrice.toLocaleString()}원</Text></View>
+      <View style={styles.row}><Text style={styles.label}>배달비</Text><Text style={styles.value}>{deliveryFee.toLocaleString()}원</Text></View>
+      <View style={styles.row}><Text style={styles.label}>쿠폰 할인</Text><Text style={styles.value}>-{couponDiscount.toLocaleString()}원</Text></View>
+      <View style={styles.row}><Text style={styles.total}>결제금액</Text><Text style={styles.total}>{finalAmount.toLocaleString()}원</Text></View>
+    </View>
+
+  
+
 
       {/* 결제 수단 */}
       <View style={styles.infoBox}>
@@ -82,7 +91,7 @@ export default function PaymentScreen() {
 
       {/* 결제 버튼 */}
       <TouchableOpacity style={styles.payButton}>
-        <Text style={styles.payButtonText}>31,400원 결제하기</Text>
+        <Text style={styles.payButtonText}>{finalAmount.toLocaleString()}원 결제하기</Text>
       </TouchableOpacity>
     </ScrollView>
   );
@@ -110,7 +119,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontFamily: 'Paperlogy-SemiBold',
   },
-  sectionTitle: { fontSize: 22, fontFamily: 'Paperlogy-SemiBold', marginBottom: 20,marginTop:52 },
+  sectionTitle: { fontSize: 22, fontFamily: 'Paperlogy-SemiBold', marginBottom: 20, marginTop: 52 },
   infoBox: {
     backgroundColor: '#fff',
     borderRadius: 10,
@@ -118,18 +127,16 @@ const styles = StyleSheet.create({
     marginBottom: 14,
     borderWidth: 1.4,
     borderColor: '#D9D9D9'
-},
+  },
   subTitle: {
     fontSize: 18,
     fontFamily: 'Paperlogy-SemiBold',
     marginBottom: 6,
   },
-
   PaymentsubTitle: {
     fontSize: 20,
     fontFamily: 'Paperlogy-SemiBold',
     marginBottom: 10,
-    
   },
   text: {
     fontSize: 16,
@@ -142,12 +149,12 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 10,
     paddingVertical: 14,
-    marginTop:10,
+    marginTop: 10,
     fontFamily: 'Paperlogy-Regular'
   },
   summaryBox: {
-    borderWidth:1,
-    borderColor:'#D9D9D9',
+    borderWidth: 1,
+    borderColor: '#D9D9D9',
     borderRadius: 10,
     padding: 16,
     marginBottom: 14,
@@ -190,7 +197,7 @@ const styles = StyleSheet.create({
     width: 18,
     borderRadius: 9,
     borderWidth: 5,
-    borderColor:'#2789FF'
+    borderColor: '#2789FF'
   },
   payButton: {
     marginTop: 24,
@@ -201,7 +208,7 @@ const styles = StyleSheet.create({
   },
   payButtonText: {
     color: '#fff',
-    fontSize: 24,
-    fontFamily: 'Paperlogy-Bold',
+    fontSize: 22,
+    fontFamily: 'Paperlogy-SemiBold',
   },
 });
