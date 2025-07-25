@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import BotMessageBubble from './chatbody/BotMessageBubble';
 import UserMessageBubble from './chatbody/UserMessageBubble';
 import QuickButtons from './chatbody/QuickButtons';
 import RecommendationSection from './chatbody/RecommendationSection';
-
-export default function ChatBotBody() {
+import axios from 'axios';
+import {BASE_URL} from "../../../constants";
+import ChatInputBox from "./ChatInputBox";
+export default function ChatBotBody({messages}) {
     // 샘플 데이터 (추천 식당)
     const recommendedRestaurants = [
         {
@@ -28,15 +30,21 @@ export default function ChatBotBody() {
         },
     ];
 
+
     return (
         <ScrollView
             style={styles.scrollContainer}
             contentContainerStyle={styles.contentContainer}
             showsVerticalScrollIndicator={false}
         >
-            <BotMessageBubble
-                message={`안녕하세요, ○○님!\n저는 AI 크봇이에요.\n원하시는 게 있다면 말씀해주세요!`}
-            />
+            {/* 대화 메시지 반복 렌더 */}
+            {messages.map(msg =>
+                msg.sender === 'bot' ? (
+                    <BotMessageBubble key={msg.id} message={msg.text} />
+                ) : (
+                    <UserMessageBubble key={msg.id} message={msg.text} />
+                )
+            )}
             <QuickButtons
                 options={[
                     '점심 메뉴 추천해줘',
@@ -44,9 +52,9 @@ export default function ChatBotBody() {
                     '40대 여성이 좋아하는 식당 찾아줘',
                 ]}
             />
-            <UserMessageBubble message={'40대 부장님이랑 밥먹어야함'} />
+            {/*<UserMessageBubble message={'40대 부장님이랑 밥먹어야함'} />*/}
 
-            <RecommendationSection data={recommendedRestaurants} />
+            {/*<RecommendationSection data={recommendedRestaurants} />*/}
         </ScrollView>
     );
 }

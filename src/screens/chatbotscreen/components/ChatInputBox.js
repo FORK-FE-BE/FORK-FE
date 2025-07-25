@@ -1,8 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { View, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import SendIcon from '../../../assets/icons/Send.svg';
 
-export default function ChatInputBox() {
+export default function ChatInputBox({onSendMessage}) {
+    const [text, setText] = useState('');
+    const handleSend = () =>{
+        if (text.trim().length === 0) return;
+        onSendMessage(text.trim());
+        setText('');
+    }
     return (
         <View style={styles.container}>
             <TextInput
@@ -10,8 +16,12 @@ export default function ChatInputBox() {
                 placeholder="궁금한 점을 크봇에게 물어보세요!" 
                 placeholderTextColor="#999"
                 fontFamily="Paperlogy-Regular"
+                value={text}
+                onChangeText={setText}
+                onSubmitEditing={handleSend} // 키보드 엔터로도 전송 가능
+                returnKeyType="send"
             />
-            <TouchableOpacity style={styles.sendButton}>
+            <TouchableOpacity style={styles.sendButton} onPress={handleSend}>
                 <SendIcon width={30} height={30} />
             </TouchableOpacity>
         </View>
