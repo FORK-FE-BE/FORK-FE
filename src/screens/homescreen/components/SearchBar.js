@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15, // 아이콘과 텍스트 입력 사이에 여백 추가    
   },
   input: {
-    fontFamily: 'Paperlogy-Medium',
+    fontFamily: 'Paperlogy-Regular',
     flex: 1,
     fontSize: 14,
     color: '#818181',

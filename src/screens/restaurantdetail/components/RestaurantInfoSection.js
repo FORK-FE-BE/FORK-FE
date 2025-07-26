@@ -2,7 +2,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
-export default function RestaurantInfoSection({restaurantInfo}) {
+export default function RestaurantInfoSection({ restaurantInfo }) {
   if (!restaurantInfo) {
     return null; // 또는 <View><Text>로딩 중...</Text></View> 등
   }
@@ -58,15 +58,15 @@ export default function RestaurantInfoSection({restaurantInfo}) {
         </View>
       </View>
     </View>
-    
+
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 21,
-    paddingHorizontal: 30,
-    backgroundColor:'#fff',
+    paddingTop: 20,
+    paddingHorizontal: 16,
+    backgroundColor: '#fff',
   },
   headerRow: {
     flexDirection: 'row',
@@ -74,24 +74,24 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   restaurantName: {
-    fontSize: 24,
+    fontSize: 22,
     fontFamily: 'Paperlogy-SemiBold',
   },
   originInfoButton: {
-    backgroundColor: '#D9D9D9',
-    paddingHorizontal: 12,
-    paddingVertical: 4,
+    backgroundColor: '#eee',
+    paddingHorizontal: 14,
+    paddingVertical: 6,
     borderRadius: 30,
   },
   originInfoText: {
     fontSize: 14,
     color: '#5B5B5B',
-    fontFamily: 'Paperlogy-Medium',
+    fontFamily: 'Paperlogy-Regular',
   },
   ratingRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 8,
+    marginTop: 0,
   },
   star: {
     fontSize: 20,
@@ -101,48 +101,48 @@ const styles = StyleSheet.create({
   ratingText: {
     fontSize: 16,
     color: '#333',
-    fontFamily: 'Paperlogy-Medium',
+    fontFamily: 'Paperlogy-SemiBold',
   },
   description: {
     fontSize: 16,
     color: '#666',
-    marginTop: 8,
-    fontFamily: 'Paperlogy-Light',
+    marginTop: 4,
+    fontFamily: 'Paperlogy-Regular',
   },
   deliveryCard: {
-    marginTop: 30,
+    marginTop: 20,
     backgroundColor: '#fff',
-    borderRadius: 16,
+    borderRadius: 10,
     borderWidth: 1,
     borderColor: '#ddd',
   },
   deliveryTitle: {
-    fontSize: 20,
+    fontSize: 16,
     fontFamily: 'Paperlogy-SemiBold',
     textAlign: 'center',
     marginBottom: 12,
-    marginTop:12,
+    marginTop: 12,
   },
   divider: {
     height: 1,
-    width:333,
+    width: 333,
     backgroundColor: '#D9D9D9',
     marginBottom: 16,
   },
   deliveryRow: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
-    gap:25,
+    gap: 25,
     marginBottom: 12,
   },
   label: {
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: 'Paperlogy-Medium',
     color: '#222',
-    marginStart:23
+    marginStart: 30
   },
   value: {
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: 'Paperlogy-Regular',
     color: '#222',
   },
@@ -151,37 +151,39 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 20,
     backgroundColor: '#EDF4FF',
-    borderRadius: 14,
+    borderRadius: 10,
     paddingHorizontal: 18,
     borderWidth: 1.5,
     borderColor: '#59F',
 
-},
+  },
   rewardText: {
     flex: 1,
-    fontSize: 16,
+    fontSize: 14,
     color: '#000000',
     fontFamily: 'Paperlogy-Regular',
-    marginVertical:16,
+    marginVertical: 16,
   },
   boldBlue: {
     color: '#006DF0',
     fontFamily: 'Paperlogy-Bold',
   },
   separator: {
-    width: 1,
+    borderLeftWidth: 1,
+    borderColor: '#CACACA',
     height: 45,
-    backgroundColor: '#CACACA',
     marginHorizontal: 12,
+    borderStyle: 'dashed',
   },
+
   iconContainer: {
     backgroundColor: '#0076FF',
     borderRadius: 999,
     padding: 10,
   },
   icon: {
-    width: 20,
-    height: 20,
+    width: 18,
+    height: 18,
     tintColor: '#fff',
   },
 });

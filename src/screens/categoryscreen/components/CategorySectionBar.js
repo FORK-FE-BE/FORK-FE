@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Image } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 export default function CategorySectionBar() {
-    const [selectedCategory, setSelectedCategory] = useState('중식'); // 기본값
     const navigation = useNavigation();
+    const route = useRoute();
+
+     const initialCategory = route.params?.category || '중식';
+    const [selectedCategory, setSelectedCategory] = useState(initialCategory);
 
 
     const categories = [

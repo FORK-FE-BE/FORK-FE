@@ -58,13 +58,15 @@ export default function RestaurantList({ category }) {
                 : Array(4).fill(null); // ✅ 사진 없으면 placeholder 4개 생성
 
         return (
-            <TouchableOpacity onPress={() => navigation.navigate('RestaurantDetail', {restaurantId: id})} activeOpacity={0.8}>
+            <TouchableOpacity onPress={() => navigation.navigate('RestaurantDetail', { restaurantId: id })} activeOpacity={0.8}>
                 <View style={styles.restaurantItem}>
                     {/* 사진 스크롤 */}
                     <ScrollView
                         horizontal
+                        pagingEnabled={false}
                         showsHorizontalScrollIndicator={false}
                         contentContainerStyle={styles.photoScroll}
+                        onStartShouldSetResponderCapture={() => true}
                     >
                         {renderPhotos.map((photo, index) => {
                             const isLastPhoto = index === renderPhotos.length - 1;
@@ -113,8 +115,8 @@ export default function RestaurantList({ category }) {
                     <View style={styles.contentWrap}>
                         {/*{hasAR && <Text style={styles.arcontent}>AR보유</Text>}*/}
                         {/*{hasCoupon && <Text style={styles.coupon}>쿠폰보유</Text>}*/}
-                        { <Text style={styles.arcontent}>AR보유</Text>}
-                        { <Text style={styles.coupon}>쿠폰보유</Text>}
+                        {<Text style={styles.arcontent}>AR보유</Text>}
+                        {<Text style={styles.coupon}>쿠폰보유</Text>}
                     </View>
 
                     {!isLast && <Line />}
@@ -216,6 +218,8 @@ const styles = StyleSheet.create({
     },
     photoWrapper: {
         marginTop: 16,
+        width: 130,
+        flexShrink: 0,
     },
     photo: {
         width: 130,

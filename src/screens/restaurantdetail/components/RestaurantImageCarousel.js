@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
         position: 'relative', backgroundColor: '#fff'
     }, slideImage:
         {
-            width: width, height: 241, resizeMode: 'cover', justifyContent: 'center',  // ✅ 세로 중앙 정렬
+            width: width, height: 230, resizeMode: 'cover', justifyContent: 'center',  // ✅ 세로 중앙 정렬
             alignItems: 'center',      // ✅ 가로 중앙 정렬
             backgroundColor: '#f0f0f0', // (선택) 기본 배경 설정
 
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     }, backButton: {
         position: 'absolute',
         top: 20,
-        left: 20,
+        left: 16,
         zIndex: 10,
         backgroundColor: 'rgba(255,255,255,0.7)',
         borderRadius: 20,
