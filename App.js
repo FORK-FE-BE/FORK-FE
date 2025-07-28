@@ -25,8 +25,12 @@ import ARView from './src/screens/ARView.js';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import { CartProvider } from './src/contexts/CartContext';
 import LoginScreen from "./src/screens/loginscreen/LoginScreen";
-import {AppProvider} from "./src/contexts/AppProvider";
+import { AppProvider } from "./src/contexts/AppProvider";
 import CouponScreen from "./src/screens/myforkscreen/CouponScreen.js";
+import { AddressProvider } from './src/contexts/AddressContext.js';
+import AddressScreen from './src/screens/addressscreen/AddressScreen.js';
+import AddressSearchScreen from './src/screens/addressscreen/AddressSearchScreen.js';
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -47,35 +51,36 @@ export default function App() {
     <SafeAreaProvider>
       <AppProvider>
 
-      <SafeAreaView style={{ flex: 1 }}>
-
-        <NavigationContainer>
-          <Stack.Navigator initialRouteName="Login">
-            <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="KbotScreen" component={ChatBotScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="Category" component={CategoryScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="OrderList" component={OrderListScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="OrderDetail" component={OrderDetailScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="MyFork" component={MyForkScreen} options={{ headerShown: false }} />
-            {/* <Stack.Screen name="Coupon" component={CouponScreen} options={{ headerShown: false }} /> */}
-            <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="AddressManage" component={AddressManageScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="ForkPoint" component={ForkPointScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="ReceivedGifts" component={ReceivedGiftsScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="MyARReview" component={MyARReviewScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="KbotSettings" component={KbotSettingsScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="RestaurantDetail" component={RestaurantDetail} options={{ headerShown: false }} />
-            <Stack.Screen name="CartScreen" component={CartScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="PaymentScreen" component={PaymentScreen} options={{ headerShown: false }}/>
-            <Stack.Screen name="MenuDetail" component={MenuDetailScreen} options={{ headerShown: false }}/>
-            <Stack.Screen name="AR" component={ARView} options={{ headerShown: false }} />
-            <Stack.Screen name="Coupon" component={CouponScreen} />
-
-          </Stack.Navigator>
-        </NavigationContainer>
-
-      </SafeAreaView>
+        <SafeAreaView style={{ flex: 1 }}>
+          <AddressProvider>
+            <NavigationContainer>
+              <Stack.Navigator initialRouteName="Login">
+                <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
+                <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+                <Stack.Screen name="KbotScreen" component={ChatBotScreen} options={{ headerShown: false }} />
+                <Stack.Screen name="Category" component={CategoryScreen} options={{ headerShown: false }} />
+                <Stack.Screen name="OrderList" component={OrderListScreen} options={{ headerShown: false }} />
+                <Stack.Screen name="OrderDetail" component={OrderDetailScreen} options={{ headerShown: false }} />
+                <Stack.Screen name="MyFork" component={MyForkScreen} options={{ headerShown: false }} />
+                {/* <Stack.Screen name="Coupon" component={CouponScreen} options={{ headerShown: false }} /> */}
+                <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{ headerShown: false }} />
+                <Stack.Screen name="AddressManage" component={AddressManageScreen} options={{ headerShown: false }} />
+                <Stack.Screen name="Address" component={AddressScreen} options={{ headerShown: false }} />
+                <Stack.Screen name="AddressSearch" component={AddressSearchScreen} options={{ headerShown: false }} />
+                <Stack.Screen name="ForkPoint" component={ForkPointScreen} options={{ headerShown: false }} />
+                <Stack.Screen name="ReceivedGifts" component={ReceivedGiftsScreen} options={{ headerShown: false }} />
+                <Stack.Screen name="MyARReview" component={MyARReviewScreen} options={{ headerShown: false }} />
+                <Stack.Screen name="KbotSettings" component={KbotSettingsScreen} options={{ headerShown: false }} />
+                <Stack.Screen name="RestaurantDetail" component={RestaurantDetail} options={{ headerShown: false }} />
+                <Stack.Screen name="CartScreen" component={CartScreen} options={{ headerShown: false }} />
+                <Stack.Screen name="PaymentScreen" component={PaymentScreen} options={{ headerShown: false }} />
+                <Stack.Screen name="MenuDetail" component={MenuDetailScreen} options={{ headerShown: false }} />
+                <Stack.Screen name="AR" component={ARView} options={{ headerShown: false }} />
+                <Stack.Screen name="Coupon" component={CouponScreen} />
+              </Stack.Navigator>
+            </NavigationContainer>
+          </AddressProvider>
+        </SafeAreaView>
       </AppProvider>
 
     </SafeAreaProvider>
