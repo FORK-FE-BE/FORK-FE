@@ -35,7 +35,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
+    "@babel/plugin-transform-private-methods": "^7.27.1",
     "@react-native-community/cli": "^19.1.0",
+    "metro-react-native-babel-preset": "^0.77.0",
     "react-native-svg-transformer": "^1.5.1"
   },
   "private": true

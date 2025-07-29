@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
     View,
     Text,
@@ -8,11 +8,32 @@ import {
     StyleSheet,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import HeaderBar from '../../components/common/HeaderBar'; // 헤더 컴포넌트
+import HeaderBar from '../../components/common/HeaderBar';
+import axios from "axios"; // 헤더 컴포넌트
 
 export default function AddressSearchScreen() {
     const navigation = useNavigation();
-
+    const [keyword, setKeyword] = useState('');
+    const [results, setResults] = useState([]);
+    const JUSO_API_KEY = 'devU01TX0FVVEgyMDI1MDcyOTE1MzQ0MDExNTk5OTk=';
+    const searchAddress = async () => {
+        try {
+            const response = await axios.get('https://business.juso.go.kr/addrlink/addrLinkApi.do', {
+                params: {
+                    confmKey: JUSO_API_KEY,
+                    currentPage: 1,
+                    countPerPage: 5,
+                    keyword,
+                    resultType: 'json',
+                },
+            });
+            const jusoList = response.data?.results?.juso || [];
+            console.log(JSON.stringify(jusoList, null, 2));
+            setResults(jusoList);
+        } catch (error) {
+            console.error('주소 검색 오류:', error);
+        }
+    };
     return (
         <View style={styles.container}>
             {/* 상단 헤더 */}
@@ -31,13 +52,17 @@ export default function AddressSearchScreen() {
                     <TextInput
                         style={styles.searchInput}
                         placeholder="지번, 도로명, 건물명으로 검색"
+                        value={keyword}
+                        onChangeText={setKeyword}
+                        onSubmitEditing={searchAddress}
+                        returnKeyType="search"
                     />
                 </View>
 
-                {/* 현재 위치로 찾기 버튼 */}
-                <TouchableOpacity style={styles.locationButton}>
-                    <Text style={styles.locationButtonText}>현재 위치로 찾기</Text>
-                </TouchableOpacity>
+                {/*/!* 현재 위치로 찾기 버튼 *!/*/}
+                {/*<TouchableOpacity style={styles.locationButton}>*/}
+                {/*    <Text style={styles.locationButtonText}>현재 위치로 찾기</Text>*/}
+                {/*</TouchableOpacity>*/}
             </View>
         </View>
     );

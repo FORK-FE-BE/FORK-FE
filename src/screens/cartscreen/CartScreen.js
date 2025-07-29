@@ -2,7 +2,7 @@
 // import {
 //     View, Text, StyleSheet, TouchableOpacity, Alert, FlatList, ActivityIndicator
 // } from 'react-native';
-// import axios from 'axios'; 
+// import axios from 'axios';
 // import BottomNavigationBar from '../utils/BottomNavigationBar';
 // import {useIsFocused, useNavigation, useRoute} from '@react-navigation/native';
 // import {useUser} from "../../contexts/UserContext";
@@ -367,7 +367,7 @@
 //         fontFamily: 'Paperlogy-SemiBold',
 //         color: '#7C7C7C',
 //       },
-      
+
 // })
 
 
