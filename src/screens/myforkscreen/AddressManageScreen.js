@@ -1,150 +1,81 @@
 import React, { useState, useEffect } from 'react';
 import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-  TextInput,
-  ScrollView,
-  KeyboardAvoidingView,
-  Platform,
-  Keyboard,
+  View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, Alert
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Alert } from 'react-native';
+import { useUser } from '../../contexts/UserContext';
+import axios from 'axios';
+import HeaderBar from '../../components/common/HeaderBar';
 
 export default function AddressManageScreen() {
   const navigation = useNavigation();
+  const { user } = useUser();
+  const userId = user?.userId;
+
   const [addressList, setAddressList] = useState([]);
 
-  const dummyAddresses = [
-    {
-      title: '서울특별시 마포구 와우산로',
-      sub: '홍익대학교 제1기숙사 101호',
-      note: '문 앞에 두고 벨 눌러주세요',
-    },
-    {
-      title: '서울시 종로구 세종대로 175',
-      sub: 'KT 광화문빌딩',
-      note: '경비실 맡겨주세요',
-    },
-    {
-      title: '경기도 성남시 분당구 판교로',
-      sub: '네이버 그린팩토리 4층',
-      note: '1층 로비에 맡겨주세요',
-    },
-  ];
+  const fetchAddresses = async () => {
+    if (!userId) return;
 
-  useEffect(() => {
-    const loadAddresses = async () => {
-      try {
-        const saved = await AsyncStorage.getItem('userAddresses');
-        if (saved !== null) {
-          setAddressList(JSON.parse(saved));
-        } else {
-          // 초기 더미 데이터
-          setAddressList([
-            {
-              title: '서울특별시 마포구 와우산로',
-              sub: '홍익대학교 제1기숙사 101호',
-              note: '문 앞에 두고 벨 눌러주세요',
-            },
-            {
-              title: '서울시 종로구 세종대로 175',
-              sub: 'KT 광화문빌딩',
-              note: '경비실 맡겨주세요',
-            },
-            {
-              title: '경기도 성남시 분당구 판교로',
-              sub: '네이버 그린팩토리 4층',
-              note: '1층 로비에 맡겨주세요',
-            },
-          ]);
-        }
-      } catch (e) {
-        console.error('주소 불러오기 실패:', e);
-      }
-    };
-
-    loadAddresses();
-  }, []);
-
-  const handleDelete = (index) => {
-    Alert.alert(
-      '주소 삭제',
-      '정말 이 주소를 삭제하시겠어요?',
-      [
-        { text: '취소', style: 'cancel' },
-        {
-          text: '삭제',
-          style: 'destructive',
-          onPress: async () => {
-            const updated = [...addressList];
-            updated.splice(index, 1);
-            setAddressList(updated);
-            try {
-              await AsyncStorage.setItem('userAddresses', JSON.stringify(updated));
-            } catch (e) {
-              console.error('주소 저장 실패:', e);
-            }
-          }
-        }
-      ]
-    );
+    try {
+      const response = await axios.get(`http://43.202.234.190:8080/api/user/${userId}/profile/address`);
+      const sorted = [...response.data].sort((a, b) => b.isDefault - a.isDefault);
+      setAddressList(sorted);
+    } catch (error) {
+      console.error('주소 조회 실패:', error);
+    }
   };
 
+  useEffect(() => {
+    fetchAddresses();
+  }, [userId]);
+
+  const handleEdit = (address) => {
+    navigation.navigate('AddressEditScreen', { address });
+  };
 
   return (
     <View style={styles.container}>
-      {/* 상단 타이틀 */}
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Image
-            source={require('../../assets/images/arrow_back.png')}
-            style={styles.arrow_back}
-          />
-        </TouchableOpacity>
-        <Text style={styles.title}>주소관리</Text>
-        {/* 오른쪽 빈 공간 확보용 */}
-        <View style={styles.headerSide} />
-      </View>
+      {/* 헤더 */}
+      <HeaderBar title="주소 관리" />
 
+      {/* 주소 리스트 */}
       <ScrollView
         style={styles.addressList}
         contentContainerStyle={{ paddingBottom: 20 }}
         showsVerticalScrollIndicator={false}
       >
         {addressList.map((addr, index) => (
-          <View key={index} style={styles.addressCard}>
+          <View key={addr.id} style={styles.addressCard}>
             <View style={styles.row}>
               <Image
                 source={
-                  index === 0
-                    ? require('../../assets/images/Mappin_selected.png')
-                    : require('../../assets/images/Mappin.png')
+                  addr.isDefault === 1
+                    ? require('../../assets/icons/location_on.png')
+                    : require('../../assets/icons/location_off.png')
                 }
                 style={styles.locationIcon}
               />
 
               <View style={{ flex: 1 }}>
-                <Text style={styles.addressTitle}>{addr.title}</Text>
-                <Text style={styles.addressSub}>{addr.sub}</Text>
-                <Text style={styles.addressNote}>{addr.note}</Text>
+                <Text style={styles.addressTitle}>
+                  {addr.label}
+                </Text>
+                <Text style={styles.addressSub}>
+                  {`${addr.province} ${addr.city} ${addr.roadName} ${addr.buildingNumber} ${addr.detail}`}
+                </Text>
 
+                {/* 수정/삭제 버튼 */}
                 <View style={styles.buttonRow}>
                   <TouchableOpacity style={styles.outlineButton}>
                     <Text style={styles.outlineButtonText}>수정</Text>
                   </TouchableOpacity>
-                  {index !== 0 && (
-                    <TouchableOpacity
-                      style={styles.outlineButton}
-                      onPress={() => handleDelete(index)}
-                    >
-                      <Text style={styles.outlineButtonText}>삭제</Text>
-                    </TouchableOpacity>
-                  )}
+                  <TouchableOpacity
+                    style={[styles.outlineButton, { opacity: 0.5 }]}
+                    onPress={() => Alert.alert('삭제 기능 준비 중입니다.')}
+                  >
+                    <Text style={styles.outlineButtonText}>삭제</Text>
+                  </TouchableOpacity>
                 </View>
               </View>
             </View>
@@ -158,86 +89,19 @@ export default function AddressManageScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    paddingVertical: 40,
-    paddingHorizontal: 30,
-    backgroundColor: '#fff',
-    flex: 1,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 30,
-  },
-  arrow_back: {
-    width: 30,
-    height: 30,
-  },
-  title: {
-    fontSize: 20,
-    fontFamily: 'Paperlogy-Medium',
-    color: '#000000',
-  },
-  headerSide: {
-    width: 30, // 왼쪽 아이콘과 동일한 너비
-    alignItems: 'center',
-  },
-
-  addressList: {
-    gap: 30,
-  },
-  addressCard: {
-    gap: 10,
-    paddingVertical: 10, // 카드 상하 간격
-  },
-  row: {
-    flexDirection: 'row',
-    gap: 12,
-  },
-  locationIcon: {
-    width: 24,
-    height: 24,
-    marginTop: 5,
-  },
-  addressTitle: {
-    fontSize: 16,
-    fontFamily: 'Paperlogy-SemiBold',
-    color: '#000',
-    marginBottom: 4,
-  },
-  addressSub: {
-    fontSize: 14,
-    fontFamily: 'Paperlogy-Medium',
-    color: '#000',
-    marginBottom: 4,
-  },
-  addressNote: {
-    fontSize: 12,
-    fontFamily: 'Paperlogy-Medium',
-    color: '#888',
-    marginBottom: 8,
-  },
-  buttonRow: {
-    flexDirection: 'row',
-    gap: 12,
-  },
+  container: { backgroundColor: '#fff', flex: 1 },
+  title: { fontSize: 20, fontFamily: 'Paperlogy-Medium', color: '#000000' },
+  addressList: { gap: 0 },
+  addressCard: { gap: 0, paddingVertical: 10 },
+  row: { flexDirection: 'row', gap: 12, paddingHorizontal: 16 },
+  locationIcon: { width: 24, height: 24, marginTop: 5 },
+  addressTitle: { fontSize: 16, fontFamily: 'Paperlogy-SemiBold', color: '#000', marginBottom: 4 },
+  addressSub: { fontSize: 14, fontFamily: 'Paperlogy-Medium', color: '#000', marginBottom: 10 },
+  addressNote: { fontSize: 12, fontFamily: 'Paperlogy-Medium', color: '#888', marginBottom: 8 },
+  buttonRow: { flexDirection: 'row', gap: 12 },
   outlineButton: {
-    borderWidth: 1,
-    borderColor: '#D9D9D9',
-    paddingHorizontal: 16,
-    paddingVertical: 4,
-    borderRadius: 20,
+    borderWidth: 1, borderColor: '#D9D9D9', paddingHorizontal: 16, paddingVertical: 4, borderRadius: 20,
   },
-  outlineButtonText: {
-    fontSize: 14,
-    color: '#000',
-    fontFamily: 'Paperlogy-Medium',
-  },
-  divider: {
-    borderBottomWidth: 1,
-    borderBottomColor: '#D9D9D9',
-    marginTop: 20,
-  },
-
+  outlineButtonText: { fontSize: 14, color: '#000', fontFamily: 'Paperlogy-Medium' },
+  divider: { borderBottomWidth: 1, borderBottomColor: '#D9D9D9', marginTop: 20 },
 });

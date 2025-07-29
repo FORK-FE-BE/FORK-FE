@@ -30,6 +30,7 @@ import CouponScreen from "./src/screens/myforkscreen/CouponScreen.js";
 import { AddressProvider } from './src/contexts/AddressContext.js';
 import AddressScreen from './src/screens/addressscreen/AddressScreen.js';
 import AddressSearchScreen from './src/screens/addressscreen/AddressSearchScreen.js';
+import AddressDetailScreen from './src/screens/addressscreen/AddressDetailScreen.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -67,6 +68,7 @@ export default function App() {
                 <Stack.Screen name="AddressManage" component={AddressManageScreen} options={{ headerShown: false }} />
                 <Stack.Screen name="Address" component={AddressScreen} options={{ headerShown: false }} />
                 <Stack.Screen name="AddressSearch" component={AddressSearchScreen} options={{ headerShown: false }} />
+                <Stack.Screen name="AddressDetail" component={AddressDetailScreen} options={{ headerShown: false }} />
                 <Stack.Screen name="ForkPoint" component={ForkPointScreen} options={{ headerShown: false }} />
                 <Stack.Screen name="ReceivedGifts" component={ReceivedGiftsScreen} options={{ headerShown: false }} />
                 <Stack.Screen name="MyARReview" component={MyARReviewScreen} options={{ headerShown: false }} />

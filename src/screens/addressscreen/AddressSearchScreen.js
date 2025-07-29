@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
     View,
     Text,
@@ -6,16 +6,18 @@ import {
     TouchableOpacity,
     Image,
     StyleSheet,
+    FlatList,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import HeaderBar from '../../components/common/HeaderBar';
-import axios from "axios"; // 헤더 컴포넌트
+import axios from 'axios';
 
 export default function AddressSearchScreen() {
     const navigation = useNavigation();
     const [keyword, setKeyword] = useState('');
     const [results, setResults] = useState([]);
     const JUSO_API_KEY = 'devU01TX0FVVEgyMDI1MDcyOTE1MzQ0MDExNTk5OTk=';
+
     const searchAddress = async () => {
         try {
             const response = await axios.get('https://business.juso.go.kr/addrlink/addrLinkApi.do', {
@@ -28,22 +30,29 @@ export default function AddressSearchScreen() {
                 },
             });
             const jusoList = response.data?.results?.juso || [];
-            console.log(JSON.stringify(jusoList, null, 2));
             setResults(jusoList);
         } catch (error) {
             console.error('주소 검색 오류:', error);
         }
     };
+
+    const renderAddressItem = ({ item }) => (
+        <TouchableOpacity
+            style={styles.resultItem}
+            onPress={() => navigation.navigate('AddressDetail', { selectedAddress: item })}
+        >
+            <Text style={styles.roadAddr}>{item.roadAddr}</Text>
+            <Text style={styles.jibunAddr}>{item.jibunAddr}</Text>
+        </TouchableOpacity>
+    );
+
     return (
         <View style={styles.container}>
-            {/* 상단 헤더 */}
             <HeaderBar title="주소 검색" />
 
-            {/* 본문 */}
             <View style={styles.content}>
                 <Text style={styles.title}>배달 받을 주소를 검색해주세요</Text>
 
-                {/* 검색창 */}
                 <View style={styles.searchBox}>
                     <Image
                         source={require('../../assets/icons/search.png')}
@@ -59,14 +68,18 @@ export default function AddressSearchScreen() {
                     />
                 </View>
 
-                {/*/!* 현재 위치로 찾기 버튼 *!/*/}
-                {/*<TouchableOpacity style={styles.locationButton}>*/}
-                {/*    <Text style={styles.locationButtonText}>현재 위치로 찾기</Text>*/}
-                {/*</TouchableOpacity>*/}
+                {/* 검색 결과 리스트 */}
+                <FlatList
+                    data={results}
+                    keyExtractor={(item, index) => index.toString()}
+                    renderItem={renderAddressItem}
+                    contentContainerStyle={styles.resultList}
+                />
             </View>
         </View>
     );
 }
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -92,7 +105,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     searchIcon: {
-         width: 24,
+        width: 24,
         height: 24,
         marginRight: 8,
     },
@@ -100,19 +113,25 @@ const styles = StyleSheet.create({
         flex: 1,
         fontSize: 16,
         color: '#202020',
-        fontFamily:'Paperlogy-Medium'
+        fontFamily: 'Paperlogy-Medium',
     },
-    locationButton: {
-        borderWidth: 1,
-        borderColor: '#DEDFDE',
-        borderRadius: 5,
+    resultList: {
+        paddingTop: 8,
+    },
+    resultItem: {
+        borderBottomWidth: 1,
+        borderBottomColor: '#eee',
         paddingVertical: 12,
-        alignItems: 'center',
-        marginBottom: 30,
     },
-    locationButtonText: {
+    roadAddr: {
         fontSize: 16,
         fontFamily: 'Paperlogy-Medium',
-        color: '#4C4C4C',
+        color: '#333',
+    },
+    jibunAddr: {
+        fontSize: 14,
+        fontFamily: 'Paperlogy-Regular',
+        color: '#888',
+        marginTop: 2,
     },
 });
