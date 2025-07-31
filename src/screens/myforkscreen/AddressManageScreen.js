@@ -31,7 +31,34 @@ export default function AddressManageScreen() {
   }, [userId]);
 
   const handleEdit = (address) => {
-    navigation.navigate('AddressEditScreen', { address });
+    navigation.navigate('EditAddress', { address });
+  };
+
+  const handleDelete = (addressId) => {
+    Alert.alert(
+      '주소 삭제',
+      '정말로 이 주소를 삭제하시겠습니까?',
+      [
+        { text: '닫기', style: 'cancel' },
+        {
+          text: '삭제하기',
+          style: 'destructive',
+          onPress: async () => {
+            try {
+              await axios.delete(
+                `http://43.202.234.190:8080/api/user/${userId}/profile/address/${addressId}`
+              );
+              Alert.alert('삭제되었습니다.');
+              fetchAddresses(); // 🔄 목록 갱신
+            } catch (error) {
+              console.error('주소 삭제 실패:', error);
+              Alert.alert('삭제 실패', '서버와의 연결에 문제가 발생했습니다.');
+            }
+          },
+        },
+      ],
+      { cancelable: true }
+    );
   };
 
   return (
@@ -67,15 +94,19 @@ export default function AddressManageScreen() {
 
                 {/* 수정/삭제 버튼 */}
                 <View style={styles.buttonRow}>
-                  <TouchableOpacity style={styles.outlineButton}>
+                  <TouchableOpacity
+                    style={styles.outlineButton}
+                    onPress={() => handleEdit(addr)} // 여기 추가
+                  >
                     <Text style={styles.outlineButtonText}>수정</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
-                    style={[styles.outlineButton, { opacity: 0.5 }]}
-                    onPress={() => Alert.alert('삭제 기능 준비 중입니다.')}
+                    style={styles.outlineButton}
+                    onPress={() => handleDelete(addr.id)} // 연결
                   >
                     <Text style={styles.outlineButtonText}>삭제</Text>
                   </TouchableOpacity>
+
                 </View>
               </View>
             </View>

@@ -9,11 +9,19 @@ export default function HeaderBar() {
   const navigation = useNavigation();
   const { selectedAddress } = useAddress();
 
+  const hasLabel = selectedAddress?.label?.trim(); // ← 공백도 걸러냄
+
+  const labelToShow = hasLabel
+    ? selectedAddress.label
+    : selectedAddress
+      ? `${selectedAddress.province} ${selectedAddress.city} ${selectedAddress.roadName} ${selectedAddress.buildingNumber}`
+      : '주소 선택'; // selectedAddress 자체도 없을 경우 fallback
+
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => navigation.navigate('Address')}>
         <View style={styles.addressRow}>
-          <Text style={styles.addressText}>{selectedAddress}</Text>
+          <Text style={styles.addressText}>{labelToShow}</Text>
           <Image
             source={require('../../../assets/icons/polygon.png')}
             style={styles.addressIcon}

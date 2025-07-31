@@ -54,21 +54,20 @@ export default function AddressScreen() {
 
     const handleSelect = async (address) => {
         try {
-            // 1. 기본 주소 설정 요청
             await axios.patch(
                 `http://43.202.234.190:8080/api/user/${userId}/profile/address/${address.id}/default`
             );
 
-            // 2. 선택된 주소를 상태에 반영
-            setSelectedAddress(address.main);
+            // 주소 전체 객체로 Context에 저장 (label + main 포함)
+            setSelectedAddress(address);
 
-            // 3. 주소 화면에서 나가기
             navigation.goBack();
         } catch (error) {
             console.error('기본 주소 설정 실패:', error);
             Alert.alert('기본 주소 설정 실패', '서버와 연결할 수 없습니다.');
         }
     };
+
 
 
     const sortedAddresses = [...addresses].sort((a, b) => {
