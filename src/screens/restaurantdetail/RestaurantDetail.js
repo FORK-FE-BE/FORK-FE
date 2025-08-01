@@ -26,6 +26,11 @@ export default function RestaurantDetail() {
                     rating: response.data.rating,
                     reviewCount: response.data.reviewCount,
                     storePictureUrl: response.data.storePictureUrl,
+                    fullRoadAddress: response.data.fullRoadAddress,
+                    address: response.data.address,
+                    minDeliveryPrice: response.data.minDeliveryPrice,
+                    minDeliveryTime: response.data.minDeliveryTime,
+                    maxDeliveryTime: response.data.maxDeliveryTime,
                 });
                 setMenus(response.data.menus);
                 console.log(JSON.stringify(response.data, null, 2));
