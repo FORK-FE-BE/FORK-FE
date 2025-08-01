@@ -44,7 +44,8 @@ export default function RestaurantDetail() {
             >
                 <RestaurantImageCarousel images={restaurantInfo?.storePictureUrl || []}/>
                 <RestaurantInfoSection restaurantInfo={restaurantInfo}/>
-                <RestaurantMenuWithCart scrollRef={scrollRef}  menuItems={menus}/>
+                <RestaurantMenuWithCart scrollRef={scrollRef}  menuItems={menus} restaurantId={restaurantInfo?.restaurantId}
+                />
             </ScrollView>
             <CartFixedBar/>
         </View>

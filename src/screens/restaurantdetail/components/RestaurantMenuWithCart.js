@@ -39,7 +39,8 @@ function MenuImage({ imgUrl }) {
     );
 }
 
-export default function RestaurantMenuWithCart({ scrollRef, menuItems }) {
+export default function RestaurantMenuWithCart({ scrollRef, menuItems, restaurantId })
+    {
     const navigation = useNavigation();
     const categoryPositions = useRef({});
 
@@ -91,8 +92,17 @@ export default function RestaurantMenuWithCart({ scrollRef, menuItems }) {
                         {items.map((item, index) => (
                             <TouchableOpacity
                                 key={item.menuId}
-                                onPress={() => navigation.navigate('MenuDetail', { item })}
-                            >
+                                onPress={() =>
+                                    navigation.navigate('MenuDetail', {
+                                      item: {
+                                        ...item,
+                                        restaurantId, // 식당 ID 넘김 
+                                      }
+                                    })
+                                  }
+                                  
+
+>
                                 {index !== 0 && <View style={styles.smallDivider} />}
                                 <View style={styles.menuItem}>
                                     <View style={styles.menuText}>
