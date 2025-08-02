@@ -39,7 +39,8 @@ function MenuImage({ imgUrl }) {
     );
 }
 
-export default function RestaurantMenuWithCart({ scrollRef, menuItems }) {
+export default function RestaurantMenuWithCart({ scrollRef, menuItems, restaurantId })
+    {
     const navigation = useNavigation();
     const categoryPositions = useRef({});
 
@@ -78,36 +79,53 @@ export default function RestaurantMenuWithCart({ scrollRef, menuItems }) {
                 showsVerticalScrollIndicator={false}
             >
                 {Object.entries(menuItems || {}).map(([category, items]) => (
-                    <View key={category}>
-                        <View
-                            onLayout={(e) => {
-                                categoryPositions.current[category] = e.nativeEvent.layout.y;
-                            }}
-                        >
-                            <View style={styles.divider} />
-                            <Text style={styles.categoryTitle}>{category}</Text>
-                        </View>
+  <View key={category}>
+    <View
+      ref={(ref) => {
+        if (ref && scrollRef?.current) {
+          ref.measureLayout(
+            scrollRef.current,
+            (x, y) => {
+              categoryPositions.current[category] = y;
+            },
+            (error) => {
+              console.error('measureLayout error:', error);
+            }
+          );
+        }
+      }}
+    >
+      <View style={styles.divider} />
+      <Text style={styles.categoryTitle}>{category}</Text>
+    </View>
 
-                        {items.map((item, index) => (
-                            <TouchableOpacity
-                                key={item.menuId}
-                                onPress={() => navigation.navigate('MenuDetail', { item })}
-                            >
-                                {index !== 0 && <View style={styles.smallDivider} />}
-                                <View style={styles.menuItem}>
-                                    <View style={styles.menuText}>
-                                        <Text style={styles.menuTitle}>{item.name}</Text>
-                                        <Text style={styles.menuPrice}>
-                                            {item.price.toLocaleString()}원
-                                        </Text>
-                                    </View>
-                                    {/* 🟡 이미지 로딩 오류 처리 */}
-                                    <MenuImage imgUrl={item.imgUrl} />
-                                </View>
-                            </TouchableOpacity>
-                        ))}
-                    </View>
-                ))}
+    {items.map((item, index) => (
+      <TouchableOpacity
+        key={item.menuId}
+        onPress={() =>
+          navigation.navigate('MenuDetail', {
+            item: {
+              ...item,
+              restaurantId,
+            },
+          })
+        }
+      >
+        {index !== 0 && <View style={styles.smallDivider} />}
+        <View style={styles.menuItem}>
+          <View style={styles.menuText}>
+            <Text style={styles.menuTitle}>{item.name}</Text>
+            <Text style={styles.menuPrice}>
+              {item.price.toLocaleString()}원
+            </Text>
+          </View>
+          <MenuImage imgUrl={item.imgUrl} />
+        </View>
+      </TouchableOpacity>
+    ))}
+  </View>
+))}
+
             </ScrollView>
         </View>
     );
