@@ -7,6 +7,7 @@ import axios from 'axios';
 import { useAddress } from '../../contexts/AddressContext';
 import HeaderBar from '../../components/common/HeaderBar';
 import { useUser } from '../../contexts/UserContext';
+import { BASE_URL } from '../../constants';
 
 export default function AddressScreen() {
     const navigation = useNavigation();
@@ -24,7 +25,7 @@ export default function AddressScreen() {
             }
 
             try {
-                const response = await axios.get(`http://43.202.234.190:8080/api/user/${userId}/profile/address`);
+                const response = await axios.get(`${BASE_URL}/api/user/${userId}/profile/address`);
                 const rawData = response.data;
 
                 const formatted = rawData.map((item) => ({
@@ -54,9 +55,7 @@ export default function AddressScreen() {
 
     const handleSelect = async (address) => {
         try {
-            await axios.patch(
-                `http://43.202.234.190:8080/api/user/${userId}/profile/address/${address.id}/default`
-            );
+            await axios.patch(`${BASE_URL}/api/user/${userId}/profile/address/${address.id}/default`);
 
             // 주소 전체 객체로 Context에 저장 (label + main 포함)
             setSelectedAddress(address);

@@ -6,6 +6,7 @@ import { useRoute, useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 import { useUser } from '../../contexts/UserContext';
 import HeaderBar from '../../components/common/HeaderBar';
+import { BASE_URL } from '../../constants';
 
 const predefinedLabels = ['우리집', '회사', '직접입력'];
 
@@ -56,11 +57,11 @@ export default function EditAddressScreen() {
         };
 
 
-        console.log('🧾 수정할 주소 데이터:', body);
+        console.log('수정할 주소 데이터:', body);
 
         try {
             await axios.put(
-                `http://43.202.234.190:8080/api/user/${userId}/profile/address/${address.id}`,
+                `${BASE_URL}/api/user/${userId}/profile/address/${address.id}`,
                 body
             );
 
