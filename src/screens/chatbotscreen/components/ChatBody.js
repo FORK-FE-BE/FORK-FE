@@ -8,28 +8,6 @@ import axios from 'axios';
 import {BASE_URL} from "../../../constants";
 import ChatInputBox from "./ChatInputBox";
 export default function ChatBotBody({messages}) {
-    // 샘플 데이터 (추천 식당)
-    const recommendedRestaurants = [
-        {
-            id: '1',
-            name: '순대국밥 동대문점',
-            rating: 4.9,
-            reviewCount: 777,
-        },
-        {
-            id: '2',
-            name: '순대국밥 동대문점',
-            rating: 4.9,
-            reviewCount: 777,
-        },
-        {
-            id: '3',
-            name: '순대국밥 동대문점',
-            rating: 4.9,
-            reviewCount: 777,
-        },
-    ];
-
 
     return (
         <ScrollView

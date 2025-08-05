@@ -6,7 +6,6 @@ import { useRoute, useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 import { useUser } from '../../contexts/UserContext'; // 🔹 추가: userId 가져오기 위해
 import HeaderBar from '../../components/common/HeaderBar';
-import { BASE_URL } from '../../constants';
 
 const predefinedLabels = ['우리집', '회사', '직접입력'];
 
@@ -58,7 +57,7 @@ export default function AddressDetailScreen() {
         console.log('🧾 전송할 주소 데이터:', body);
 
         try {
-            await axios.post(`${BASE_URL}/api/user/${userId}/profile/address`, body);
+            await axios.post(`http://43.202.234.190:8080/api/user/${userId}/profile/address`, body);
 
             Alert.alert('주소가 등록되었습니다.', '', [
                 {
@@ -117,8 +116,8 @@ export default function AddressDetailScreen() {
                 <TextInput style={styles.input} placeholder="예) 1234" value={gateCode} onChangeText={setGateCode} />
 
                 <Text style={styles.Title2}>찾아오는 길 안내</Text>
-                <TextInput
-                    style={styles.input} placeholder="예) 편의점 옆 건물이에요" value={direction} onChangeText={setDirection} />
+                <TextInput 
+                style={styles.input} placeholder="예) 편의점 옆 건물이에요" value={direction} onChangeText={setDirection} />
 
                 <TouchableOpacity style={styles.registerBtn} onPress={handleSubmit}>
                     <Text style={styles.registerBtnText}>주소 등록</Text>

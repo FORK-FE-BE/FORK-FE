@@ -6,7 +6,6 @@ import { useNavigation } from '@react-navigation/native';
 import { useUser } from '../../contexts/UserContext';
 import axios from 'axios';
 import HeaderBar from '../../components/common/HeaderBar';
-import { BASE_URL } from '../../constants';
 
 export default function AddressManageScreen() {
   const navigation = useNavigation();
@@ -19,7 +18,7 @@ export default function AddressManageScreen() {
     if (!userId) return;
 
     try {
-      const response = await axios.get(`${BASE_URL}/api/user/${userId}/profile/address`);
+      const response = await axios.get(`http://43.202.234.190:8080/api/user/${userId}/profile/address`);
       const sorted = [...response.data].sort((a, b) => b.isDefault - a.isDefault);
       setAddressList(sorted);
     } catch (error) {
@@ -47,7 +46,7 @@ export default function AddressManageScreen() {
           onPress: async () => {
             try {
               await axios.delete(
-                `${BASE_URL}/api/user/${userId}/profile/address/${addressId}`
+                `http://43.202.234.190:8080/api/user/${userId}/profile/address/${addressId}`
               );
               Alert.alert('삭제되었습니다.');
               fetchAddresses(); // 🔄 목록 갱신

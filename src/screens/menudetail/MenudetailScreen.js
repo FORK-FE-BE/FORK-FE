@@ -17,8 +17,6 @@ export default function MenuDetailScreen() {
     const navigation = useNavigation();
     const route = useRoute();
     const menu = route.params?.item;
-
-  
     const {user}= useUser();
     const [quantity, setQuantity] = useState(1);
     // const [extraTea, setExtraTea] = useState(false);
@@ -96,12 +94,7 @@ const handleAddToCart = async () => {
                 <Text style={styles.menuDesc}>{menu.description}</Text>
                 <Text style={styles.price}>가격 {basePrice.toLocaleString()}원</Text>
 
-            {/* 원래 코드 */}
-                {/* <ARButton url={`https://ye-eun-min201.github.io/usdz-hosting/ar.html?model=${menu.modelName}`} /> */}
-
-                {/* 임시 코드  */}
-                <ARButton url="https://ye-eun-min201.github.io/usdz-hosting/ar.html?model=pizza.glb" />
-
+                <ARButton url="https://ye-eun-min201.github.io/usdz-hosting/PinkDonut.usdz" />
             </View>
 
             <OptionSelector
