@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
 import Line from '../../utils/Line';  // Line 컴포넌트 임포트
 import { LinearGradient } from 'expo-linear-gradient';
+import * as WebBrowser from 'expo-web-browser';
 
 // AR 카드 컴포넌트
 const ArCard = ({ title, image, rating, reviewCount }) => {
@@ -96,7 +97,7 @@ export default function MiddleSection() {
                 />
             </View>
 
-            <TouchableOpacity activeOpacity={0.8} style={styles.gradientButtonWrapper}>
+            {/* <TouchableOpacity activeOpacity={0.8} style={styles.gradientButtonWrapper}>
                 <LinearGradient
                     colors={['#69DDE8', '#0080FF']}
                     start={{ x: 0, y: 0 }}
@@ -105,7 +106,26 @@ export default function MiddleSection() {
                 >
                     <Text style={styles.buttonText}>눌러서 가게별로 AR 비교하기</Text>
                 </LinearGradient>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
+
+<TouchableOpacity
+  activeOpacity={0.8}
+  style={styles.gradientButtonWrapper}
+  onPress={() =>
+    WebBrowser.openBrowserAsync(
+        'https://ye-eun-min201.github.io/usdz-hosting/ar-viewer.html'
+    )
+  }
+>
+  <LinearGradient
+    colors={['#69DDE8', '#0080FF']}
+    start={{ x: 0, y: 0 }}
+    end={{ x: 1, y: 0 }}
+    style={styles.gradientButton}
+  >
+    <Text style={styles.buttonText}>눌러서 가게별로 AR 비교하기</Text>
+  </LinearGradient>
+</TouchableOpacity>
 
         </LinearGradient>
     );
