@@ -28,10 +28,20 @@ export default function RestaurantDetail() {
                     storePictureUrl: response.data.storePictureUrl,
                     //fullRoadAddress: response.data.fullRoadAddress,
                     //address: response.data.address,
-                    //minDeliveryPrice: response.data.minDeliveryPrice,
-                    //minDeliveryTime: response.data.minDeliveryTime,
-                    //maxDeliveryTime: response.data.maxDeliveryTime,
-                    deliveryInfo: response.data.deliveryInfo, 
+                    minDeliveryPrice: response.data.minDeliveryPrice,
+                    minDeliveryTime: response.data.minDeliveryTime,
+                    maxDeliveryTime: response.data.maxDeliveryTime,
+                    deliveryInfo: response.data.deliveryInfo,
+
+                    // 주소 필드
+                    province: response.data.province,
+                    city: response.data.city,
+                    roadName: response.data.roadName,
+                    buildingNumber: response.data.buildingNumber,
+
+                    // 기타 정보-한줄 소개, 결제 방법
+                    introText: response.data.introText,
+                    paymentMethod: response.data.paymentMethod,
                 });
                 setMenus(response.data.menus);
                 console.log(JSON.stringify(response.data, null, 2));
@@ -61,7 +71,7 @@ export default function RestaurantDetail() {
                     </>
                 )}
             </ScrollView>
-            <CartFixedBar />
+            <CartFixedBar minOrderPrice={restaurantInfo?.minDeliveryPrice} />
         </View>
     );
 }

@@ -3,13 +3,14 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 export default function RestaurantInfoSection({ restaurantInfo }) {
+
   if (!restaurantInfo) {
     return null;
   }
 
-  console.log("🏠 fullRoadAddress:", restaurantInfo.fullRoadAddress);
-  console.log("📍 address:", restaurantInfo.address);
-  console.log("📍 조합된 주소:", `${restaurantInfo.address?.city} ${restaurantInfo.address?.roadName} ${restaurantInfo.address?.buildingNumber}`);
+  // console.log("🏠 fullRoadAddress:", restaurantInfo.fullRoadAddress);
+  // console.log("📍 address:", restaurantInfo.address);
+  // console.log("📍 조합된 주소:", `${restaurantInfo.address?.city} ${restaurantInfo.address?.roadName} ${restaurantInfo.address?.buildingNumber}`);
 
   return (
     <View style={styles.container}>
@@ -25,11 +26,11 @@ export default function RestaurantInfoSection({ restaurantInfo }) {
         <Text style={styles.ratingText}>{restaurantInfo.rating?.toFixed(2)} ({restaurantInfo.reviewCount || '-'})</Text>
       </View>
 
-      <Text style={styles.description}>
-        “시간을 삶고, 정성을 식혔다. 팔당냉면.”
-      </Text>
-
-
+      {restaurantInfo.introText && (
+        <Text style={styles.description}>
+          "{restaurantInfo.introText}"
+        </Text>
+      )}
 
       <View style={styles.deliveryCard}>
         <Text style={styles.deliveryTitle}>배달 정보</Text>
@@ -38,7 +39,7 @@ export default function RestaurantInfoSection({ restaurantInfo }) {
         <View style={styles.deliveryRow}>
           <Text style={styles.label}>최소 주문</Text>
           <Text style={styles.value}>
-            {restaurantInfo.deliveryInfo || '-'}
+            {restaurantInfo.minDeliveryPrice || '-'}원
           </Text>
         </View>
 
@@ -54,19 +55,14 @@ export default function RestaurantInfoSection({ restaurantInfo }) {
         <View style={styles.deliveryRow}>
           <Text style={styles.label}>위치 안내</Text>
           <Text style={styles.value}>
-            {restaurantInfo.fullRoadAddress
-              ? restaurantInfo.fullRoadAddress
-              : restaurantInfo.address
-                ? `${restaurantInfo.address.city} ${restaurantInfo.address.roadName} ${restaurantInfo.address.buildingNumber}`
-                : '-'}
+            {`${restaurantInfo.province} ${restaurantInfo.city} ${restaurantInfo.roadName} ${restaurantInfo.buildingNumber}`}
           </Text>
         </View>
 
 
-
         <View style={styles.deliveryRow}>
           <Text style={styles.label}>결제 방법</Text>
-          <Text style={styles.value}>바로 결제</Text> {/* 하드코딩 */}
+          <Text style={styles.value}>{restaurantInfo.paymentMethod || '-'}</Text>
         </View>
       </View>
 
