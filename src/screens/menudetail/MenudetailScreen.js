@@ -1,5 +1,5 @@
 // src/screens/menuDetail/MenuDetailScreen.js
-import React, {use, useState} from 'react';
+import React, {useState} from 'react';
 import { View, Text, TouchableOpacity, Alert, ScrollView } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import axios from 'axios';
@@ -94,7 +94,9 @@ const handleAddToCart = async () => {
                 <Text style={styles.menuDesc}>{menu.description}</Text>
                 <Text style={styles.price}>가격 {basePrice.toLocaleString()}원</Text>
 
-                <ARButton url="https://ye-eun-min201.github.io/usdz-hosting/PinkDonut.usdz" />
+
+                <ARButton glbFileName={menu.modelName} />
+
             </View>
 
             <OptionSelector

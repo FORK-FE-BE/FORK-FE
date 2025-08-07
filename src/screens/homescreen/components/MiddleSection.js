@@ -21,6 +21,21 @@ const ArCard = ({ title, image, rating, reviewCount }) => {
     );
 };
 
+
+//여기에 메뉴 추가 하면 됨 (하루마다 메뉴가 변경됨) 
+const menuList = [
+    '콜라',
+    '햄버거',
+    '감자튀김',
+    '돈까스',
+    '피자',
+    '치킨',
+    '파스타',
+    '라면',
+    '샐러드',
+    '스테이크'
+  ];
+  
 // MiddleSection 컴포넌트
 export default function MiddleSection() {
     const arList = [
@@ -46,7 +61,9 @@ export default function MiddleSection() {
             reviewCount: 777,
         },
     ];
-
+    const today = new Date();
+    const menuName = menuList[today.getDay() % menuList.length];
+    
     return (
         <LinearGradient
             colors={['#C8E5FF', '#FFFFFF']}
@@ -78,7 +95,7 @@ export default function MiddleSection() {
                     style={styles.pillIcon}
                 />
                 <Text style={styles.pillText}>
-                    오늘의 메뉴: <Text style={styles.highlight}>돈가스</Text>
+                    오늘의 메뉴: <Text style={styles.highlight}>{menuName}</Text>
                 </Text>
             </View>
 
@@ -97,26 +114,16 @@ export default function MiddleSection() {
                 />
             </View>
 
-            {/* <TouchableOpacity activeOpacity={0.8} style={styles.gradientButtonWrapper}>
-                <LinearGradient
-                    colors={['#69DDE8', '#0080FF']}
-                    start={{ x: 0, y: 0 }}
-                    end={{ x: 1, y: 0 }}
-                    style={styles.gradientButton}
-                >
-                    <Text style={styles.buttonText}>눌러서 가게별로 AR 비교하기</Text>
-                </LinearGradient>
-            </TouchableOpacity> */}
 
-<TouchableOpacity
-  activeOpacity={0.8}
-  style={styles.gradientButtonWrapper}
-  onPress={() =>
-    WebBrowser.openBrowserAsync(
-        'https://ye-eun-min201.github.io/usdz-hosting/ar-viewer.html'
-    )
-  }
->
+            <TouchableOpacity
+            activeOpacity={0.8}
+            style={styles.gradientButtonWrapper}
+            onPress={() =>
+                WebBrowser.openBrowserAsync(
+                `https://ye-eun-min201.github.io/usdz-hosting/ar-viewer.html?menu=${menuName}`
+                )
+                }
+                >
   <LinearGradient
     colors={['#69DDE8', '#0080FF']}
     start={{ x: 0, y: 0 }}
