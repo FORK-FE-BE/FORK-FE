@@ -7,7 +7,7 @@ import axios from 'axios';
 import { useAddress } from '../../contexts/AddressContext';
 import HeaderBar from '../../components/common/HeaderBar';
 import { useUser } from '../../contexts/UserContext';
-import {BASE_URL} from "../../constants";
+import { BASE_URL } from "../../constants";
 
 export default function AddressScreen() {
     const navigation = useNavigation();
@@ -39,8 +39,15 @@ export default function AddressScreen() {
                 setAddresses(formatted);
 
                 if (formatted.length === 1) {
-                    setSelectedAddress(formatted[0].main);
+                    setSelectedAddress(formatted[0]); // 객체 전체 저장
+                } else {
+                    // default 주소 설정 (백엔드에서 isDefault === 1로 넘어옴)
+                    const defaultAddress = formatted.find((addr) => addr.isSelected);
+                    if (defaultAddress) {
+                        setSelectedAddress(defaultAddress);
+                    }
                 }
+
             } catch (error) {
                 console.error('주소 목록 불러오기 오류:', error);
             } finally {
@@ -78,7 +85,7 @@ export default function AddressScreen() {
     });
 
     const renderItem = ({ item }) => {
-        const isCurrent = item.main === selectedAddress;
+        const isCurrent = selectedAddress?.id === item.id;
 
         return (
             <TouchableOpacity style={styles.card} onPress={() => handleSelect(item)}>

@@ -1,18 +1,18 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {View, ScrollView, StyleSheet} from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { View, ScrollView, StyleSheet } from 'react-native';
 import RestaurantImageCarousel from './components/RestaurantImageCarousel';
 import RestaurantInfoSection from './components/RestaurantInfoSection';
 import RestaurantMenuWithCart from './components/RestaurantMenuWithCart';
 import CartFixedBar from './components/CartFixedBar';
-import {BASE_URL} from "../../constants";
+import { BASE_URL } from "../../constants";
 import axios from 'axios';
-import {useRoute} from "@react-navigation/native";
+import { useRoute } from "@react-navigation/native";
 
 
 export default function RestaurantDetail() {
     const scrollRef = useRef();
     const route = useRoute();
-    const {restaurantId} = route.params;
+    const { restaurantId } = route.params;
     const [restaurantInfo, setRestaurantInfo] = useState(null);
     const [menus, setMenus] = useState({});
 
@@ -26,11 +26,12 @@ export default function RestaurantDetail() {
                     rating: response.data.rating,
                     reviewCount: response.data.reviewCount,
                     storePictureUrl: response.data.storePictureUrl,
-                    fullRoadAddress: response.data.fullRoadAddress,
-                    address: response.data.address,
-                    minDeliveryPrice: response.data.minDeliveryPrice,
-                    minDeliveryTime: response.data.minDeliveryTime,
-                    maxDeliveryTime: response.data.maxDeliveryTime,
+                    //fullRoadAddress: response.data.fullRoadAddress,
+                    //address: response.data.address,
+                    //minDeliveryPrice: response.data.minDeliveryPrice,
+                    //minDeliveryTime: response.data.minDeliveryTime,
+                    //maxDeliveryTime: response.data.maxDeliveryTime,
+                    deliveryInfo: response.data.deliveryInfo, 
                 });
                 setMenus(response.data.menus);
                 console.log(JSON.stringify(response.data, null, 2));
@@ -47,12 +48,20 @@ export default function RestaurantDetail() {
                 ref={scrollRef}
                 contentContainerStyle={styles.scrollContent}
             >
-                <RestaurantImageCarousel images={restaurantInfo?.storePictureUrl || []}/>
-                <RestaurantInfoSection restaurantInfo={restaurantInfo}/>
-                <RestaurantMenuWithCart scrollRef={scrollRef}  menuItems={menus} restaurantId={restaurantInfo?.restaurantId}
-                />
+                <RestaurantImageCarousel images={restaurantInfo?.storePictureUrl || []} />
+
+                {restaurantInfo && (
+                    <>
+                        <RestaurantInfoSection restaurantInfo={restaurantInfo} />
+                        <RestaurantMenuWithCart
+                            scrollRef={scrollRef}
+                            menuItems={menus}
+                            restaurantId={restaurantInfo.restaurantId}
+                        />
+                    </>
+                )}
             </ScrollView>
-            <CartFixedBar/>
+            <CartFixedBar />
         </View>
     );
 }

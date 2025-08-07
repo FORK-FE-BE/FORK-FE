@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import { useUser } from './UserContext'; // 👈 로그인 유저 정보
+import { BASE_URL } from '../constants';
 
 const AddressContext = createContext();
 
@@ -14,7 +15,7 @@ export const AddressProvider = ({ children }) => {
 
     try {
       const response = await axios.get(
-        `http://43.202.234.190:8080/api/user/${userId}/profile/address`
+        `${BASE_URL}/api/user/${userId}/profile/address`
       );
       const addresses = response.data;
       const defaultAddr = addresses.find((addr) => addr.isDefault === 1);
