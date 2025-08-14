@@ -143,7 +143,8 @@ export default function MenuDetailScreen() {
                 <Text style={styles.price}>가격 {basePrice.toLocaleString()}원</Text>
 
 
-                <ARButton glbFileName={menu.modelName} />
+                {/* <ARButton glbFileName={menu.modelName} /> */}
+                <ARButton />
 
             </View>
 
