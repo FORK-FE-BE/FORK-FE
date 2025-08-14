@@ -43,8 +43,12 @@ export default function RestaurantDetail() {
                     introText: response.data.introText,
                     paymentMethod: response.data.paymentMethod,
                 });
-                setMenus(response.data.menus);
-                console.log(JSON.stringify(response.data, null, 2));
+                // setMenus(response.data.menus);
+                setMenus(
+                    Object.values(response.data.menus || {}).flat()
+                  );
+
+                  console.log(JSON.stringify(response.data, null, 2));
             } catch (error) {
                 console.error("음식점 상세 정보 요청 실패:", error);
             }

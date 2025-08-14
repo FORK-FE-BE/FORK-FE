@@ -25,10 +25,10 @@ const ArCard = ({ title, image, rating, reviewCount }) => {
 //여기에 메뉴 추가 하면 됨 (하루마다 메뉴가 변경됨) 
 const menuList = [
     '콜라',
-    '햄버거',
+    '피자',
     '감자튀김',
     '돈까스',
-    '피자',
+    '햄버거',
     '치킨',
     '파스타',
     '라면',
@@ -101,15 +101,15 @@ export default function MiddleSection() {
 
             <View style={styles.imageRow}>
                 <Image
-                    source={require('../../../assets/images/dummy1.png')}
+                    source={require('../../../assets/images/ham4.jpg')}
                     style={[styles.foodImage, { marginRight: 4 }]}
                 />
                 <Image
-                    source={require('../../../assets/images/dummy2.png')}
+                    source={require('../../../assets/images/ham2.jpeg')}
                     style={[styles.foodImage, { marginRight: 4 }]}
                 />
                 <Image
-                    source={require('../../../assets/images/dummy3.png')}
+                    source={require('../../../assets/images/ham3.jpeg')}
                     style={styles.foodImage}
                 />
             </View>
