@@ -25,14 +25,18 @@ export default function ARButton({ glbFileName }) {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: '#007aff',
-    padding: 10,
-    borderRadius: 8,
-    marginTop: 10,
+    marginTop: 20,
+        backgroundColor: '#EDF4FF',
+        borderRadius: 10,
+        paddingVertical: 14,
+        alignItems: 'center',
+        marginBottom: 24,
+        borderColor: '#006DF0',
+        borderWidth:1.2,
   },
   text: {
-    color: '#fff',
-    fontWeight: 'bold',
-    textAlign: 'center',
+    color: '#006DF0',
+    fontSize: 18,
+    fontFamily: 'Paperlogy-Bold',
   },
 });

@@ -27,15 +27,35 @@ export default  StyleSheet.create({
     infoBox: {
         padding: 24,
     },
-    rankLabel: {
-        color: '#888',
-        fontSize: 12,
+
+    infoRankBox :{
+        flexDirection: 'row',   // 가로 배치
+        alignItems: 'center',   // 세로 중앙 정렬
+        marginBottom: 10,
+        gap:10,
+        },
+    rankLabel1: {
+        backgroundColor:'#EDF4FF',
+        padding:5,
+        borderRadius:5,
+        color: '#5599FF',
+        fontSize: 14,
+        marginBottom: 6,
+        fontFamily: 'Paperlogy-Regular',
+    },
+
+    rankLabel2: {
+        backgroundColor:'#F5F6F8',
+        color: '#5B5B5B',
+        padding:5,
+        borderRadius:5,
+        fontSize: 14,
         marginBottom: 6,
         fontFamily: 'Paperlogy-Regular',
     },
     menuName: {
-        fontSize: 22,
-        fontFamily: 'Paperlogy-Bold',
+        fontSize: 24,
+        fontFamily: 'Paperlogy-SemiBold',
     },
     menuDesc: {
         fontSize: 14,
@@ -43,10 +63,22 @@ export default  StyleSheet.create({
         marginVertical: 10,
         fontFamily: 'Paperlogy-Regular',
     },
-    price: {
-        fontSize: 16,
-        fontFamily: 'Paperlogy-Bold',
-    },
+   
+    priceBox: {
+        flexDirection: 'row',          // 가로 배치
+        justifyContent: 'space-between', // 양 끝으로 벌리기
+        alignItems: 'center',
+        marginTop: 8,
+      },
+      priceLabel: {
+        fontSize: 20,
+        fontFamily: 'Paperlogy-SemiBold',
+        color: '#000',
+      },
+      priceValue: {
+        fontSize: 18,
+        fontFamily: 'Paperlogy-SemiBold',
+      },
     backButton: {
         position: 'absolute',
         top: 20,
@@ -77,22 +109,22 @@ export default  StyleSheet.create({
         borderColor: '#eee',
     },
     optionTitle: {
-        fontSize: 16,
-        fontFamily: 'Paperlogy-Bold',
+        fontSize: 20,
+        fontFamily: 'Paperlogy-SemiBold',
         marginBottom: 12,
     },
     optionRow: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 12,
+        marginBottom: 15,
     },
     optionLabel: {
-        fontSize: 15,
+        fontSize: 20,
         flex: 1,
         fontFamily: 'Paperlogy-Regular',
     },
     optionPrice: {
-        fontSize: 14,
+        fontSize: 20,
         color: '#666',
         fontFamily: 'Paperlogy-Regular',
     },
@@ -106,7 +138,7 @@ export default  StyleSheet.create({
         marginTop: 10,
     },
     counterBtn: {
-        fontSize: 20,
+        fontSize: 40,
         paddingHorizontal: 20,
         fontFamily: 'Paperlogy-Regular',
     },
@@ -119,15 +151,15 @@ export default  StyleSheet.create({
         marginTop: 20,
         backgroundColor: '#007aff',
         borderRadius: 10,
-        paddingVertical: 14,
+        paddingVertical: 16,
         alignItems: 'center',
         marginHorizontal: 24,
         marginBottom: 24,
     },
     cartButtonText: {
         color: '#fff',
-        fontSize: 18,
-        fontFamily: 'Paperlogy-Bold',
+        fontSize: 20,
+        fontFamily: 'Paperlogy-SemiBold',
     },
     menuImage: {
         width: '100%',

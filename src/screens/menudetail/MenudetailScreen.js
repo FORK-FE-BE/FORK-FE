@@ -137,10 +137,16 @@ export default function MenuDetailScreen() {
             <MenuImage imgUrl={menu.image} style={styles.image} />
 
             <View style={styles.infoBox}>
-                <Text style={styles.rankLabel}>인기 1위 사장님 추천</Text>
+                <View style={styles.infoRankBox}>
+                <Text style={styles.rankLabel1}>인기 1위 </Text>
+                <Text style={styles.rankLabel2}>사장님 추천 </Text>
+                </View>
                 <Text style={styles.menuName}>{menu.name}</Text>
                 <Text style={styles.menuDesc}>{menu.description}</Text>
-                <Text style={styles.price}>가격 {basePrice.toLocaleString()}원</Text>
+                <View style={styles.priceBox}>
+                <Text style={styles.priceLabel}>가격</Text>
+                <Text style={styles.priceValue}>{basePrice.toLocaleString()}원</Text>
+                </View>
 
 
                 {/* <ARButton glbFileName={menu.modelName} /> */}
@@ -148,13 +154,7 @@ export default function MenuDetailScreen() {
 
             </View>
 
-            {/* <OptionSelector
-            // extraTea={extraTea}
-            // setExtraTea={setExtraTea}
-            // extraEgg={extraEgg}
-            // setExtraEgg={setExtraEgg}
-            /> */}
-
+         
             <OptionSelector
                 optionGroups={menuDetail?.optionGroups || []}
                 selectedOptions={selectedOptions}
