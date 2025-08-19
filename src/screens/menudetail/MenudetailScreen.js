@@ -134,27 +134,32 @@ export default function MenuDetailScreen() {
                 <ArrowBack width={24} height={24} />
             </TouchableOpacity>
 
-            <MenuImage imgUrl={menu.image} style={styles.image} />
+            {/* <MenuImage imgUrl={menu.image} style={styles.image} /> */}
+            {/* 상세 응답(imgUrl) 우선, 없으면 라우트 param의 imgUrl -> image 순으로 폴백 */}
+            <MenuImage
+                imgUrl={menuDetail?.imgUrl ?? menu?.imgUrl ?? menu?.image ?? null}
+                style={styles.image}
+            />
 
             <View style={styles.infoBox}>
                 <View style={styles.infoRankBox}>
-                <Text style={styles.rankLabel1}>인기 1위 </Text>
-                <Text style={styles.rankLabel2}>사장님 추천 </Text>
+                    <Text style={styles.rankLabel1}>인기 1위 </Text>
+                    <Text style={styles.rankLabel2}>사장님 추천 </Text>
                 </View>
                 <Text style={styles.menuName}>{menu.name}</Text>
                 <Text style={styles.menuDesc}>{menu.description}</Text>
                 <View style={styles.priceBox}>
-                <Text style={styles.priceLabel}>가격</Text>
-                <Text style={styles.priceValue}>{basePrice.toLocaleString()}원</Text>
+                    <Text style={styles.priceLabel}>가격</Text>
+                    <Text style={styles.priceValue}>{basePrice.toLocaleString()}원</Text>
                 </View>
 
 
-                {/* <ARButton glbFileName={menu.modelName} /> */}
-                <ARButton />
+                <ARButton glbFileName={menu.modelName} />
+                {/* <ARButton /> */}
 
             </View>
 
-         
+
             <OptionSelector
                 optionGroups={menuDetail?.optionGroups || []}
                 selectedOptions={selectedOptions}

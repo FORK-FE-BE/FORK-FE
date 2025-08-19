@@ -91,19 +91,63 @@ export default function RestaurantList({ category }) {
   }
 
   const RestaurantCard = ({ id, name, rating, reviewCount, hasAR, hasCoupon, isLast }) => {
-    // ✅ 백엔드 이미지 'menus'는 사용하지 않고, 더미로 대체
+    // 백엔드 이미지 'menus'는 사용하지 않고, 더미로 대체
+    // let renderPhotos = [];
+    // if (USE_DUMMY_PHOTOS && USE_LOCAL_DUMMY_PHOTOS) {
+    //   renderPhotos = pickFourLocal(id);
+    // } else if (USE_DUMMY_PHOTOS) {
+    //   renderPhotos = getDummyRemotePhotos(id);
+    // } else {
+    //   // (비사용) 백엔드 이미지 쓰고 싶을 때만 구현
+    //   renderPhotos = [];
+    // }
+
+    // 백엔드 restaurant 상세에서 받아올 사진
+    const [backendPhotos, setBackendPhotos] = useState([]);
+    const [loadingPhotos, setLoadingPhotos] = useState(true);
+
+    useEffect(() => {
+      let cancelled = false;
+      (async () => {
+        try {
+          // 레스토랑 상세 호출: storePictureUrl 배열 받기
+          const res = await axios.get(`${BASE_URL}/api/restaurants/${id}`);
+          if (!cancelled) {
+            const urls = Array.isArray(res.data?.storePictureUrl) ? res.data.storePictureUrl : [];
+            setBackendPhotos(urls.filter(Boolean));
+          }
+        } catch (e) {
+          // 실패해도 더미로 폴백하므로 별도 에러 처리 불필요
+        } finally {
+          if (!cancelled) setLoadingPhotos(false);
+        }
+      })();
+      return () => { cancelled = true; };
+    }, [id]);
+
+    // 렌더 우선순위: 백엔드 > 로컬 더미 > 원격 더미 > placeholder
     let renderPhotos = [];
-    if (USE_DUMMY_PHOTOS && USE_LOCAL_DUMMY_PHOTOS) {
-      renderPhotos = pickFourLocal(id);
+    if (backendPhotos.length > 0) {
+      renderPhotos = backendPhotos;                    // string URL 배열
+    } else if (USE_DUMMY_PHOTOS && USE_LOCAL_DUMMY_PHOTOS) {
+      renderPhotos = pickFourLocal(id);                // require(...) 배열
     } else if (USE_DUMMY_PHOTOS) {
-      renderPhotos = getDummyRemotePhotos(id);
+      renderPhotos = getDummyRemotePhotos(id);         // string URL 배열
     } else {
-      // (비사용) 백엔드 이미지 쓰고 싶을 때만 구현
-      renderPhotos = [];
+      renderPhotos = [];                               // 아무 것도 없으면 placeholder
     }
 
+    // 4장으로 정규화(부족하면 placeholder 채우기 / 4장 초과면 앞 4장만)
+    const normalized = (() => {
+      if (renderPhotos.length >= 4) return renderPhotos.slice(0, 4);
+      const padded = [...renderPhotos];
+      while (padded.length < 4) padded.push(null);
+      return padded;
+    })();
+
     // 로컬 더미가 하나도 없을 때(개발 중) placeholder로 대체
-    const finalPhotos = renderPhotos.length > 0 ? renderPhotos : Array(4).fill(null);
+    //const finalPhotos = renderPhotos.length > 0 ? renderPhotos : Array(4).fill(null);
+    const finalPhotos = normalized;
 
     return (
       <TouchableOpacity onPress={() => navigation.navigate('RestaurantDetail', { restaurantId: id })} activeOpacity={0.8}>
@@ -120,7 +164,9 @@ export default function RestaurantList({ category }) {
               const isLastPhoto = index === finalPhotos.length - 1;
               const key = `${id}-${index}`;
               const hasFailed = failedImages[key];
+              //const isLocal = photo && typeof photo !== 'string'; // require(...)면 number
               const isLocal = photo && typeof photo !== 'string'; // require(...)면 number
+              const source = isLocal ? photo : (photo ? { uri: photo } : null);
 
               return (
                 <View
@@ -130,9 +176,9 @@ export default function RestaurantList({ category }) {
                     { marginRight: isLastPhoto ? 0 : 12 }
                   ]}
                 >
-                  {photo && !hasFailed ? (
+                  {source && !hasFailed ? (
                     <Image
-                      source={isLocal ? photo : { uri: photo }}
+                      source={source}
                       style={styles.photo}
                       onError={() =>
                         setFailedImages(prev => ({

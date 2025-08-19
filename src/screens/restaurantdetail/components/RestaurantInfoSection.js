@@ -1,6 +1,7 @@
 // src/screens/restaurantdetail/components/RestaurantInfoSection.js
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { black } from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
 
 export default function RestaurantInfoSection({ restaurantInfo }) {
 
@@ -167,6 +168,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Paperlogy-Regular',
     color: '#222',
+    //backgroundColor: '#dddddd',
+    width: 200
   },
   rewardBox: {
     flexDirection: 'row',

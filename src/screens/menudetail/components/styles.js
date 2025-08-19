@@ -122,6 +122,7 @@ export default  StyleSheet.create({
         fontSize: 20,
         flex: 1,
         fontFamily: 'Paperlogy-Regular',
+        marginLeft: 10
     },
     optionPrice: {
         fontSize: 20,
