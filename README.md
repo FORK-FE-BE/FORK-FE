@@ -1,7 +1,7 @@
 # 🍽️ FORK
 **AR을 이용한 음식 배달 서비스**
 
-<img width="1262" height=auto alt="image" src="https://github.com/user-attachments/assets/61eb450a-a769-4c28-8148-13aa839612bf" />
+<img width="1200" height="1000" alt="image" src="https://github.com/user-attachments/assets/61eb450a-a769-4c28-8148-13aa839612bf" />
 
 ## 💡 작품 개요
 **창업지원프로그램에서 진행한 프로젝트로 AR를 이용한 배달 어플리케이션 입니다.**
@@ -18,7 +18,7 @@
 ## 👥 팀원 소개
 | 이주현 | 임예은 |
 |:------:|:------:|
-| <img src="https://github.com/hana03030.png" width="80%"/> | <img src="https://github.com/ye-eun-min201.png" width="80%"/> |
+| <img src="https://github.com/hana03030.png" width="60%"/> | <img src="https://github.com/ye-eun-min201.png" width="60%"/> |
 | [@juhyun](https://github.com/hana03030) | [@yeeunmin](https://github.com/ye-eun-min201) |
 
 - 이주현 (Front-end Lead / UI/UX Design & System Integration)
