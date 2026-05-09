@@ -1,5 +1,8 @@
 # 🍽️ FORK
 **AR을 이용한 음식 배달 서비스**
+창업지원프로그램에서 진행한 프로젝트로 AR를 이용한 배달 어플리케이션 입니다.  
+구매자는 AR을 이용해 사진과 다른 실제 음식의 문제점을 해결하고  
+크기와 세부 정보까지 알 수 있습니다.  
 
 <img width="1200" height="1400" alt="image" src="https://github.com/user-attachments/assets/61eb450a-a769-4c28-8148-13aa839612bf" />
 
@@ -35,11 +38,6 @@
 
 
 ## 📊 기능 및 화면 소개
-> 🔗 **[프로젝트 상세 설명 및 개발 기록 (Notion)](https://www.notion.so/FORK-34731f3dc85d801dbb23cce3180d1963?source=copy_link)**
-> 
-> 💡 *프로젝트 설명과 개발 과정의 기록을 담고 있습니다.*
-> 
 
-## 🎨 Figma
-프로젝트의 레이아웃 및 UI/UX를 작업했던 피그마 입니다.
-> 🔗 **[UI/UX 디자인 Figma (Figma)](https://www.figma.com/design/E74yGmX10P0pBtygMEQY54/FORK-%EB%B0%B0%EB%8B%AC%EC%95%B1?node-id=0-1&t=St0yMtW4dhTA2VFU-1)**
+[FORK-Presentation.pdf](https://github.com/user-attachments/files/27552183/FORK-Presentation.pdf)
+
